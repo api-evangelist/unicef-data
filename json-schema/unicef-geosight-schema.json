@@ -1,0 +1,895 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://data.unicef.org/schemas/geosight/v1",
+  "title": "UNICEF GeoSight API Schemas",
+  "description": "JSON Schema definitions for the UNICEF GeoSight geospatial data platform API (v1.0.0)",
+  "definitions": {
+    "BasemapLayer": {
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "category": {
+          "title": "Category",
+          "type": "string"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "type": "string"
+        },
+        "icon": {
+          "title": "Icon",
+          "type": "string"
+        },
+        "created_at": {
+          "title": "Created at",
+          "type": "string"
+        },
+        "created_by": {
+          "title": "Creator",
+          "type": "string"
+        },
+        "permission": {
+          "title": "Permission",
+          "type": "object",
+          "properties": {
+            "list": {
+              "title": "List",
+              "type": "boolean"
+            },
+            "read": {
+              "title": "Read",
+              "type": "boolean"
+            },
+            "edit": {
+              "title": "Edit",
+              "type": "boolean"
+            },
+            "share": {
+              "title": "Share",
+              "type": "boolean"
+            },
+            "delete": {
+              "title": "Delete",
+              "type": "boolean"
+            }
+          }
+        }
+      },
+      "title": "BasemapLayer",
+      "example": {
+        "id": 1,
+        "category": "TEST",
+        "created_by": "Admin",
+        "created_at": "2023-01-01T00:00:00.00000Z",
+        "permission": {
+          "list": true,
+          "read": true,
+          "edit": true,
+          "share": true,
+          "delete": true
+        },
+        "name": "Basemap name 1",
+        "description": "Description",
+        "icon": "http://localhost:2000/media/icons/icon.png",
+        "url": "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        "type": "XYZ"
+      }
+    },
+    "Code": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "string"
+        }
+      },
+      "title": "Code",
+      "example": {
+        "id": 1,
+        "name": "Code name 1",
+        "description": "Description",
+        "value": "TEST"
+      }
+    },
+    "CodeList": {
+      "required": [
+        "name",
+        "codes"
+      ],
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "codes": {
+          "title": "Codes",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "title": "Code id",
+                "type": "number"
+              },
+              "name": {
+                "title": "Code name",
+                "type": "string"
+              },
+              "value": {
+                "title": "Code value",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "title": "Code",
+      "example": {
+        "name": "TEST",
+        "description": "Description",
+        "codes": [
+          {
+            "id": 1,
+            "name": "testcode",
+            "value": "yes"
+          }
+        ]
+      }
+    },
+    "ContextLayer": {
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "modified_at": {
+          "title": "Modified at",
+          "type": "string",
+          "readOnly": true
+        },
+        "created_at": {
+          "title": "Created at",
+          "type": "string",
+          "readOnly": true
+        },
+        "category": {
+          "title": "Category",
+          "type": "string",
+          "readOnly": true
+        },
+        "ogc_api": {
+          "title": "Ogc api",
+          "type": "string",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 512,
+          "minLength": 1
+        },
+        "description": {
+          "title": "Description",
+          "type": "string",
+          "x-nullable": true
+        },
+        "source": {
+          "title": "Source",
+          "type": "string",
+          "maxLength": 512,
+          "x-nullable": true
+        },
+        "layer_type": {
+          "title": "Layer type",
+          "description": "The type of layer for this context layer.<br>For <b>ArcGIS</b>, put feature server of REST. e.g : https://{host}/rest/services/{layer}/FeatureServer/1.<br>For <b>GeoJson</b>, put url of geojson.<br>For <b>Raster tile</b>, put XYZ url.<br>For <b>Raster COG</b>, put url of cog.<br>For <b>Related table</b>, select existing related table name.<br>For <b>Vector tile</b>, put XYZ url.<br>For <b>Cloud native gis layer</b>, select the layer from cloud native gis.",
+          "type": "string",
+          "enum": [
+            "ARCGIS",
+            "Geojson",
+            "Raster Tile",
+            "Raster COG",
+            "Vector Tile",
+            "Related Table",
+            "Cloud Native GIS Layer"
+          ]
+        },
+        "label_config": {
+          "title": "Label config",
+          "type": "object",
+          "x-nullable": true
+        }
+      }
+    },
+    "DashboardBasic": {
+      "required": [
+        "slug",
+        "name"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string",
+          "readOnly": true
+        },
+        "slug": {
+          "title": "Slug",
+          "type": "string",
+          "format": "slug",
+          "pattern": "^[-a-zA-Z0-9_]+$",
+          "maxLength": 512,
+          "minLength": 1
+        },
+        "icon": {
+          "title": "Icon",
+          "type": "string",
+          "readOnly": true,
+          "x-nullable": true,
+          "format": "uri"
+        },
+        "thumbnail": {
+          "title": "Thumbnail",
+          "type": "string",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 512,
+          "minLength": 1
+        },
+        "description": {
+          "title": "Description",
+          "type": "string",
+          "x-nullable": true
+        },
+        "group": {
+          "title": "Group",
+          "type": "string",
+          "readOnly": true
+        },
+        "category": {
+          "title": "Category",
+          "type": "string",
+          "readOnly": true
+        },
+        "permission": {
+          "title": "Permission",
+          "type": "string",
+          "readOnly": true
+        },
+        "reference_layer": {
+          "title": "Reference layer",
+          "description": "Reference layer.",
+          "type": "integer",
+          "x-nullable": true
+        },
+        "featured": {
+          "title": "Featured",
+          "type": "boolean"
+        },
+        "created_at": {
+          "title": "Created at",
+          "type": "string",
+          "readOnly": true
+        },
+        "modified_at": {
+          "title": "Modified at",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "IndicatorValue": {
+      "required": [
+        "date",
+        "geom_id"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "id",
+          "type": "number"
+        },
+        "indicator": {
+          "title": "Indicator",
+          "type": "string"
+        },
+        "indicator_id": {
+          "title": "Indicator id",
+          "type": "number"
+        },
+        "value": {
+          "title": "Value",
+          "type": "string"
+        },
+        "date": {
+          "title": "Date",
+          "type": "string"
+        },
+        "geom_id": {
+          "title": "Geom id",
+          "type": "string"
+        },
+        "admin_level": {
+          "title": "Entity admin level",
+          "type": "number"
+        },
+        "entity_name": {
+          "title": "Entity name",
+          "type": "string"
+        },
+        "country_id": {
+          "title": "Country id",
+          "type": "string"
+        },
+        "country_geom_id": {
+          "title": "Country geom id",
+          "type": "string"
+        },
+        "country_name": {
+          "title": "Country name",
+          "type": "string"
+        },
+        "attributes": {
+          "title": "Attributes",
+          "type": "object"
+        },
+        "permission": {
+          "title": "Permission",
+          "type": "object",
+          "properties": {
+            "list": {
+              "title": "List",
+              "type": "boolean"
+            },
+            "read": {
+              "title": "Read",
+              "type": "boolean"
+            },
+            "edit": {
+              "title": "Edit",
+              "type": "boolean"
+            },
+            "share": {
+              "title": "Share",
+              "type": "boolean"
+            },
+            "delete": {
+              "title": "Delete",
+              "type": "boolean"
+            }
+          }
+        }
+      },
+      "title": "IndicatorValue",
+      "example": {
+        "id": 1,
+        "indicator": "Test indicator",
+        "indicator_id": 1,
+        "indicator_shortcode": "TEST",
+        "value": 0,
+        "date": "1990-01-01",
+        "geom_id": "GEOM_1",
+        "admin_level": 1,
+        "entity_name": "Geometry 1",
+        "country_id": 1,
+        "country_geom_id": "COUNTRY_1",
+        "country_name": "Country 1",
+        "attributes": {
+          "Value 1": 1
+        },
+        "permission": {
+          "list": true,
+          "read": true,
+          "edit": true,
+          "share": true,
+          "delete": true
+        }
+      }
+    },
+    "Group": {
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 150,
+          "minLength": 1
+        }
+      }
+    },
+    "IndicatorAdminList": {
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 512,
+          "minLength": 1
+        },
+        "category": {
+          "title": "Category",
+          "type": "string",
+          "readOnly": true
+        },
+        "source": {
+          "title": "Source",
+          "type": "string",
+          "maxLength": 512,
+          "x-nullable": true
+        },
+        "shortcode": {
+          "title": "Shortcode",
+          "description": "A computer-to-computer shortcode for this indicator. For example, an abbreviated name that you might use to refer to it in a spreadsheet column.",
+          "type": "string",
+          "maxLength": 512,
+          "x-nullable": true
+        },
+        "description": {
+          "title": "Description",
+          "type": "string",
+          "x-nullable": true
+        },
+        "type": {
+          "title": "Type",
+          "type": "string",
+          "enum": [
+            "Integer",
+            "Float",
+            "String"
+          ]
+        },
+        "min_value": {
+          "title": "Min value",
+          "type": "number",
+          "x-nullable": true
+        },
+        "max_value": {
+          "title": "Max value",
+          "type": "number",
+          "x-nullable": true
+        },
+        "aggregation_upper_level_allowed": {
+          "title": "Aggregation upper level allowed",
+          "type": "boolean"
+        },
+        "aggregation_upper_level": {
+          "title": "Aggregation upper level",
+          "description": "Default aggregation for upper level",
+          "type": "string",
+          "maxLength": 64,
+          "x-nullable": true
+        },
+        "aggregation_multiple_values": {
+          "title": "Aggregation multiple values",
+          "description": "Default aggregation for multiple values",
+          "type": "string",
+          "maxLength": 64,
+          "x-nullable": true
+        },
+        "style_type": {
+          "title": "Style type",
+          "type": "string",
+          "enum": [
+            "Predefined style/color rules.",
+            "Dynamic quantitative style.",
+            "Dynamic qualitative style.",
+            "Style from library."
+          ]
+        },
+        "style_config": {
+          "title": "Style config",
+          "type": "object",
+          "x-nullable": true
+        },
+        "created_at": {
+          "title": "Created at",
+          "type": "string",
+          "readOnly": true
+        },
+        "modified_at": {
+          "title": "Modified at",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "ReferenceDataset": {
+      "required": [
+        "identifier"
+      ],
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "title": "Uuid",
+          "type": "string",
+          "readOnly": true
+        },
+        "bbox": {
+          "title": "Bbox",
+          "type": "string",
+          "readOnly": true
+        },
+        "vector_tiles": {
+          "title": "Vector tiles",
+          "type": "string",
+          "readOnly": true
+        },
+        "possible_id_types": {
+          "title": "Possible id types",
+          "type": "string",
+          "readOnly": true
+        },
+        "dataset_levels": {
+          "title": "Dataset levels",
+          "type": "string",
+          "readOnly": true
+        },
+        "tags": {
+          "title": "Tags",
+          "type": "string",
+          "readOnly": true
+        },
+        "permission": {
+          "title": "Permission",
+          "type": "string",
+          "readOnly": true
+        },
+        "countries": {
+          "title": "Countries",
+          "type": "string",
+          "readOnly": true
+        },
+        "version_data": {
+          "title": "Version data",
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_at": {
+          "title": "Created at",
+          "type": "string",
+          "format": "date-time"
+        },
+        "modified_at": {
+          "title": "Modified at",
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true,
+          "x-nullable": true
+        },
+        "identifier": {
+          "title": "Identifier",
+          "description": "Reference layer identifier.",
+          "type": "string",
+          "maxLength": 256,
+          "minLength": 1
+        },
+        "name": {
+          "title": "Name",
+          "description": "Reference layer name.",
+          "type": "string",
+          "maxLength": 256,
+          "x-nullable": true
+        },
+        "description": {
+          "title": "Description",
+          "type": "string",
+          "x-nullable": true
+        },
+        "in_georepo": {
+          "title": "In georepo",
+          "type": "boolean"
+        }
+      }
+    },
+    "ApiEntity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "description": "label of entity.",
+          "type": "string",
+          "maxLength": 512,
+          "minLength": 1
+        },
+        "ucode": {
+          "title": "Ucode",
+          "type": "string",
+          "readOnly": true
+        },
+        "concept_uuid": {
+          "title": "Concept uuid",
+          "description": "This is concept uuid from georepo.",
+          "type": "string",
+          "maxLength": 256,
+          "x-nullable": true
+        },
+        "admin_level": {
+          "title": "Admin level",
+          "type": "integer",
+          "maximum": 2147483647,
+          "minimum": -2147483648,
+          "x-nullable": true
+        },
+        "parents": {
+          "title": "Parents",
+          "type": "string",
+          "readOnly": true
+        },
+        "level_name": {
+          "title": "Level name",
+          "type": "string",
+          "readOnly": true
+        },
+        "bbox": {
+          "title": "Bbox",
+          "type": "string",
+          "readOnly": true
+        },
+        "centroid": {
+          "title": "Centroid",
+          "type": "string",
+          "readOnly": true
+        },
+        "ext_codes": {
+          "title": "Ext codes",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "RelatedTableFieldApi": {
+      "required": [
+        "name",
+        "label"
+      ],
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 512,
+          "minLength": 1
+        },
+        "label": {
+          "title": "Label",
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "title": "Type",
+          "type": "string",
+          "enum": [
+            "number",
+            "string",
+            "date"
+          ]
+        }
+      }
+    },
+    "RelatedTableApi": {
+      "required": [
+        "name",
+        "fields_definition"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "integer",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "readOnly": false
+        },
+        "fields_definition": {
+          "title": "Fields definition",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "title": "Field name",
+                "type": "string",
+                "readOnly": false
+              },
+              "label": {
+                "title": "Field label",
+                "type": "string",
+                "readOnly": false
+              },
+              "type": {
+                "title": "Field type",
+                "type": "string",
+                "pattern": "date | number | string"
+              }
+            }
+          }
+        },
+        "description": {
+          "title": "Description",
+          "type": "string",
+          "readOnly": false
+        },
+        "url": {
+          "title": "Url",
+          "type": "string",
+          "readOnly": true
+        },
+        "creator": {
+          "title": "Creator",
+          "type": "string",
+          "readOnly": true
+        },
+        "created_at": {
+          "title": "Created at",
+          "type": "string",
+          "readOnly": true
+        },
+        "modified_at": {
+          "title": "Created at",
+          "type": "string",
+          "readOnly": true
+        }
+      },
+      "title": "RelatedTable",
+      "example": {
+        "id": 1,
+        "name": "My related table",
+        "fields_definition": [
+          {
+            "name": "field_1",
+            "label": "Field 1",
+            "type": "string"
+          },
+          {
+            "name": "field_2",
+            "label": "Field 2",
+            "type": "date"
+          },
+          {
+            "name": "field_3",
+            "label": "Field 3",
+            "type": "number"
+          }
+        ],
+        "description": "A related table for testing apidocs",
+        "url": "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        "creator": "Admin",
+        "created_at": "2023-01-01T00:00:00.00000Z",
+        "modified_at": "2023-01-01T00:00:00.00000Z"
+      }
+    },
+    "RelatedTableRowApi": {
+      "required": [
+        "properties"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "integer",
+          "readOnly": true
+        },
+        "properties": {
+          "title": "Row values",
+          "description": "Keys are field names from fields_definition in the associated related table",
+          "type": "object"
+        }
+      },
+      "title": "RelatedTableRow",
+      "example": {
+        "id": 1,
+        "properties": {
+          "field_1": "value_1",
+          "field_2": "2024-02-14T00:00:00Z",
+          "field_3": 42.7
+        }
+      }
+    },
+    "Style": {
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "modified_at": {
+          "title": "Modified at",
+          "type": "string",
+          "readOnly": true
+        },
+        "created_at": {
+          "title": "Created at",
+          "type": "string",
+          "readOnly": true
+        },
+        "category": {
+          "title": "Category",
+          "type": "string",
+          "readOnly": true
+        },
+        "description": {
+          "title": "Description",
+          "type": "string",
+          "x-nullable": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 512,
+          "minLength": 1
+        },
+        "style_type": {
+          "title": "Style type",
+          "type": "string",
+          "enum": [
+            "Predefined style/color rules.",
+            "Dynamic quantitative style.",
+            "Dynamic qualitative style."
+          ]
+        }
+      }
+    }
+  }
+}

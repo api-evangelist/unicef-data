@@ -1,0 +1,260 @@
+[
+  {
+    "indicatorId": 1,
+    "code": "IOD_ANY_HH",
+    "helixCode": "NT_IOD_ANY_HH",
+    "ownerAgency": {
+      "id": 1,
+      "organization": "United Nations Children's Fund"
+    },
+    "sector": "3",
+    "domain": "2",
+    "subdomain": "1",
+    "editedBy": "fcelli@unicef.org",
+    "editedDate": "1/9/2024 6:25:35 PM",
+    "createdBy": "fcelli@unicef.org",
+    "createdDate": "7/26/2019 6:54:43 PM",
+    "isPublished": false,
+    "changePublishStatusBy": "tschlaudecker@unicef.org",
+    "changePublishStatusDate": "12/4/2019 4:40:37 PM",
+    "language2Name": {
+      "English": "Percentage of households consuming iodized salt (>0 ppm)"
+    },
+    "collectionMechanism": {
+      "collectionProcessId": 1,
+      "name": "CRAVE",
+      "editedBy": "fcelli@unicef.org",
+      "editedDate": "7/26/2019 6:54:43 PM"
+    },
+    "classifications": [
+      {
+        "iclassId": 3,
+        "name": "Is SOWC",
+        "type": "boolean",
+        "value": "false"
+      },
+      {
+        "iclassId": 5,
+        "name": "Is Emergency Indicator",
+        "type": "boolean",
+        "value": "false"
+      }
+    ],
+    "custodian": {
+      "id": 3,
+      "name": "Division of Analysis, Planning & Monitoring, UNICEF",
+      "editedBy": "rkumapley@unicef.org",
+      "editedDate": "8/2/2019 2:31:56 PM"
+    },
+    "agencies": [
+      {
+        "id": 1,
+        "organization": "United Nations Children's Fund"
+      }
+    ]
+  },
+  {
+    "indicatorId": 2,
+    "code": "IOD_ANY_U5",
+    "helixCode": "NT_IOD_ANY_U5",
+    "ownerAgency": {
+      "id": 1,
+      "organization": "United Nations Children's Fund"
+    },
+    "sector": "3",
+    "domain": "2",
+    "subdomain": "1",
+    "editedBy": "fcelli@unicef.org",
+    "editedDate": "1/6/2024 6:14:59 PM",
+    "createdBy": "fcelli@unicef.org",
+    "createdDate": "7/26/2019 6:54:44 PM",
+    "isPublished": false,
+    "changePublishStatusBy": "fcelli@unicef.org",
+    "changePublishStatusDate": "1/6/2024 6:14:59 PM",
+    "language2Name": {
+      "English": "Percentage of children (0-59 months) living in households consuming iodized salt (>0 ppm)"
+    },
+    "collectionMechanism": {
+      "collectionProcessId": 1,
+      "name": "CRAVE",
+      "editedBy": "fcelli@unicef.org",
+      "editedDate": "7/26/2019 6:54:43 PM"
+    },
+    "classifications": [
+      {
+        "iclassId": 3,
+        "name": "Is SOWC",
+        "type": "boolean",
+        "value": "false"
+      },
+      {
+        "iclassId": 5,
+        "name": "Is Emergency Indicator",
+        "type": "boolean",
+        "value": "false"
+      }
+    ],
+    "custodian": {
+      "id": 3,
+      "name": "Division of Analysis, Planning & Monitoring, UNICEF",
+      "editedBy": "rkumapley@unicef.org",
+      "editedDate": "8/2/2019 2:31:56 PM"
+    },
+    "agencies": [
+      {
+        "id": 1,
+        "organization": "United Nations Children's Fund"
+      }
+    ]
+  },
+  {
+    "indicatorId": 3,
+    "code": "IOD_TH_U5",
+    "helixCode": "NT_IOD_TH_U5",
+    "ownerAgency": {
+      "id": 1,
+      "organization": "United Nations Children's Fund"
+    },
+    "sector": "3",
+    "domain": "2",
+    "subdomain": "1",
+    "editedBy": "tschlaudecker@unicef.org",
+    "editedDate": "12/20/2019 4:37:39 PM",
+    "createdBy": "fcelli@unicef.org",
+    "createdDate": "7/26/2019 6:54:44 PM",
+    "isPublished": false,
+    "changePublishStatusBy": "tschlaudecker@unicef.org",
+    "changePublishStatusDate": "12/20/2019 4:37:39 PM",
+    "language2Name": {
+      "English": "Percentage of children (0-59 months) living in tested households consuming iodized salt (>0 ppm)"
+    },
+    "collectionMechanism": {
+      "collectionProcessId": 1,
+      "name": "CRAVE",
+      "editedBy": "fcelli@unicef.org",
+      "editedDate": "7/26/2019 6:54:43 PM"
+    },
+    "classifications": [
+      {
+        "iclassId": 3,
+        "name": "Is SOWC",
+        "type": "boolean",
+        "value": "false"
+      },
+      {
+        "iclassId": 5,
+        "name": "Is Emergency Indicator",
+        "type": "boolean",
+        "value": "false"
+      }
+    ],
+    "custodian": {
+      "id": 3,
+      "name": "Division of Analysis, Planning & Monitoring, UNICEF",
+      "editedBy": "rkumapley@unicef.org",
+      "editedDate": "8/2/2019 2:31:56 PM"
+    },
+    "agencies": [
+      {
+        "id": 1,
+        "organization": "United Nations Children's Fund"
+      }
+    ]
+  },
+  {
+    "indicatorId": 4,
+    "code": "VAS_S1",
+    "helixCode": "NT_VAS_S1",
+    "ownerAgency": {
+      "id": 1,
+      "organization": "United Nations Children's Fund"
+    },
+    "sector": "3",
+    "domain": "2",
+    "subdomain": "2",
+    "editedBy": "tschlaudecker@unicef.org",
+    "editedDate": "3/7/2022 6:00:32 PM",
+    "createdBy": "fcelli@unicef.org",
+    "createdDate": "7/26/2019 6:54:44 PM",
+    "isPublished": true,
+    "changePublishStatusBy": "tschlaudecker@unicef.org",
+    "changePublishStatusDate": "1/27/2022 9:47:22 PM",
+    "language2Name": {
+      "English": "Semester 1 VAS Coverage (January to June)"
+    },
+    "collectionMechanism": {
+      "collectionProcessId": 6,
+      "name": "Nutridash",
+      "editedBy": "fcelli@unicef.org",
+      "editedDate": "7/26/2019 6:54:43 PM"
+    },
+    "classifications": [
+      {
+        "iclassId": 3,
+        "name": "Is SOWC",
+        "type": "boolean",
+        "value": "false"
+      },
+      {
+        "iclassId": 5,
+        "name": "Is Emergency Indicator",
+        "type": "boolean",
+        "value": "false"
+      }
+    ],
+    "agencies": [
+      {
+        "id": 1,
+        "organization": "United Nations Children's Fund"
+      }
+    ]
+  },
+  {
+    "indicatorId": 5,
+    "code": "VAS_S2",
+    "helixCode": "NT_VAS_S2",
+    "ownerAgency": {
+      "id": 1,
+      "organization": "United Nations Children's Fund"
+    },
+    "sector": "3",
+    "domain": "2",
+    "subdomain": "2",
+    "editedBy": "tschlaudecker@unicef.org",
+    "editedDate": "3/7/2022 6:00:45 PM",
+    "createdBy": "fcelli@unicef.org",
+    "createdDate": "7/26/2019 6:54:44 PM",
+    "isPublished": true,
+    "changePublishStatusBy": "tschlaudecker@unicef.org",
+    "changePublishStatusDate": "1/27/2022 9:47:29 PM",
+    "language2Name": {
+      "English": "Semester 2 VAS Coverage (July to December)"
+    },
+    "collectionMechanism": {
+      "collectionProcessId": 6,
+      "name": "Nutridash",
+      "editedBy": "fcelli@unicef.org",
+      "editedDate": "7/26/2019 6:54:43 PM"
+    },
+    "classifications": [
+      {
+        "iclassId": 3,
+        "name": "Is SOWC",
+        "type": "boolean",
+        "value": "false"
+      },
+      {
+        "iclassId": 5,
+        "name": "Is Emergency Indicator",
+        "type": "boolean",
+        "value": "false"
+      }
+    ],
+    "agencies": [
+      {
+        "id": 1,
+        "organization": "United Nations Children's Fund"
+      }
+    ]
+  }
+]

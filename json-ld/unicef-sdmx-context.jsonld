@@ -1,0 +1,79 @@
+{
+  "@context": {
+    "@vocab": "https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "unicef": "https://data.unicef.org/vocabulary/",
+    "sdmx": "http://purl.org/linked-data/sdmx/2009/concept#",
+    "sdmx-measure": "http://purl.org/linked-data/sdmx/2009/measure#",
+    "sdmx-dimension": "http://purl.org/linked-data/sdmx/2009/dimension#",
+    "sdmx-attribute": "http://purl.org/linked-data/sdmx/2009/attribute#",
+    "qb": "http://purl.org/linked-data/cube#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+
+    "id": "@id",
+    "type": "@type",
+
+    "DataStructure": "qb:DataStructure",
+    "DataSet": "qb:DataSet",
+    "Observation": "qb:Observation",
+    "Dataflow": "sdmx:Dataflow",
+    "Codelist": "sdmx:Codelist",
+    "ConceptScheme": "skos:ConceptScheme",
+    "Concept": "skos:Concept",
+
+    "REF_AREA": {
+      "@id": "sdmx-dimension:refArea",
+      "@type": "xsd:string"
+    },
+    "TIME_PERIOD": {
+      "@id": "sdmx-dimension:timePeriod",
+      "@type": "xsd:string"
+    },
+    "OBS_VALUE": {
+      "@id": "sdmx-measure:obsValue",
+      "@type": "xsd:decimal"
+    },
+    "OBS_STATUS": "sdmx-attribute:obsStatus",
+    "UNIT_MULT": "sdmx-attribute:unitMult",
+    "UNIT_MEASURE": "sdmx-attribute:unitMeasure",
+    "DATA_SOURCE": "unicef:dataSource",
+    "SERIES_NAME": "unicef:seriesName",
+    "INDICATOR": "unicef:indicator",
+    "SEX": "sdmx-dimension:sex",
+    "AGE": "sdmx-dimension:age",
+    "WEALTH_QUINTILE": "unicef:wealthQuintile",
+    "RESIDENCE": "unicef:residence",
+    "DISAGG": "unicef:disaggregation",
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "agencyID": "unicef:agencyId",
+    "version": "schema:version",
+    "isFinal": "unicef:isFinal",
+    "validFrom": {
+      "@id": "schema:validFrom",
+      "@type": "xsd:dateTime"
+    },
+    "validTo": {
+      "@id": "schema:validThrough",
+      "@type": "xsd:dateTime"
+    },
+    "label": "skos:prefLabel",
+    "annotations": "skos:note",
+
+    "structure": "qb:structure",
+    "component": "qb:component",
+    "dimension": "qb:dimension",
+    "measure": "qb:measure",
+    "attribute": "qb:attribute",
+    "dataSet": "qb:dataSet",
+    "obs": "qb:observation",
+
+    "dataSeries": "unicef:dataSeries",
+    "thematicDataflow": "unicef:thematicDataflow",
+    "sdgIndicator": "unicef:sdgIndicator",
+    "micsIndicator": "unicef:micsIndicator",
+    "countryData": "unicef:countryData"
+  }
+}

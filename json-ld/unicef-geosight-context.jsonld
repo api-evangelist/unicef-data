@@ -1,0 +1,58 @@
+{
+  "@context": {
+    "@vocab": "https://geosight.unicef.org/api/v1/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "unicef": "https://data.unicef.org/vocabulary/",
+
+    "id": "@id",
+    "type": "@type",
+
+    "BasemapLayer": "unicef:BasemapLayer",
+    "CodeList": "unicef:CodeList",
+    "Code": "unicef:Code",
+    "ContextLayer": "unicef:ContextLayer",
+    "Dashboard": "unicef:Dashboard",
+    "Indicator": "unicef:Indicator",
+    "IndicatorValue": "unicef:IndicatorValue",
+    "ReferenceDataset": "unicef:ReferenceDataset",
+    "ApiEntity": "unicef:ApiEntity",
+    "RelatedTable": "unicef:RelatedTable",
+    "Style": "unicef:Style",
+    "Group": "unicef:Group",
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "category": "schema:category",
+    "slug": "schema:identifier",
+    "version": "schema:version",
+    "created_at": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "modified_at": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+
+    "indicator": "unicef:hasIndicator",
+    "value": "unicef:indicatorValue",
+    "date": {
+      "@id": "unicef:referenceDate",
+      "@type": "xsd:date"
+    },
+    "geometry": "unicef:hasGeometry",
+    "reference_dataset": "unicef:hasReferenceDataset",
+    "entity_id": "unicef:entityId",
+    "entity_name": "unicef:entityName",
+    "admin_level": "unicef:administrativeLevel",
+    "country_code": "unicef:countryCode",
+    "country_name": "unicef:countryName",
+
+    "count": "schema:numberOfItems",
+    "next": "schema:nextItem",
+    "previous": "schema:previousItem",
+    "results": "schema:itemListElement"
+  }
+}

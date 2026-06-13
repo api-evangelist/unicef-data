@@ -55,6 +55,8 @@ apis:
         url: https://data.unicef.org/sdmx-api-documentation/
       - type: Explorer
         url: https://sdmx.data.unicef.org/webservice/data.html
+      - type: JSONLDContext
+        url: json-ld/unicef-sdmx-context.jsonld
   - name: UNICEF Reference Data Manager API
     description: >
       The UNICEF Reference Data Manager (RDM) API provides structured access to
@@ -73,7 +75,9 @@ apis:
       - type: Documentation
         url: https://rdmapi.unicef.org/api/doc/index.html
       - type: OpenAPI
-        url: https://rdmapi.unicef.org/api/doc/index.html
+        url: https://rdmapi.unicef.org/swagger/v1/swagger.json
+      - type: OpenAPI
+        url: openapi/unicef-reference-data-manager-openapi.json
   - name: UNICEF GeoSight API
     description: >
       GeoSight is UNICEF's geospatial data platform for visualizing and analyzing
@@ -94,7 +98,9 @@ apis:
       - type: Documentation
         url: https://geosight.unicef.org/en-us/api/v1/docs/
       - type: OpenAPI
-        url: https://geosight.unicef.org/en-us/api/v1/docs/
+        url: https://geosight.unicef.org/en-us/api/v1/docs/?format=openapi
+      - type: OpenAPI
+        url: openapi/unicef-geosight-openapi.json
 common:
   - type: Website
     url: https://data.unicef.org
@@ -120,6 +126,16 @@ common:
     url: rate-limits/unicef-data-rate-limits.yml
   - type: FinOps
     url: finops/unicef-data-finops.yml
+  - type: Vocabulary
+    url: vocabulary/unicef-data-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/unicef-rdm-context.jsonld
+  - type: JSONLDContext
+    url: json-ld/unicef-geosight-context.jsonld
+  - type: JSONSchema
+    url: json-schema/unicef-geosight-schema.json
+  - type: JSONSchema
+    url: json-schema/unicef-rdm-schema.json
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

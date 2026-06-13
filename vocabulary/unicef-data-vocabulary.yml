@@ -1,0 +1,129 @@
+name: UNICEF Data Vocabulary
+description: >
+  Controlled vocabulary for the UNICEF Data APIs, covering terms used across
+  the SDMX Data Warehouse API, GeoSight API, and Reference Data Manager API.
+  Terms are drawn from the SDMX information model, UN SDG framework, MICS
+  survey methodology, and UNICEF programmatic domains.
+version: 1.0.0
+baseURI: https://data.unicef.org/vocabulary/
+
+thematic_domains:
+  - code: CME
+    label: Child Mortality Estimates
+    description: Under-five, infant, neonatal, and child mortality rates by country
+  - code: MNCH
+    label: Maternal and Newborn Child Health
+    description: Antenatal care, skilled birth attendance, postnatal care indicators
+  - code: NUTRITION
+    label: Nutrition
+    description: Stunting, wasting, overweight, breastfeeding, micronutrient indicators
+  - code: HIVAIDS
+    label: HIV/AIDS
+    description: HIV prevalence, mother-to-child transmission, paediatric treatment coverage
+  - code: WASH
+    label: Water, Sanitation and Hygiene
+    description: Access to drinking water, sanitation facilities, hygiene practices
+  - code: EDUCATION
+    label: Education
+    description: Enrolment, attendance, completion, learning outcomes, gender parity
+  - code: CHILDPROTECTION
+    label: Child Protection
+    description: Child marriage, female genital mutilation, child labour, violence
+  - code: DEMOGRAPHICS
+    label: Demographics
+    description: Population data, fertility rates, dependency ratios, urbanization
+  - code: GENDER
+    label: Gender
+    description: Gender-disaggregated indicators across all thematic areas
+  - code: SDG
+    label: Sustainable Development Goals
+    description: SDG indicators with child-relevant focus (SDG 1–17)
+  - code: MICS
+    label: Multiple Indicator Cluster Surveys
+    description: UNICEF-supported household survey programme data
+  - code: DHS
+    label: Demographic and Health Surveys
+    description: DHS programme data integrated into UNICEF warehouse
+  - code: IMMUNIZATION
+    label: Immunization
+    description: Vaccine coverage, immunization schedules, zero-dose children
+
+disaggregation_dimensions:
+  - code: SEX
+    label: Sex
+    values: [Male, Female, Total]
+  - code: AGE
+    label: Age Group
+    description: Age bands vary by indicator (e.g. <5 years, 15-49 years)
+  - code: WEALTH_QUINTILE
+    label: Wealth Quintile
+    values: [Poorest, Second, Middle, Fourth, Richest, Total]
+  - code: RESIDENCE
+    label: Place of Residence
+    values: [Urban, Rural, Total]
+  - code: EDUCATION_LEVEL
+    label: Mother's Education Level
+    values: [None, Primary, Secondary+, Total]
+  - code: ETHNICITY
+    label: Ethnicity / Subnational Group
+    description: Country-specific ethnic or administrative groupings
+
+output_formats:
+  - code: SDMX_JSON
+    label: SDMX-JSON
+    mediaType: application/vnd.sdmx.data+json
+    description: SDMX 2.1 JSON data message format
+  - code: SDMX_XML_21
+    label: SDMX-ML 2.1
+    mediaType: application/vnd.sdmx.genericdata+xml;version=2.1
+    description: SDMX 2.1 Generic Data XML format
+  - code: SDMX_XML_20
+    label: SDMX-ML 2.0
+    mediaType: application/vnd.sdmx.genericdata+xml;version=2.0
+    description: SDMX 2.0 Generic Data XML format
+  - code: CSV
+    label: CSV
+    mediaType: text/csv
+    description: Comma-separated values flat file export
+
+license:
+  name: Creative Commons Attribution 3.0 IGO
+  url: https://creativecommons.org/licenses/by/3.0/igo/
+  code: CC-BY-3.0-IGO
+
+data_sources:
+  - code: MICS
+    label: Multiple Indicator Cluster Surveys
+    url: https://mics.unicef.org/
+  - code: DHS
+    label: Demographic and Health Surveys
+    url: https://dhsprogram.com/
+  - code: ADMINISTRATIVE
+    label: National Administrative Records
+    description: Data reported by national governments to UN agencies
+  - code: CENSUS
+    label: National Population Census
+    description: National census data curated by UNICEF
+  - code: CME_INFO
+    label: UN Inter-agency Group for Child Mortality Estimation
+    url: https://childmortality.org/
+  - code: JMP
+    label: WHO/UNICEF Joint Monitoring Programme for Water and Sanitation
+    url: https://washdata.org/
+
+geosight_layer_types:
+  - code: XYZ_Tile
+    label: XYZ Tile
+    description: Raster tile basemap (OpenStreetMap compatible)
+  - code: WMS
+    label: Web Map Service
+    description: OGC WMS standard geospatial layer
+  - code: ARCGIS
+    label: ArcGIS Feature Service
+    description: Esri ArcGIS REST feature service layer
+  - code: GeoJSON
+    label: GeoJSON
+    description: RFC 7946 GeoJSON vector feature layer
+  - code: COG
+    label: Cloud Optimized GeoTIFF
+    description: COG raster image layer

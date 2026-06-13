@@ -1,0 +1,307 @@
+[
+  {
+    "countryId": 1,
+    "iso3": "ABW",
+    "m49": "533",
+    "isCurrent": true,
+    "isSOWC": false,
+    "isCountDown": false,
+    "isPublished": true,
+    "cndcountryCode": "ABW",
+    "regions": [
+      {
+        "regionCndCode": "MDG_DEVPING"
+      },
+      {
+        "regionCndCode": "SDG_SIDS"
+      },
+      {
+        "regionCndCode": "UN_AMERICAS"
+      },
+      {
+        "regionCndCode": "UN_CARIBB"
+      },
+      {
+        "regionCndCode": "UN_GLOBAL"
+      },
+      {
+        "regionCndCode": "UN_LATINAME"
+      }
+    ],
+    "language2Name": [
+      {
+        "languageName": "English",
+        "value": "Aruba",
+        "organization": "United Nations Children's Fund"
+      },
+      {
+        "languageName": "English",
+        "value": "Aruba",
+        "organization": "United Nations Statistical Division"
+      }
+    ],
+    "sectorPriorities": []
+  },
+  {
+    "countryId": 2,
+    "iso3": "AFG",
+    "m49": "4",
+    "isCurrent": true,
+    "isSOWC": false,
+    "isCountDown": true,
+    "isPublished": true,
+    "cndcountryCode": "AFG",
+    "regions": [
+      {
+        "regionCndCode": "MDG_DEVPING"
+      },
+      {
+        "regionCndCode": "SDG_LDC_2019"
+      },
+      {
+        "regionCndCode": "SDG_LLDC_2015"
+      },
+      {
+        "regionCndCode": "SDG_SOUTHCENASIA"
+      },
+      {
+        "regionCndCode": "UN_ASIA"
+      },
+      {
+        "regionCndCode": "UN_GLOBAL"
+      },
+      {
+        "regionCndCode": "UN_SOUTHASIA"
+      },
+      {
+        "regionCndCode": "UNICEF_ROSA"
+      },
+      {
+        "regionCndCode": "UNICEF_SA"
+      },
+      {
+        "regionCndCode": "WHO_EMRO"
+      }
+    ],
+    "language2Name": [
+      {
+        "languageName": "English",
+        "value": "Afghanistan",
+        "organization": "United Nations Children's Fund"
+      },
+      {
+        "languageName": "French",
+        "value": "Afghanistan",
+        "organization": "United Nations Children's Fund"
+      },
+      {
+        "languageName": "Spanish",
+        "value": "Afganist\u00e1n",
+        "organization": "United Nations Children's Fund"
+      },
+      {
+        "languageName": "English",
+        "value": "Afghanistan",
+        "organization": "United Nations Statistical Division"
+      },
+      {
+        "languageName": "English",
+        "value": "Afghanistan",
+        "organization": "World Bank"
+      }
+    ],
+    "sectorPriorities": [
+      {
+        "sectorId": 7
+      },
+      {
+        "sectorId": 18
+      }
+    ]
+  },
+  {
+    "countryId": 3,
+    "iso3": "AGO",
+    "m49": "24",
+    "isCurrent": true,
+    "isSOWC": true,
+    "isCountDown": true,
+    "isPublished": true,
+    "cndcountryCode": "AGO",
+    "regions": [
+      {
+        "regionCndCode": "UN_MIDDLEAFR"
+      },
+      {
+        "regionCndCode": "MDG_DEVPING"
+      },
+      {
+        "regionCndCode": "MDG_SSA"
+      },
+      {
+        "regionCndCode": "SDG_LDC_2019"
+      },
+      {
+        "regionCndCode": "SDG_SSA"
+      },
+      {
+        "regionCndCode": "UN_AFRICA"
+      },
+      {
+        "regionCndCode": "UN_GLOBAL"
+      },
+      {
+        "regionCndCode": "UNICEF_ESARO"
+      },
+      {
+        "regionCndCode": "UNICEF_SSA"
+      },
+      {
+        "regionCndCode": "WHO_AFRO"
+      },
+      {
+        "regionCndCode": "UNICEF_ESA"
+      }
+    ],
+    "language2Name": [
+      {
+        "languageName": "English",
+        "value": "Angola",
+        "organization": "United Nations Children's Fund"
+      },
+      {
+        "languageName": "French",
+        "value": "Angola",
+        "organization": "United Nations Children's Fund"
+      },
+      {
+        "languageName": "Spanish",
+        "value": "Angola",
+        "organization": "United Nations Children's Fund"
+      },
+      {
+        "languageName": "English",
+        "value": "Angola",
+        "organization": "United Nations Statistical Division"
+      },
+      {
+        "languageName": "English",
+        "value": "Angola",
+        "organization": "World Bank"
+      }
+    ],
+    "sectorPriorities": []
+  },
+  {
+    "countryId": 4,
+    "iso3": "AIA",
+    "m49": "660",
+    "isCurrent": true,
+    "isSOWC": true,
+    "isCountDown": false,
+    "isPublished": true,
+    "cndcountryCode": "AIA",
+    "regions": [
+      {
+        "regionCndCode": "MDG_DEVPING"
+      },
+      {
+        "regionCndCode": "SDG_SIDS"
+      },
+      {
+        "regionCndCode": "UN_AMERICAS"
+      },
+      {
+        "regionCndCode": "UN_CARIBB"
+      },
+      {
+        "regionCndCode": "UN_GLOBAL"
+      },
+      {
+        "regionCndCode": "UN_LATINAME"
+      },
+      {
+        "regionCndCode": "UNICEF_NC"
+      },
+      {
+        "regionCndCode": "UNICEF_LAC"
+      },
+      {
+        "regionCndCode": "UNICEF_LACRO"
+      }
+    ],
+    "language2Name": [
+      {
+        "languageName": "English",
+        "value": "Anguilla",
+        "organization": "United Nations Children's Fund"
+      },
+      {
+        "languageName": "French",
+        "value": "Anguilla",
+        "organization": "United Nations Children's Fund"
+      },
+      {
+        "languageName": "Spanish",
+        "value": "Anguila",
+        "organization": "United Nations Children's Fund"
+      },
+      {
+        "languageName": "English",
+        "value": "Anguilla",
+        "organization": "United Nations Statistical Division"
+      }
+    ],
+    "sectorPriorities": []
+  },
+  {
+    "countryId": 5,
+    "iso3": "ALA",
+    "m49": "248",
+    "isCurrent": true,
+    "isSOWC": false,
+    "isCountDown": false,
+    "isPublished": false,
+    "cndcountryCode": "ALA",
+    "regions": [
+      {
+        "regionCndCode": "UN_NORTHEUR"
+      },
+      {
+        "regionCndCode": "MDG_DEV"
+      },
+      {
+        "regionCndCode": "SDG_NORTHAMEUR"
+      },
+      {
+        "regionCndCode": "UN_EUROPE"
+      },
+      {
+        "regionCndCode": "UN_GLOBAL"
+      }
+    ],
+    "language2Name": [
+      {
+        "languageName": "English",
+        "value": "\u00c5land Islands",
+        "organization": "United Nations Children's Fund"
+      },
+      {
+        "languageName": "French",
+        "value": "\u00celes d'\u00c5land",
+        "organization": "United Nations Children's Fund"
+      },
+      {
+        "languageName": "Spanish",
+        "value": "Islas \u00c5land",
+        "organization": "United Nations Children's Fund"
+      },
+      {
+        "languageName": "English",
+        "value": "\u00c5land Islands",
+        "organization": "United Nations Statistical Division"
+      }
+    ],
+    "sectorPriorities": []
+  }
+]

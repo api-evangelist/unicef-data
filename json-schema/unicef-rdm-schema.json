@@ -1,0 +1,2886 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://data.unicef.org/schemas/rdm/v2",
+  "title": "UNICEF Reference Data Manager API Schemas",
+  "description": "JSON Schema definitions for the UNICEF Reference Data Manager (RDM) API v2.0, covering countries, regions, indicators, domains, and classification codes.",
+  "definitions": {
+    "ProblemDetails": {
+      "type": "object",
+      "additionalProperties": {},
+      "required": [
+        "extensions"
+      ],
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "instance": {
+          "type": "string"
+        },
+        "extensions": {
+          "type": "object",
+          "additionalProperties": {}
+        }
+      }
+    },
+    "CollectionProcessItem": {
+      "type": "object",
+      "required": [
+        "collectionProcessId"
+      ],
+      "properties": {
+        "collectionProcessId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "dataRelease": {
+          "type": "string"
+        },
+        "dataCollection": {
+          "type": "string"
+        }
+      }
+    },
+    "CountryItem": {
+      "type": "object",
+      "required": [
+        "countryId",
+        "isCurrent",
+        "isSOWC",
+        "isCountDown",
+        "isPublished"
+      ],
+      "properties": {
+        "countryId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "iso3": {
+          "type": "string"
+        },
+        "m49": {
+          "type": "string"
+        },
+        "isCurrent": {
+          "type": "boolean"
+        },
+        "isSOWC": {
+          "type": "boolean"
+        },
+        "isCountDown": {
+          "type": "boolean"
+        },
+        "isPublished": {
+          "type": "boolean"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string"
+        },
+        "cndcountryCode": {
+          "type": "string"
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CountryRegionsItem"
+          }
+        },
+        "language2Name": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CountryNameItem"
+          }
+        },
+        "sectorPriorities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SectorItem"
+          }
+        }
+      }
+    },
+    "CountryRegionsItem": {
+      "type": "object",
+      "properties": {
+        "countryId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "countryCndCode": {
+          "type": "string"
+        },
+        "countryISO": {
+          "type": "string"
+        },
+        "regionId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "regionCndCode": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "CountryNameItem": {
+      "type": "object",
+      "properties": {
+        "countryId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "languageId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "languageName": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "organization": {
+          "type": "string"
+        },
+        "organizationId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "SectorItem": {
+      "type": "object",
+      "required": [
+        "sectorId"
+      ],
+      "properties": {
+        "sectorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "helixName": {
+          "type": "string"
+        },
+        "domains": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DomainItem"
+          }
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string"
+        },
+        "agencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "agenciesId": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    },
+    "DomainItem": {
+      "type": "object",
+      "required": [
+        "domainId",
+        "sectorId"
+      ],
+      "properties": {
+        "domainId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sectorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sectorName": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "subdomains": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SubdomainItem"
+          }
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string"
+        }
+      }
+    },
+    "SubdomainItem": {
+      "type": "object",
+      "required": [
+        "subdomainId",
+        "sectorId",
+        "domainId"
+      ],
+      "properties": {
+        "subdomainId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sectorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sectorName": {
+          "type": "string"
+        },
+        "domainId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "domainName": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string"
+        }
+      }
+    },
+    "CountryOrganization": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "organization": {
+          "type": "string"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "code": {
+          "type": "string"
+        },
+        "countryNames": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CountryName"
+          }
+        },
+        "indicator2Agencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator2Agency"
+          }
+        },
+        "indicators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator"
+          }
+        },
+        "sector2Agencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Sector2Agency"
+          }
+        },
+        "users": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/User"
+          }
+        }
+      }
+    },
+    "CountryName": {
+      "type": "object",
+      "required": [
+        "countryNameId",
+        "countryId",
+        "languageId"
+      ],
+      "properties": {
+        "countryNameId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "countryId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "languageId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "value": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "organizationId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "country": {
+          "$ref": "#/definitions/Country"
+        },
+        "language": {
+          "$ref": "#/definitions/Language"
+        },
+        "organization": {
+          "$ref": "#/definitions/CountryOrganization"
+        }
+      }
+    },
+    "Country": {
+      "type": "object",
+      "required": [
+        "countryId",
+        "createdDate"
+      ],
+      "properties": {
+        "countryId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "iso3": {
+          "type": "string"
+        },
+        "m49": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "cndcountryCode": {
+          "type": "string"
+        },
+        "isCurrent": {
+          "type": "boolean"
+        },
+        "isSowc": {
+          "type": "boolean"
+        },
+        "isCountDown": {
+          "type": "boolean"
+        },
+        "isPublished": {
+          "type": "boolean"
+        },
+        "country2Regions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Country2Region"
+          }
+        },
+        "country2SectorPriorities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Country2SectorPriority"
+          }
+        },
+        "countryNames": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CountryName"
+          }
+        }
+      }
+    },
+    "Country2Region": {
+      "type": "object",
+      "required": [
+        "id",
+        "countryId",
+        "regionId",
+        "createdDate"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "countryId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "regionId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "country": {
+          "$ref": "#/definitions/Country"
+        },
+        "region": {
+          "$ref": "#/definitions/Region"
+        }
+      }
+    },
+    "Region": {
+      "type": "object",
+      "required": [
+        "regionId",
+        "level"
+      ],
+      "properties": {
+        "regionId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "m49": {
+          "type": "string"
+        },
+        "altName": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "level": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "description": {
+          "type": "string"
+        },
+        "parentRegionId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "collectionId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "seriesId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "cndregionalCode": {
+          "type": "string"
+        },
+        "organization": {
+          "type": "string"
+        },
+        "collection": {
+          "$ref": "#/definitions/RegionCollection"
+        },
+        "country2Regions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Country2Region"
+          }
+        },
+        "inverseParentRegion": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Region"
+          }
+        },
+        "parentRegion": {
+          "$ref": "#/definitions/Region"
+        },
+        "regionNames": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RegionName"
+          }
+        },
+        "series": {
+          "$ref": "#/definitions/RegionSeries"
+        }
+      }
+    },
+    "RegionCollection": {
+      "type": "object",
+      "required": [
+        "regionCollectionId",
+        "createdDate"
+      ],
+      "properties": {
+        "regionCollectionId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "code": {
+          "type": "string"
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Region"
+          }
+        }
+      }
+    },
+    "RegionName": {
+      "type": "object",
+      "required": [
+        "id",
+        "regionId",
+        "languageId",
+        "createdDate"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "regionId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "languageId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "value": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "language": {
+          "$ref": "#/definitions/Language"
+        },
+        "region": {
+          "$ref": "#/definitions/Region"
+        }
+      }
+    },
+    "Language": {
+      "type": "object",
+      "required": [
+        "languageId"
+      ],
+      "properties": {
+        "languageId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "iso6392": {
+          "type": "string"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "countryNames": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CountryName"
+          }
+        },
+        "indicatorSimpleAttributeValues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IndicatorSimpleAttributeValue"
+          }
+        },
+        "regionNames": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RegionName"
+          }
+        }
+      }
+    },
+    "IndicatorSimpleAttributeValue": {
+      "type": "object",
+      "required": [
+        "indicatorSimpleAttributeValueId",
+        "indicatorId",
+        "attributeId",
+        "languageId",
+        "version"
+      ],
+      "properties": {
+        "indicatorSimpleAttributeValueId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "indicatorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "attributeId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "languageId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "version": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "value": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "attribute": {
+          "$ref": "#/definitions/IndicatorSimpleAttribute"
+        },
+        "indicator": {
+          "$ref": "#/definitions/Indicator"
+        },
+        "language": {
+          "$ref": "#/definitions/Language"
+        }
+      }
+    },
+    "IndicatorSimpleAttribute": {
+      "type": "object",
+      "required": [
+        "attributeId",
+        "hasTranslation",
+        "editedDate"
+      ],
+      "properties": {
+        "attributeId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "hasTranslation": {
+          "type": "boolean"
+        },
+        "weight": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "definition": {
+          "type": "string"
+        },
+        "indicatorFiles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IndicatorFile"
+          }
+        },
+        "indicatorSimpleAttributeValues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IndicatorSimpleAttributeValue"
+          }
+        }
+      }
+    },
+    "IndicatorFile": {
+      "type": "object",
+      "required": [
+        "id",
+        "indicator",
+        "uploadedDate"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "fileName": {
+          "type": "string"
+        },
+        "originalFileName": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "indicator": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "attribute": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "idDeleted": {
+          "type": "boolean"
+        },
+        "uploadedBy": {
+          "type": "string"
+        },
+        "uploadedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "attributeNavigation": {
+          "$ref": "#/definitions/IndicatorSimpleAttribute"
+        },
+        "indicatorNavigation": {
+          "$ref": "#/definitions/Indicator"
+        }
+      }
+    },
+    "Indicator": {
+      "type": "object",
+      "required": [
+        "indicatorId",
+        "createdDate",
+        "isPublished",
+        "isDeleted"
+      ],
+      "properties": {
+        "indicatorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "code": {
+          "type": "string"
+        },
+        "collectionMechanismId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "yamid": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "subdomainId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "domainId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "helixCode": {
+          "type": "string"
+        },
+        "isPublished": {
+          "type": "boolean"
+        },
+        "changePublishedBy": {
+          "type": "string"
+        },
+        "changePublishedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        },
+        "strategicPlanId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "indType": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "strategicPlanStatementId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "custodian": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ownerAgency": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "parentIndicatorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "collectionMechanism": {
+          "$ref": "#/definitions/CollectionMechanism"
+        },
+        "custodianNavigation": {
+          "$ref": "#/definitions/Custodian"
+        },
+        "domain": {
+          "$ref": "#/definitions/Domain"
+        },
+        "indTypeNavigation": {
+          "$ref": "#/definitions/IndicatorType"
+        },
+        "indicator2Agencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator2Agency"
+          }
+        },
+        "indicator2Classifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator2Classification"
+          }
+        },
+        "indicator2Custodians": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator2Custodian"
+          }
+        },
+        "indicator2DataCompilers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator2DataCompiler"
+          }
+        },
+        "indicator2DataProviders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator2DataProvider"
+          }
+        },
+        "indicator2DataSources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator2DataSource"
+          }
+        },
+        "indicatorFiles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IndicatorFile"
+          }
+        },
+        "indicatorQuestions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IndicatorQuestion"
+          }
+        },
+        "indicatorSimpleAttributeValues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IndicatorSimpleAttributeValue"
+          }
+        },
+        "inverseParentIndicator": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator"
+          }
+        },
+        "ownerAgencyNavigation": {
+          "$ref": "#/definitions/CountryOrganization"
+        },
+        "parentIndicator": {
+          "$ref": "#/definitions/Indicator"
+        },
+        "relatedIndicatorIndicators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RelatedIndicator"
+          }
+        },
+        "relatedIndicatorTargetIndicators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RelatedIndicator"
+          }
+        },
+        "strategicPlan": {
+          "$ref": "#/definitions/StrategicPlan"
+        },
+        "strategicPlanStatement": {
+          "$ref": "#/definitions/StrategicPlanStatement"
+        },
+        "subdomain": {
+          "$ref": "#/definitions/Subdomain"
+        },
+        "tags2Indicators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tags2Indicator"
+          }
+        },
+        "yam": {
+          "$ref": "#/definitions/YearAssignmentMethod"
+        }
+      }
+    },
+    "CollectionMechanism": {
+      "type": "object",
+      "required": [
+        "collectionMechanismId",
+        "editedDate"
+      ],
+      "properties": {
+        "collectionMechanismId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "code": {
+          "type": "string"
+        },
+        "dataRelease": {
+          "type": "string"
+        },
+        "dataCollection": {
+          "type": "string"
+        },
+        "indicators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator"
+          }
+        }
+      }
+    },
+    "Custodian": {
+      "type": "object",
+      "required": [
+        "custodianId",
+        "editedDate"
+      ],
+      "properties": {
+        "custodianId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "code": {
+          "type": "string"
+        },
+        "indicator2Custodians": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator2Custodian"
+          }
+        },
+        "indicator2DataCompilers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator2DataCompiler"
+          }
+        },
+        "indicator2DataProviders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator2DataProvider"
+          }
+        },
+        "indicators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator"
+          }
+        },
+        "regionSeries2Custodians": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RegionSeries2Custodian"
+          }
+        }
+      }
+    },
+    "Indicator2Custodian": {
+      "type": "object",
+      "required": [
+        "id",
+        "indicatorId",
+        "custodianId"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "indicatorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "custodianId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "custodian": {
+          "$ref": "#/definitions/Custodian"
+        },
+        "indicator": {
+          "$ref": "#/definitions/Indicator"
+        }
+      }
+    },
+    "Indicator2DataCompiler": {
+      "type": "object",
+      "required": [
+        "id",
+        "indicatorId",
+        "dataCompilerId"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "indicatorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dataCompilerId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dataCompiler": {
+          "$ref": "#/definitions/Custodian"
+        },
+        "indicator": {
+          "$ref": "#/definitions/Indicator"
+        }
+      }
+    },
+    "Indicator2DataProvider": {
+      "type": "object",
+      "required": [
+        "id",
+        "indicatorId",
+        "dataProviderId"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "indicatorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dataProviderId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dataProvider": {
+          "$ref": "#/definitions/Custodian"
+        },
+        "indicator": {
+          "$ref": "#/definitions/Indicator"
+        }
+      }
+    },
+    "RegionSeries2Custodian": {
+      "type": "object",
+      "required": [
+        "regionSeries2CustodianId",
+        "regionSeriesId",
+        "custodianId",
+        "createdDate"
+      ],
+      "properties": {
+        "regionSeries2CustodianId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "regionSeriesId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "custodianId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "custodian": {
+          "$ref": "#/definitions/Custodian"
+        },
+        "regionSeries": {
+          "$ref": "#/definitions/RegionSeries"
+        }
+      }
+    },
+    "RegionSeries": {
+      "type": "object",
+      "required": [
+        "regionSeriesId",
+        "createdDate"
+      ],
+      "properties": {
+        "regionSeriesId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "regionSeries2Custodians": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RegionSeries2Custodian"
+          }
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Region"
+          }
+        }
+      }
+    },
+    "Domain": {
+      "type": "object",
+      "required": [
+        "domainId",
+        "sectorId"
+      ],
+      "properties": {
+        "domainId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sectorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "indicators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator"
+          }
+        },
+        "sector": {
+          "$ref": "#/definitions/Sector"
+        },
+        "subdomains": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Subdomain"
+          }
+        }
+      }
+    },
+    "Sector": {
+      "type": "object",
+      "required": [
+        "sectorId"
+      ],
+      "properties": {
+        "sectorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "helixName": {
+          "type": "string"
+        },
+        "country2SectorPriorities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Country2SectorPriority"
+          }
+        },
+        "domains": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Domain"
+          }
+        },
+        "sector2Agencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Sector2Agency"
+          }
+        },
+        "user2Sectors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/User2Sector"
+          }
+        }
+      }
+    },
+    "Country2SectorPriority": {
+      "type": "object",
+      "required": [
+        "id",
+        "countryId",
+        "sectorId"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "countryId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sectorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "country": {
+          "$ref": "#/definitions/Country"
+        },
+        "sector": {
+          "$ref": "#/definitions/Sector"
+        }
+      }
+    },
+    "Sector2Agency": {
+      "type": "object",
+      "required": [
+        "id",
+        "sectorId",
+        "agencyId",
+        "createdDate"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "sectorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "agencyId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "agency": {
+          "$ref": "#/definitions/CountryOrganization"
+        },
+        "sector": {
+          "$ref": "#/definitions/Sector"
+        }
+      }
+    },
+    "User2Sector": {
+      "type": "object",
+      "required": [
+        "id",
+        "userId",
+        "sectorId",
+        "createdDate"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sectorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sector": {
+          "$ref": "#/definitions/Sector"
+        },
+        "user": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "required": [
+        "userId",
+        "isAdministrator",
+        "isActive",
+        "isAgencyAdmin"
+      ],
+      "properties": {
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "username": {
+          "type": "string"
+        },
+        "fullname": {
+          "type": "string"
+        },
+        "isAdministrator": {
+          "type": "boolean"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "division": {
+          "type": "string"
+        },
+        "agency": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "isAgencyAdmin": {
+          "type": "boolean"
+        },
+        "agencyNavigation": {
+          "$ref": "#/definitions/CountryOrganization"
+        },
+        "user2Sectors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/User2Sector"
+          }
+        }
+      }
+    },
+    "Subdomain": {
+      "type": "object",
+      "required": [
+        "subdomainId",
+        "editedDate",
+        "domainId"
+      ],
+      "properties": {
+        "subdomainId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "domainId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "domain": {
+          "$ref": "#/definitions/Domain"
+        },
+        "indicators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator"
+          }
+        }
+      }
+    },
+    "IndicatorType": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "typeName": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "indicators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator"
+          }
+        }
+      }
+    },
+    "Indicator2Agency": {
+      "type": "object",
+      "required": [
+        "id",
+        "indicatorId",
+        "agencyId",
+        "createdDate"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "indicatorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "agencyId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "agency": {
+          "$ref": "#/definitions/CountryOrganization"
+        },
+        "indicator": {
+          "$ref": "#/definitions/Indicator"
+        }
+      }
+    },
+    "Indicator2Classification": {
+      "type": "object",
+      "required": [
+        "id",
+        "indicatorId",
+        "classificationId"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "indicatorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "classificationId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "value": {
+          "type": "string"
+        },
+        "classification": {
+          "$ref": "#/definitions/IndicatorClassification"
+        },
+        "indicator": {
+          "$ref": "#/definitions/Indicator"
+        }
+      }
+    },
+    "IndicatorClassification": {
+      "type": "object",
+      "required": [
+        "iclassId",
+        "editedDate"
+      ],
+      "properties": {
+        "iclassId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "code": {
+          "type": "string"
+        },
+        "indicator2Classifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator2Classification"
+          }
+        }
+      }
+    },
+    "Indicator2DataSource": {
+      "type": "object",
+      "required": [
+        "id",
+        "indicatorId",
+        "dataSourceId",
+        "createdDate"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "indicatorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dataSourceId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dataSource": {
+          "$ref": "#/definitions/DataSource"
+        },
+        "indicator": {
+          "$ref": "#/definitions/Indicator"
+        }
+      }
+    },
+    "DataSource": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "sourceName": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "indicator2DataSources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator2DataSource"
+          }
+        }
+      }
+    },
+    "IndicatorQuestion": {
+      "type": "object",
+      "required": [
+        "id",
+        "indicatorId",
+        "createdDate"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "indicatorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "question": {
+          "type": "string"
+        },
+        "dwDataPointId": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "indicator": {
+          "$ref": "#/definitions/Indicator"
+        }
+      }
+    },
+    "RelatedIndicator": {
+      "type": "object",
+      "required": [
+        "id",
+        "indicatorId",
+        "targetIndicatorId",
+        "createdDate"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "indicatorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "targetIndicatorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "indicator": {
+          "$ref": "#/definitions/Indicator"
+        },
+        "targetIndicator": {
+          "$ref": "#/definitions/Indicator"
+        }
+      }
+    },
+    "StrategicPlan": {
+      "type": "object",
+      "required": [
+        "id",
+        "editedDate"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "code": {
+          "type": "string"
+        },
+        "indicators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator"
+          }
+        },
+        "strategicPlanStatements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StrategicPlanStatement"
+          }
+        }
+      }
+    },
+    "StrategicPlanStatement": {
+      "type": "object",
+      "required": [
+        "id",
+        "editedDate"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "code": {
+          "type": "string"
+        },
+        "statement": {
+          "type": "string"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "spareaId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "indicators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator"
+          }
+        },
+        "sparea": {
+          "$ref": "#/definitions/StrategicPlan"
+        }
+      }
+    },
+    "Tags2Indicator": {
+      "type": "object",
+      "required": [
+        "id",
+        "indicatorId",
+        "tagId",
+        "createdDate"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "indicatorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tagId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "indicator": {
+          "$ref": "#/definitions/Indicator"
+        },
+        "tag": {
+          "$ref": "#/definitions/Tag"
+        }
+      }
+    },
+    "Tag": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "tagName": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "tags2Indicators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tags2Indicator"
+          }
+        }
+      }
+    },
+    "YearAssignmentMethod": {
+      "type": "object",
+      "required": [
+        "yamid"
+      ],
+      "properties": {
+        "yamid": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "code": {
+          "type": "string"
+        },
+        "indicators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator"
+          }
+        }
+      }
+    },
+    "CustodianItem": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      }
+    },
+    "DataSourceItem": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "sourceName": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string"
+        }
+      }
+    },
+    "ApiIndResponse": {
+      "type": "object",
+      "required": [
+        "numResults"
+      ],
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "errorCountry": {
+          "type": "string"
+        },
+        "errorIndicator": {
+          "type": "string"
+        },
+        "locationDetected": {
+          "type": "string"
+        },
+        "locationCode": {
+          "type": "string"
+        },
+        "indicatorDetected": {
+          "type": "string"
+        },
+        "indicatorCodeDetected": {
+          "type": "string"
+        },
+        "yearDetected": {
+          "type": "string"
+        },
+        "similarIndicators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SimpleIndicatorItem"
+          }
+        },
+        "numResults": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "spellcheckSuggestions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "indicators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SearchIndicatorItem"
+          }
+        },
+        "indicatorsDetected": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "indicatorsNoData": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SimpleIndicatorItem": {
+      "type": "object",
+      "required": [
+        "score"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "indicator": {
+          "type": "string"
+        },
+        "indicatorName": {
+          "type": "string"
+        },
+        "score": {
+          "type": "number",
+          "format": "decimal"
+        }
+      }
+    },
+    "SearchIndicatorItem": {
+      "type": "object",
+      "required": [
+        "score"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "timeperiod": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "locationCode": {
+          "type": "string"
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dimensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "excludeDims_ms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source": {
+          "type": "string"
+        },
+        "dataflow": {
+          "type": "string"
+        },
+        "indicator": {
+          "type": "string"
+        },
+        "indicatorName": {
+          "type": "string"
+        },
+        "sdmx_dataquery": {
+          "type": "string"
+        },
+        "score": {
+          "type": "number",
+          "format": "decimal"
+        }
+      }
+    },
+    "IndicatorClassificationItem": {
+      "type": "object",
+      "required": [
+        "iclassId"
+      ],
+      "properties": {
+        "iclassId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      }
+    },
+    "IndicatorItem": {
+      "type": "object",
+      "required": [
+        "indicatorId",
+        "isPublished"
+      ],
+      "properties": {
+        "indicatorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "code": {
+          "type": "string"
+        },
+        "helixCode": {
+          "type": "string"
+        },
+        "ownerAgency": {
+          "$ref": "#/definitions/CountryOrganization"
+        },
+        "sector": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "subdomain": {
+          "type": "string"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string"
+        },
+        "isPublished": {
+          "type": "boolean"
+        },
+        "changePublishStatusBy": {
+          "type": "string"
+        },
+        "changePublishStatusDate": {
+          "type": "string"
+        },
+        "language2Name": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IndicatorAttribute"
+          }
+        },
+        "collectionMechanism": {
+          "$ref": "#/definitions/CollectionProcessItem"
+        },
+        "strategicPlanArea": {
+          "$ref": "#/definitions/StrategicPlanAreaItem"
+        },
+        "strategicPlanStatement": {
+          "$ref": "#/definitions/StrategicPlanStatementItem"
+        },
+        "classifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IndicatorClassificationItem"
+          }
+        },
+        "custodian": {
+          "$ref": "#/definitions/CustodianItem"
+        },
+        "coCustodians": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustodianItem"
+          }
+        },
+        "dataCompilers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustodianItem"
+          }
+        },
+        "dataProviders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustodianItem"
+          }
+        },
+        "yam": {
+          "$ref": "#/definitions/YearAssignmentMethodItem"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TagItem"
+          }
+        },
+        "relatedIndicators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RelatedIndicatorItem"
+          }
+        },
+        "dataSources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DataSourceItem"
+          }
+        },
+        "agencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CountryOrganization"
+          }
+        },
+        "type": {
+          "$ref": "#/definitions/IndicatorTypeItem"
+        },
+        "parent": {
+          "$ref": "#/definitions/RelatedIndicatorItem"
+        }
+      }
+    },
+    "IndicatorAttribute": {
+      "type": "object",
+      "required": [
+        "attributeId",
+        "languageId",
+        "isMultilingual",
+        "weight"
+      ],
+      "properties": {
+        "attributeId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "attributeName": {
+          "type": "string"
+        },
+        "attributeCode": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "languageId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "language": {
+          "type": "string"
+        },
+        "languageISO": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string"
+        },
+        "isMultilingual": {
+          "type": "boolean"
+        },
+        "weight": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "prevVersions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AttributePreviousVersion"
+          }
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IndicatorAttributeFile"
+          }
+        }
+      }
+    },
+    "AttributePreviousVersion": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        }
+      }
+    },
+    "IndicatorAttributeFile": {
+      "type": "object",
+      "required": [
+        "id",
+        "uploadedDate"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "path": {
+          "type": "string"
+        },
+        "fileName": {
+          "type": "string"
+        },
+        "originalFileName": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "indicator": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "attribute": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "uploadedBy": {
+          "type": "string"
+        },
+        "uploadedDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "StrategicPlanAreaItem": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      }
+    },
+    "StrategicPlanStatementItem": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string"
+        },
+        "statement": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "spArea": {
+          "$ref": "#/definitions/StrategicPlanAreaItem"
+        }
+      }
+    },
+    "YearAssignmentMethodItem": {
+      "type": "object",
+      "required": [
+        "yamId"
+      ],
+      "properties": {
+        "yamId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      }
+    },
+    "TagItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "tagName": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string"
+        },
+        "indicators": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    },
+    "RelatedIndicatorItem": {
+      "type": "object",
+      "required": [
+        "indicatorId"
+      ],
+      "properties": {
+        "indicatorId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "code": {
+          "type": "string"
+        },
+        "helixCode": {
+          "type": "string"
+        },
+        "language2Name": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string"
+        }
+      }
+    },
+    "IndicatorTypeItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "typeName": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string"
+        }
+      }
+    },
+    "LanguageItem": {
+      "type": "object",
+      "required": [
+        "languageID"
+      ],
+      "properties": {
+        "languageID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "isO6392": {
+          "type": "string"
+        },
+        "editedBy": {
+          "type": "string"
+        },
+        "editedDate": {
+          "type": "string"
+        }
+      }
+    },
+    "RegionItem": {
+      "type": "object",
+      "required": [
+        "regionId",
+        "level"
+      ],
+      "properties": {
+        "regionId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "m49": {
+          "type": "string"
+        },
+        "altName": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "level": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "description": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string"
+        },
+        "cndregionalCode": {
+          "type": "string"
+        },
+        "organization": {
+          "type": "string"
+        },
+        "language2Name": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RegionNameItem"
+          }
+        },
+        "countries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CountryRegionsItem"
+          }
+        },
+        "parentRegionID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "parentCndregionalCode": {
+          "type": "string"
+        },
+        "collection": {
+          "$ref": "#/definitions/RegionCollectionItem"
+        },
+        "series": {
+          "$ref": "#/definitions/RegionSeriesItem"
+        }
+      }
+    },
+    "RegionNameItem": {
+      "type": "object",
+      "required": [
+        "regionId",
+        "languageId"
+      ],
+      "properties": {
+        "regionId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "languageId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "languageName": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "RegionCollectionItem": {
+      "type": "object",
+      "required": [
+        "regionCollectionId"
+      ],
+      "properties": {
+        "regionCollectionId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string"
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RegionItem"
+          }
+        }
+      }
+    },
+    "RegionSeriesItem": {
+      "type": "object",
+      "required": [
+        "regionSeriesId"
+      ],
+      "properties": {
+        "regionSeriesId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string"
+        },
+        "custodians": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustodianItem"
+          }
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RegionItem"
+          }
+        }
+      }
+    }
+  }
+}
