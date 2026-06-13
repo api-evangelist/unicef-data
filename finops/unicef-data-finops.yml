@@ -1,0 +1,55 @@
+name: UNICEF Data API FinOps
+description: >
+  UNICEF Data APIs are provided free of charge as global public goods under the
+  UN mandate to advance children's rights worldwide. There are no direct API
+  consumption costs, subscription fees, or usage-based charges for the SDMX
+  Data Warehouse API, Reference Data Manager API, or GeoSight API. FinOps
+  considerations are limited to infrastructure and operational costs incurred
+  by the consuming organization when building integrations.
+cost_model:
+  direct_api_costs: $0
+  pricing_tiers: None
+  metered_billing: false
+  free_tier: true
+  enterprise_pricing: false
+  authentication_cost: $0
+consumer_finops_considerations:
+  - name: Infrastructure Cost
+    description: >
+      Cloud or on-premise compute costs for applications that call UNICEF APIs.
+      No pass-through charges from UNICEF. Hosting costs for web applications
+      or data pipelines that consume UNICEF data are borne entirely by the
+      consumer.
+  - name: Data Storage
+    description: >
+      UNICEF's SDMX Data Warehouse contains 748+ indicators across all UN member
+      states, and bulk downloads can be substantial. Consumers should account
+      for storage costs when caching or persisting indicator data locally.
+      Storing a full snapshot of GLOBAL_DATAFLOW across all countries and years
+      can reach hundreds of megabytes in CSV format.
+  - name: Bandwidth and Egress
+    description: >
+      SDMX responses for broad multi-country, multi-indicator queries can be
+      large. Use dimension filtering (country codes, specific indicators) and
+      the CSV format parameter to minimize payload size and reduce network
+      egress costs on consumer infrastructure.
+  - name: Developer Time
+    description: >
+      SDMX is a specialized standard; engineers unfamiliar with SDMX query
+      syntax, dataflow structures, and DSD dimension hierarchies will require
+      ramp-up time. Factor in developer time for query construction, response
+      parsing, and data normalization as the primary cost driver.
+  - name: Data Pipeline Maintenance
+    description: >
+      UNICEF updates indicator data periodically as new survey rounds (MICS,
+      DHS) and administrative data become available. Consumers must budget
+      engineering time for pipeline maintenance to refresh cached data and
+      handle schema changes in DSD definitions.
+budget_guidance: >
+  Because UNICEF Data APIs carry no direct fee, total cost of ownership is
+  driven primarily by internal engineering, data storage, and infrastructure.
+  Organizations integrating UNICEF data for research or reporting should plan
+  for one-time integration engineering costs and ongoing pipeline maintenance.
+  High-volume institutional users should contact data@unicef.org to discuss
+  data partnership arrangements that may include bulk data transfers as an
+  alternative to repeated API calls.

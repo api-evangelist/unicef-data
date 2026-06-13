@@ -1,0 +1,42 @@
+name: UNICEF Data API Rate Limits
+description: >
+  UNICEF does not publicly document formal rate limits for its Data Warehouse
+  SDMX API, Reference Data Manager API, or GeoSight API. All APIs are provided
+  as public goods intended for reasonable programmatic access by researchers,
+  governments, NGOs, and developers. No burst limits, quota windows, or
+  throttling thresholds are published in official documentation as of June 2026.
+  Users should implement polite crawling practices and exponential backoff.
+apis:
+  - name: UNICEF SDMX Data Warehouse API
+    base_url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/
+    authentication: None
+    rate_limit_documented: false
+    notes: >
+      No published rate limits. The API is intended for broad public access
+      including institutional and bulk use. SDMX responses can be large for
+      broad multi-country, multi-indicator queries; use dimension filtering
+      to reduce payload size. For very large bulk downloads, consider using
+      the graphical explorer at sdmx.data.unicef.org to generate batch
+      dataset files instead of repeated API calls.
+  - name: UNICEF Reference Data Manager API
+    base_url: https://rdmapi.unicef.org/api/
+    authentication: None required for read
+    rate_limit_documented: false
+    notes: >
+      No published rate limits. Reference data is relatively static and
+      responses should be cached aggressively to minimize API calls.
+  - name: UNICEF GeoSight API
+    base_url: https://geosight.unicef.org/api/v1/
+    authentication: None for public datasets; Django session auth for write
+    rate_limit_documented: false
+    notes: >
+      No published rate limits for public data endpoints. Geospatial responses
+      can be large; implement pagination and field filtering where supported.
+best_practices:
+  - Cache SDMX responses locally, as indicator data is updated infrequently
+  - Use the format=csv parameter for lighter payloads on large queries
+  - Filter dimensions explicitly to avoid fetching all observations
+  - Implement exponential backoff on 429 or 503 responses
+  - Avoid parallel bulk downloads; sequence large requests
+  - Use the dataflow endpoint to discover available datasets before querying
+  - Contact data@unicef.org for high-volume or institutional access inquiries

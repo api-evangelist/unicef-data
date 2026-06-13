@@ -1,0 +1,64 @@
+name: UNICEF Data API Plans & Pricing
+description: >
+  UNICEF Data provides free, open public access to all its APIs as a global
+  public good in support of the UN mandate to advance children's rights and
+  welfare worldwide. There are no paid tiers, subscription fees, or commercial
+  licensing costs. The primary SDMX Data Warehouse API requires no authentication
+  or registration. The GeoSight API requires free account registration for write
+  or admin operations. All data is released under Creative Commons Attribution
+  3.0 IGO, permitting broad reuse including commercial applications with
+  attribution.
+plans:
+  - name: SDMX Data Warehouse API - Open Access
+    description: >
+      Fully open access to UNICEF's Data Warehouse REST API. No registration,
+      authentication, or API key required. Provides access to 748+ child welfare
+      indicators across all UN member states, organized into thematic dataflows
+      for health, nutrition, education, protection, WASH, HIV/AIDS, demography,
+      and gender.
+    price: Free
+    features:
+      - No registration required
+      - No API key needed
+      - 748+ indicators
+      - All UN member states covered
+      - SDMX-JSON output format
+      - SDMX-XML v2.0 and v2.1 output formats
+      - CSV output format
+      - Excel export support
+      - Dataflow browsing interface
+      - Bulk dataset generation
+      - MICS and DHS survey data included
+      - SDG indicators for children
+    license: Creative Commons Attribution 3.0 IGO (CC BY 3.0 IGO)
+  - name: Reference Data Manager API - Open Access
+    description: >
+      Free access to UNICEF reference data including geographic hierarchies,
+      organizational units, and classification codes. Documented via
+      Swagger/OpenAPI. No authentication required for read operations.
+    price: Free
+    features:
+      - No registration required for read access
+      - Swagger/OpenAPI documentation
+      - Geographic hierarchy data
+      - Organizational unit classifications
+    license: Creative Commons Attribution 3.0 IGO (CC BY 3.0 IGO)
+  - name: GeoSight API - Free Registered Access
+    description: >
+      Free access to UNICEF's geospatial data API. Public datasets are available
+      without credentials. Write or administrative operations require free account
+      registration and Django-based authentication.
+    price: Free
+    features:
+      - Public dataset read access without authentication
+      - Free account registration for write access
+      - REST API with OpenAPI documentation
+      - Geospatial indicator layers
+      - Humanitarian data integration
+    license: Creative Commons Attribution 3.0 IGO (CC BY 3.0 IGO)
+notes: >
+  UNICEF APIs are provided as global public goods under the UN mandate to
+  promote the rights and welfare of every child. Commercial use is permitted
+  under Creative Commons Attribution 3.0 IGO with attribution. No SLA or formal
+  uptime guarantees are published for public API consumers. For high-volume or
+  institutional use, contact data@unicef.org.
