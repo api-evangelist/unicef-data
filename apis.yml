@@ -10,7 +10,7 @@ description: >
   thematic dataflows covering demography, maternal and child health, nutrition,
   HIV/AIDS, WASH, education, and gender. All data is freely accessible without
   authentication, licensed under Creative Commons Attribution 3.0 IGO.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/unicef-data/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -38,7 +38,7 @@ apis:
       UN member states and is drawn from MICS, DHS, national surveys, and
       administrative sources. No authentication or API key is required. Supports
       SDMX-JSON, SDMX-XML (v2.0 and v2.1), and CSV output formats.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://data.unicef.org/sdmx-api-documentation/
     baseURL: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/
     tags:
@@ -63,7 +63,7 @@ apis:
       UNICEF's reference data including geographic hierarchies, organizational
       units, and classification codes used across UNICEF programmes. Documented
       via a Swagger/OpenAPI interface at rdmapi.unicef.org.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://rdmapi.unicef.org/
     baseURL: https://rdmapi.unicef.org/api/
     tags:
@@ -85,7 +85,7 @@ apis:
       access to geospatial indicator data layers, context layers, and dashboards.
       Requires Django-based authentication for write operations; read access to
       public datasets is available without credentials.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://geosight.unicef.org/
     baseURL: https://geosight.unicef.org/api/v1/
     tags:
