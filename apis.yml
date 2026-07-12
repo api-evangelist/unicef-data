@@ -102,6 +102,10 @@ apis:
       - type: OpenAPI
         url: openapi/unicef-geosight-openapi.json
 common:
+  - type: DomainSecurity
+    url: security/unicef-data-domain-security.yml
+  - type: Authentication
+    url: authentication/unicef-data-authentication.yml
   - type: Website
     url: https://data.unicef.org
   - type: Documentation
