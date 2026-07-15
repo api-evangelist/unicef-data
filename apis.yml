@@ -102,6 +102,8 @@ apis:
       - type: OpenAPI
         url: openapi/unicef-geosight-openapi.json
 common:
+  - type: AgenticAccess
+    url: agentic-access/unicef-data-agentic-access.yml
   - type: DomainSecurity
     url: security/unicef-data-domain-security.yml
   - type: Authentication
