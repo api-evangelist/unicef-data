@@ -1,0 +1,186 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap Data Browser API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: Data Browser
+paths:
+  /data-browser/:
+    parameters: []
+    get:
+      operationId: data-browser-list
+      summary: List of dashboard.
+      description: ":param request: The HTTP request object.\n:type request: HttpRequest\n:param *args: Additional positional arguments.\n:type *args: tuple\n:param **kwargs: Additional keyword arguments.\n:type **kwargs: dict\n:return: The HTTP response containing the list of dashboard data or\n    a bad request response.\n:rtype: HttpResponse"
+      parameters:
+      - name: page
+        in: query
+        description: Page number in pagination
+        type: integer
+        default: 1
+      - name: page_size
+        in: query
+        description: Total records in a page
+        type: integer
+        default: 25
+      - name: sort
+        in: query
+        description: 'Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc'
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: 'Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category'
+        required: false
+        type: string
+      - name: indicator_id__in
+        in: query
+        description: Filter data by multiple indicator id. Put multiple filter using comma separator.
+        type: string
+      - name: indicator_shortcode__in
+        in: query
+        description: Filter data by multiple indicator shortcode. Put multiple filter using comma separator.
+        type: string
+      - name: dataset_uuid__in
+        in: query
+        description: Filter data by multiple reference dataset view uuid. Put multiple filter using comma separator.
+        type: string
+      - name: admin_level__in
+        in: query
+        description: Filter data by multiple admin level in number. Put multiple filter using comma separator.
+        type: string
+      - name: geom_id__in
+        in: query
+        description: Filter data by multiple geom id. Put multiple filter using comma separator.
+        type: string
+      - name: date__gte
+        in: query
+        description: Filter data from the date in format YYYY-MM-DD.
+        type: string
+      - name: date__lte
+        in: query
+        description: Filter data up to the date in format YYYY-MM-DD.
+        type: string
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/IndicatorValue'
+      tags:
+      - Data Browser
+definitions:
+  IndicatorValue:
+    required:
+    - date
+    - geom_id
+    type: object
+    properties:
+      id:
+        title: id
+        type: number
+      indicator:
+        title: Indicator
+        type: string
+      indicator_id:
+        title: Indicator id
+        type: number
+      value:
+        title: Value
+        type: string
+      date:
+        title: Date
+        type: string
+      geom_id:
+        title: Geom id
+        type: string
+      admin_level:
+        title: Entity admin level
+        type: number
+      entity_name:
+        title: Entity name
+        type: string
+      country_id:
+        title: Country id
+        type: string
+      country_geom_id:
+        title: Country geom id
+        type: string
+      country_name:
+        title: Country name
+        type: string
+      attributes:
+        title: Attributes
+        type: object
+      permission:
+        title: Permission
+        type: object
+        properties:
+          list:
+            title: List
+            type: boolean
+          read:
+            title: Read
+            type: boolean
+          edit:
+            title: Edit
+            type: boolean
+          share:
+            title: Share
+            type: boolean
+          delete:
+            title: Delete
+            type: boolean
+    title: IndicatorValue
+    example:
+      id: 1
+      indicator: Test indicator
+      indicator_id: 1
+      indicator_shortcode: TEST
+      value: 0
+      date: '1990-01-01'
+      geom_id: GEOM_1
+      admin_level: 1
+      entity_name: Geometry 1
+      country_id: 1
+      country_geom_id: COUNTRY_1
+      country_name: Country 1
+      attributes:
+        Value 1: 1
+      permission:
+        list: true
+        read: true
+        edit: true
+        share: true
+        delete: true
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

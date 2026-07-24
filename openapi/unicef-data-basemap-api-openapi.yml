@@ -1,0 +1,345 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: Basemap
+paths:
+  /basemaps/:
+    parameters: []
+    get:
+      operationId: basemap-list
+      description: Return list of accessed basemap for the user.
+      parameters:
+      - name: page
+        in: query
+        description: Page number in pagination
+        type: integer
+        default: 1
+      - name: page_size
+        in: query
+        description: Total records in a page
+        type: integer
+        default: 25
+      - name: sort
+        in: query
+        description: 'Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc'
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: 'Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category'
+        required: false
+        type: string
+      - name: name__contains
+        in: query
+        description: Filter data by partial name.
+        type: string
+      - name: description__contains
+        in: query
+        description: Filter data by partial description.
+        type: string
+      - name: category__name__in
+        in: query
+        description: Filter data by multiple category. Put multiple filter using comma separator.
+        type: string
+      - name: type__in
+        in: query
+        description: Filter data by multiple type. Put multiple filter using comma separator.
+        type: string
+      - name: project_slug__in
+        in: query
+        description: Filter data by multiple project slug. Put multiple filter using comma separator.
+        type: string
+      - name: project_id__in
+        in: query
+        description: Filter data by multiple project id. Put multiple filter using comma separator.
+        type: string
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/BasemapLayer'
+      tags:
+      - Basemap
+    post:
+      operationId: basemap-create
+      description: Create a basemap.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          description: Data that is needed to create/edit basemap.
+          type: object
+          properties:
+            name:
+              title: Name
+              type: string
+            description:
+              title: Description
+              type: string
+            category:
+              title: Category
+              type: string
+            url:
+              title: Url
+              type: string
+            type:
+              title: Type
+              description: The choices are [['XYZ Tile', 'WMS']]
+              type: string
+      responses:
+        '201':
+          description: ''
+          schema:
+            description: Data that is needed to create/edit basemap.
+            type: object
+            properties:
+              name:
+                title: Name
+                type: string
+              description:
+                title: Description
+                type: string
+              category:
+                title: Category
+                type: string
+              url:
+                title: Url
+                type: string
+              type:
+                title: Type
+                description: The choices are [['XYZ Tile', 'WMS']]
+                type: string
+      tags:
+      - Basemap
+  /basemaps/{id}/:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      type: string
+    get:
+      operationId: basemap-detail
+      description: Return detailed of basemap.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/BasemapLayer'
+      tags:
+      - Basemap
+    put:
+      operationId: basemap-detail-update
+      description: Replace a detailed of basemap.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          description: Data that is needed to create/edit basemap.
+          type: object
+          properties:
+            name:
+              title: Name
+              type: string
+            description:
+              title: Description
+              type: string
+            category:
+              title: Category
+              type: string
+            url:
+              title: Url
+              type: string
+            type:
+              title: Type
+              description: The choices are [['XYZ Tile', 'WMS']]
+              type: string
+      responses:
+        '200':
+          description: ''
+          schema:
+            description: Data that is needed to create/edit basemap.
+            type: object
+            properties:
+              name:
+                title: Name
+                type: string
+              description:
+                title: Description
+                type: string
+              category:
+                title: Category
+                type: string
+              url:
+                title: Url
+                type: string
+              type:
+                title: Type
+                description: The choices are [['XYZ Tile', 'WMS']]
+                type: string
+      tags:
+      - Basemap
+    patch:
+      operationId: basemap-detail-partial-update
+      description: Update just partial data based on payload a detailed of basemap.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          description: Data that is needed to create/edit basemap.
+          type: object
+          properties:
+            name:
+              title: Name
+              type: string
+            description:
+              title: Description
+              type: string
+            category:
+              title: Category
+              type: string
+            url:
+              title: Url
+              type: string
+            type:
+              title: Type
+              description: The choices are [['XYZ Tile', 'WMS']]
+              type: string
+      responses:
+        '200':
+          description: ''
+          schema:
+            description: Data that is needed to create/edit basemap.
+            type: object
+            properties:
+              name:
+                title: Name
+                type: string
+              description:
+                title: Description
+                type: string
+              category:
+                title: Category
+                type: string
+              url:
+                title: Url
+                type: string
+              type:
+                title: Type
+                description: The choices are [['XYZ Tile', 'WMS']]
+                type: string
+      tags:
+      - Basemap
+    delete:
+      operationId: basemap-detail-delete
+      description: Delete a basemap.
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Basemap
+definitions:
+  BasemapLayer:
+    required:
+    - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+      description:
+        title: Description
+        type: string
+      category:
+        title: Category
+        type: string
+      url:
+        title: Url
+        type: string
+      type:
+        title: Type
+        type: string
+      icon:
+        title: Icon
+        type: string
+      created_at:
+        title: Created at
+        type: string
+      created_by:
+        title: Creator
+        type: string
+      permission:
+        title: Permission
+        type: object
+        properties:
+          list:
+            title: List
+            type: boolean
+          read:
+            title: Read
+            type: boolean
+          edit:
+            title: Edit
+            type: boolean
+          share:
+            title: Share
+            type: boolean
+          delete:
+            title: Delete
+            type: boolean
+    title: BasemapLayer
+    example:
+      id: 1
+      category: TEST
+      created_by: Admin
+      created_at: '2023-01-01T00:00:00.00000Z'
+      permission:
+        list: true
+        read: true
+        edit: true
+        share: true
+        delete: true
+      name: Basemap name 1
+      description: Description
+      icon: http://localhost:2000/media/icons/icon.png
+      url: https://a.tile.openstreetmap.org/{z}/{x}/{y}.png
+      type: XYZ
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

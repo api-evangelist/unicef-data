@@ -1,0 +1,434 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap Reference datasets API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: Reference datasets
+paths:
+  /reference-datasets/:
+    parameters: []
+    get:
+      operationId: reference-datasets-list
+      description: Return list of accessed reference dataset for the user.
+      parameters:
+      - name: page
+        in: query
+        description: Page number in pagination
+        type: integer
+        default: 1
+      - name: page_size
+        in: query
+        description: Total records in a page
+        type: integer
+        default: 25
+      - name: sort
+        in: query
+        description: 'Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc'
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: 'Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category'
+        required: false
+        type: string
+      - name: name__contains
+        in: query
+        description: Filter data by partial name.
+        type: string
+      - name: identifier__in
+        in: query
+        description: Filter data by identifier.
+        type: string
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ReferenceDataset'
+      tags:
+      - Reference datasets
+  /reference-datasets/entity/:
+    parameters: []
+    get:
+      operationId: reference-datasets-entity-list
+      description: Return list of accessed entity of reference dataset for the user.
+      parameters:
+      - name: page
+        in: query
+        description: Page number in pagination
+        type: integer
+        default: 1
+      - name: page_size
+        in: query
+        description: Total records in a page
+        type: integer
+        default: 25
+      - name: sort
+        in: query
+        description: 'Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc'
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: 'Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category'
+        required: false
+        type: string
+      - name: name__contains
+        in: query
+        description: Filter data by partial name.
+        type: string
+      - name: concept_uuid__in
+        in: query
+        description: Filter data by concept_uuid.
+        type: string
+      - name: admin_level__in
+        in: query
+        description: Filter data by multiple admin level in number. Put multiple filter using comma separator.
+        type: string
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ApiEntity'
+      tags:
+      - Reference datasets
+  /reference-datasets/entity/{geom_id}/:
+    parameters:
+    - name: geom_id
+      in: path
+      required: true
+      type: string
+      pattern: '[^/]+'
+    get:
+      operationId: reference-datasets-entity-detail
+      description: Return detailed of entity of reference dataset.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ApiEntity'
+      tags:
+      - Reference datasets
+  /reference-datasets/{identifier}/:
+    parameters:
+    - name: identifier
+      in: path
+      required: true
+      type: string
+      pattern: '[0-9A-Fa-f]{8}(-[0-9A-Fa-f]{4}){3}-[0-9A-Fa-f]{12}'
+    get:
+      operationId: reference-datasets-detail
+      description: Return detailed of reference dataset.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReferenceDataset'
+      tags:
+      - Reference datasets
+    delete:
+      operationId: reference-datasets-detail-delete
+      description: Delete a reference dataset.
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Reference datasets
+  /reference-datasets/{identifier}/bbox/concept_uuid/:
+    parameters:
+    - name: identifier
+      in: path
+      required: true
+      type: string
+    post:
+      operationId: reference-datasets-operation-bbox
+      description: Return bbox of reference dataset entities.
+      parameters: []
+      responses:
+        '201':
+          description: ''
+      tags:
+      - Reference datasets
+  /reference-datasets/{identifier}/bbox/ucode/:
+    parameters:
+    - name: identifier
+      in: path
+      required: true
+      type: string
+    post:
+      operationId: reference-datasets-operation-bbox
+      description: Return bbox of reference dataset entities.
+      parameters: []
+      responses:
+        '201':
+          description: ''
+      tags:
+      - Reference datasets
+  /reference-datasets/{identifier}/entity/:
+    parameters:
+    - name: identifier
+      in: path
+      required: true
+      type: string
+    get:
+      operationId: reference-datasets-detail-entity-list
+      description: Return list of accessed entity of reference dataset for the user.
+      parameters:
+      - name: page
+        in: query
+        description: Page number in pagination
+        type: integer
+        default: 1
+      - name: page_size
+        in: query
+        description: Total records in a page
+        type: integer
+        default: 25
+      - name: sort
+        in: query
+        description: 'Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc'
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: 'Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category'
+        required: false
+        type: string
+      - name: name__contains
+        in: query
+        description: Filter data by partial name.
+        type: string
+      - name: concept_uuid__in
+        in: query
+        description: Filter data by concept_uuid.
+        type: string
+      - name: admin_level__in
+        in: query
+        description: Filter data by multiple admin level in number. Put multiple filter using comma separator.
+        type: string
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ApiEntity'
+      produces:
+      - application/geo+json
+      - application/json
+      tags:
+      - Reference datasets
+  /reference-datasets/{identifier}/entity/{geom_id}/:
+    parameters:
+    - name: identifier
+      in: path
+      required: true
+      type: string
+    - name: geom_id
+      in: path
+      required: true
+      type: string
+      pattern: '[^/]+'
+    get:
+      operationId: reference-datasets-detail-entity-detail
+      description: Return detailed of entity of reference dataset.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ApiEntity'
+      produces:
+      - application/geo+json
+      - application/json
+      tags:
+      - Reference datasets
+definitions:
+  ReferenceDataset:
+    required:
+    - identifier
+    type: object
+    properties:
+      uuid:
+        title: Uuid
+        type: string
+        readOnly: true
+      bbox:
+        title: Bbox
+        type: string
+        readOnly: true
+      vector_tiles:
+        title: Vector tiles
+        type: string
+        readOnly: true
+      possible_id_types:
+        title: Possible id types
+        type: string
+        readOnly: true
+      dataset_levels:
+        title: Dataset levels
+        type: string
+        readOnly: true
+      tags:
+        title: Tags
+        type: string
+        readOnly: true
+      permission:
+        title: Permission
+        type: string
+        readOnly: true
+      countries:
+        title: Countries
+        type: string
+        readOnly: true
+      version_data:
+        title: Version data
+        type: string
+        format: date-time
+      created_at:
+        title: Created at
+        type: string
+        format: date-time
+      modified_at:
+        title: Modified at
+        type: string
+        format: date-time
+        readOnly: true
+        x-nullable: true
+      identifier:
+        title: Identifier
+        description: Reference layer identifier.
+        type: string
+        maxLength: 256
+        minLength: 1
+      name:
+        title: Name
+        description: Reference layer name.
+        type: string
+        maxLength: 256
+        x-nullable: true
+      description:
+        title: Description
+        type: string
+        x-nullable: true
+      in_georepo:
+        title: In georepo
+        type: boolean
+  ApiEntity:
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        description: label of entity.
+        type: string
+        maxLength: 512
+        minLength: 1
+      ucode:
+        title: Ucode
+        type: string
+        readOnly: true
+      concept_uuid:
+        title: Concept uuid
+        description: This is concept uuid from georepo.
+        type: string
+        maxLength: 256
+        x-nullable: true
+      admin_level:
+        title: Admin level
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+        x-nullable: true
+      parents:
+        title: Parents
+        type: string
+        readOnly: true
+      level_name:
+        title: Level name
+        type: string
+        readOnly: true
+      bbox:
+        title: Bbox
+        type: string
+        readOnly: true
+      centroid:
+        title: Centroid
+        type: string
+        readOnly: true
+      ext_codes:
+        title: Ext codes
+        type: string
+        readOnly: true
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

@@ -1,0 +1,279 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap Code List API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: Code List
+paths:
+  /code-list/:
+    parameters: []
+    get:
+      operationId: codelist-list
+      description: Return list of code list.
+      parameters:
+      - name: page
+        in: query
+        description: Page number in pagination
+        type: integer
+        default: 1
+      - name: page_size
+        in: query
+        description: Total records in a page
+        type: integer
+        default: 25
+      - name: sort
+        in: query
+        description: 'Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc'
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: 'Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category'
+        required: false
+        type: string
+      - name: name__contains
+        in: query
+        description: Filter data by partial name.
+        type: string
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/CodeList'
+      tags:
+      - Code List
+    post:
+      operationId: codelist-create
+      description: Create a code list.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          description: Data that is needed to create/edit codelist.
+          type: object
+          properties:
+            name:
+              title: Name
+              type: string
+            description:
+              title: Description
+              type: string
+            codes:
+              title: Codes
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    title: Code name
+                    type: string
+                  description:
+                    title: Code description
+                    type: string
+                  value:
+                    title: Code value
+                    type: string
+      responses:
+        '201':
+          description: ''
+          schema:
+            description: Data that is needed to create/edit codelist.
+            type: object
+            properties:
+              name:
+                title: Name
+                type: string
+              description:
+                title: Description
+                type: string
+              codes:
+                title: Codes
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      title: Code name
+                      type: string
+                    description:
+                      title: Code description
+                      type: string
+                    value:
+                      title: Code value
+                      type: string
+      tags:
+      - Code List
+  /code-list/{id}/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this Codelist.
+      required: true
+      type: integer
+    get:
+      operationId: codelist-detail
+      description: Return detailed of code list.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/CodeList'
+      tags:
+      - Code List
+    put:
+      operationId: codelist-update
+      description: Update detailed of code list.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/CodeList'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/CodeList'
+      tags:
+      - Code List
+    patch:
+      operationId: codelist-patch
+      description: Patch detailed of code list.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/CodeList'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/CodeList'
+      tags:
+      - Code List
+    delete:
+      operationId: codelist-delete
+      description: Delete detailed of code list.
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Code List
+  /code-list/{id}/codes/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this Codelist.
+      required: true
+      type: integer
+    post:
+      operationId: codelist-code-add
+      description: List dashboard groups.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          description: Data that is needed to create/edit basemap.
+          type: object
+          properties:
+            name:
+              title: Name
+              type: string
+            description:
+              title: Description
+              type: string
+            value:
+              title: Value
+              type: string
+      responses:
+        '201':
+          description: ''
+          schema:
+            description: Data that is needed to create/edit basemap.
+            type: object
+            properties:
+              name:
+                title: Name
+                type: string
+              description:
+                title: Description
+                type: string
+              value:
+                title: Value
+                type: string
+      tags:
+      - Code List
+definitions:
+  CodeList:
+    required:
+    - name
+    - codes
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+      description:
+        title: Description
+        type: string
+      codes:
+        title: Codes
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              title: Code id
+              type: number
+            name:
+              title: Code name
+              type: string
+            value:
+              title: Code value
+              type: string
+    title: Code
+    example:
+      name: TEST
+      description: Description
+      codes:
+      - id: 1
+        name: testcode
+        value: 'yes'
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

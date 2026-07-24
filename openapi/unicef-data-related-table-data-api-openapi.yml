@@ -1,0 +1,215 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap Related table data API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: Related table data
+paths:
+  /related-tables/{related_tables_id}/data/:
+    parameters:
+    - name: related_tables_id
+      in: path
+      required: true
+      type: string
+    get:
+      operationId: related-table-data-list
+      description: Return list of related table rows for the user.
+      parameters:
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: Resource fetching successful.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RelatedTableRowApi'
+      tags:
+      - Related table data
+    post:
+      operationId: related-table-data-create
+      description: Create related table rows.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          description: Data needed to create/edit related table rows.
+          type: object
+          properties:
+            id:
+              title: Id
+              type: integer
+              readOnly: true
+            properties:
+              title: Row values
+              description: Keys are field names from fields_definition in the associated related table
+              type: object
+      responses:
+        '201':
+          description: ''
+          schema:
+            description: Data needed to create/edit related table rows.
+            type: object
+            properties:
+              id:
+                title: Id
+                type: integer
+                readOnly: true
+              properties:
+                title: Row values
+                description: Keys are field names from fields_definition in the associated related table
+                type: object
+      tags:
+      - Related table data
+  /related-tables/{related_tables_id}/data/{id}/:
+    parameters:
+    - name: related_tables_id
+      in: path
+      required: true
+      type: string
+    - name: id
+      in: path
+      required: true
+      type: string
+    get:
+      operationId: related-table-data-detail
+      description: Return detail of a related table row for the user.
+      parameters: []
+      responses:
+        '200':
+          description: Resource fetching successful.
+          schema:
+            $ref: '#/definitions/RelatedTableRowApi'
+      tags:
+      - Related table data
+    put:
+      operationId: related-table-data-update
+      description: Update a related table row.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          description: Data needed to create/edit related table rows.
+          type: object
+          properties:
+            id:
+              title: Id
+              type: integer
+              readOnly: true
+            properties:
+              title: Row values
+              description: Keys are field names from fields_definition in the associated related table
+              type: object
+      responses:
+        '200':
+          description: ''
+          schema:
+            description: Data needed to create/edit related table rows.
+            type: object
+            properties:
+              id:
+                title: Id
+                type: integer
+                readOnly: true
+              properties:
+                title: Row values
+                description: Keys are field names from fields_definition in the associated related table
+                type: object
+      tags:
+      - Related table data
+    patch:
+      operationId: related-table-data-partial-update
+      description: Update an existing related table row.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/RelatedTableRowApi'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/RelatedTableRowApi'
+      tags:
+      - Related table data
+    delete:
+      operationId: related-table-data-delete
+      description: Delete a related table row.
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Related table data
+  /related-tables/{related_tables_id}/geo-data/:
+    parameters:
+    - name: related_tables_id
+      in: path
+      required: true
+      type: string
+    get:
+      operationId: related-table-geo-data-list
+      description: Return list of data with geospatial data.
+      parameters:
+      - name: limit
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      - name: offset
+        in: query
+        description: The initial index from which to return the results.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: Resource fetching successful.
+      tags:
+      - Related table data
+definitions:
+  RelatedTableRowApi:
+    required:
+    - properties
+    type: object
+    properties:
+      id:
+        title: Id
+        type: integer
+        readOnly: true
+      properties:
+        title: Row values
+        description: Keys are field names from fields_definition in the associated related table
+        type: object
+    title: RelatedTableRow
+    example:
+      id: 1
+      properties:
+        field_1: value_1
+        field_2: '2024-02-14T00:00:00Z'
+        field_3: 42.7
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

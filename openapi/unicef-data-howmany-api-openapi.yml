@@ -1,0 +1,175 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap HowMany API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: HowMany
+paths:
+  /api/howmany:
+    post:
+      tags:
+      - HowMany
+      summary: Ask a question in natural language, in English, and get one or more data points back
+      operationId: HowMany_PostNewQuestion
+      produces:
+      - application/json
+      parameters:
+      - type: string
+        name: question
+        in: query
+        x-nullable: true
+      responses:
+        '200':
+          x-nullable: false
+          description: ''
+          schema:
+            $ref: '#/definitions/ApiIndResponse'
+  /api/howmany/mlt:
+    post:
+      tags:
+      - HowMany
+      summary: More like this for answering a question in natural language, in English
+      operationId: HowMany_PostMoreLikeThisQuestion
+      produces:
+      - application/json
+      parameters:
+      - type: string
+        name: question
+        in: query
+        description: The original question, asked before the more like this
+        x-nullable: true
+      - type: string
+        name: locationCode
+        in: query
+        description: The code of the country or region. If null, it means the world
+        x-nullable: true
+      - type: string
+        name: indicatorCode
+        in: query
+        description: The indicator Helix Code, e.g. DM_POP_U18
+        x-nullable: true
+      - type: string
+        name: indicatorID
+        in: query
+        description: The Solr wildcarded ID of a data point, e.g. UNICEF|MNCH|1.0|{ASTERISK}|MNCH_MLRCARE|_T|Y0T4|_T|_T|_T|_T|{ASTERISK}|{ASTERISK}
+        x-nullable: true
+      responses:
+        '200':
+          x-nullable: false
+          description: ''
+          schema:
+            $ref: '#/definitions/ApiIndResponse'
+definitions:
+  SearchIndicatorItem:
+    type: object
+    required:
+    - score
+    properties:
+      id:
+        type: string
+      value:
+        type: string
+      timeperiod:
+        type: string
+      location:
+        type: string
+      locationCode:
+        type: string
+      attributes:
+        type: array
+        items:
+          type: string
+      dimensions:
+        type: array
+        items:
+          type: string
+      excludeDims_ms:
+        type: array
+        items:
+          type: string
+      source:
+        type: string
+      dataflow:
+        type: string
+      indicator:
+        type: string
+      indicatorName:
+        type: string
+      sdmx_dataquery:
+        type: string
+      score:
+        type: number
+        format: decimal
+  SimpleIndicatorItem:
+    type: object
+    required:
+    - score
+    properties:
+      id:
+        type: string
+      indicator:
+        type: string
+      indicatorName:
+        type: string
+      score:
+        type: number
+        format: decimal
+  ApiIndResponse:
+    type: object
+    required:
+    - numResults
+    properties:
+      message:
+        type: string
+      errorCountry:
+        type: string
+      errorIndicator:
+        type: string
+      locationDetected:
+        type: string
+      locationCode:
+        type: string
+      indicatorDetected:
+        type: string
+      indicatorCodeDetected:
+        type: string
+      yearDetected:
+        type: string
+      similarIndicators:
+        type: array
+        items:
+          $ref: '#/definitions/SimpleIndicatorItem'
+      numResults:
+        type: integer
+        format: int32
+      spellcheckSuggestions:
+        type: array
+        items:
+          type: string
+      indicators:
+        type: array
+        items:
+          $ref: '#/definitions/SearchIndicatorItem'
+      indicatorsDetected:
+        type: array
+        items:
+          type: string
+      indicatorsNoData:
+        type: array
+        items:
+          type: string
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

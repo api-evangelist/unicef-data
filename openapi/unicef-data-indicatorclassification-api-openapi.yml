@@ -1,0 +1,59 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap IndicatorClassification API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: IndicatorClassification
+paths:
+  /api/IndicatorClassifications:
+    get:
+      tags:
+      - IndicatorClassification
+      summary: Get the list of all indicator classifications
+      operationId: IndicatorClassification_GetClassifications
+      produces:
+      - application/json
+      responses:
+        '200':
+          x-nullable: false
+          description: The list of all indicator classifications. For example, "Is SDG Indicator", "Is SOWC", "Is Emergency indicator", etc.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/IndicatorClassificationItem'
+definitions:
+  IndicatorClassificationItem:
+    type: object
+    required:
+    - iclassId
+    properties:
+      iclassId:
+        type: integer
+        format: int32
+      name:
+        type: string
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+      type:
+        type: string
+      value:
+        type: string
+      code:
+        type: string
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

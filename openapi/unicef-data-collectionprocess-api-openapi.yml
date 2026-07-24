@@ -1,0 +1,61 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap CollectionProcess API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: CollectionProcess
+paths:
+  /api/collectionprocesses:
+    get:
+      tags:
+      - CollectionProcess
+      summary: Get the list of all collection processes/mechanisms related to indicators
+      operationId: CollectionProcess_GetCMs
+      produces:
+      - application/json
+      responses:
+        '200':
+          x-nullable: false
+          description: The list of all collection processes/mechanisms related to indicators. Examples are "CRAVE" and "SDG Consultation"
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CollectionProcessItem'
+definitions:
+  CollectionProcessItem:
+    type: object
+    required:
+    - collectionProcessId
+    properties:
+      collectionProcessId:
+        type: integer
+        format: int32
+      name:
+        type: string
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+      description:
+        type: string
+      code:
+        type: string
+      dataRelease:
+        type: string
+      dataCollection:
+        type: string
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

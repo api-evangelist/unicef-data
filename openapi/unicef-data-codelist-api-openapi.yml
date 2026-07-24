@@ -1,0 +1,155 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap Codelist API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: Codelist
+paths:
+  /sdmx/codelists/indicators/{Version}/{Agency}/{IndicatorCodelist}:
+    get:
+      tags:
+      - Codelist
+      summary: SDMX published indicators codelist for a given Agency
+      operationId: Codelist_GetIndicators
+      produces:
+      - application/xml
+      parameters:
+      - type: number
+        name: Version
+        in: path
+        required: true
+        description: The version of the codelist (e.g. 1.3). Only 1 decimal digit is allowed
+        format: decimal
+        x-nullable: false
+      - type: string
+        name: Agency
+        in: path
+        required: true
+        description: The name of the agency used to filter indicators (e.g. UNICEF). This is the agency owner of the indicator. Indicators borrowed by other agencies are not returned by this method
+        x-nullable: false
+      - type: string
+        name: IndicatorCodelist
+        in: path
+        required: true
+        description: The name of the SDMX indicator codelist associated to the agency (e.g. CL_UNICEF_INDICATOR)
+        x-nullable: false
+      responses:
+        '406':
+          x-nullable: false
+          description: Input version has more than 1 decimal digit
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+  /sdmx/codelists/domains/{Version}/{Agency}/{Codelist}:
+    get:
+      tags:
+      - Codelist
+      summary: Support the agency / sector / domain / subdomain as an SDMX category scheme
+      operationId: Codelist_GetDomains
+      produces:
+      - application/xml
+      parameters:
+      - type: number
+        name: Version
+        in: path
+        required: true
+        description: The version of the category scheme (e.g. 1.3). Only 1 decimal digit is allowed
+        format: decimal
+        x-nullable: false
+      - type: string
+        name: Agency
+        in: path
+        required: true
+        description: The name of the agency used to filter domains (e.g. UNICEF). This is the agency owner of the indicator. Indicators borrowed by other agencies are not returned by this method
+        x-nullable: false
+      - type: string
+        name: Codelist
+        in: path
+        required: true
+        description: The name of the codelist associated to the agency (e.g. CS_UNICEF)
+        x-nullable: false
+      responses:
+        '406':
+          x-nullable: false
+          description: Input version has more than 1 decimal digit
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+  /sdmx/codelists/countries/{version}:
+    get:
+      tags:
+      - Codelist
+      summary: SDMX Country Codelist (only published countries)
+      operationId: Codelist_GetCountries
+      produces:
+      - application/xml
+      parameters:
+      - type: number
+        name: version
+        in: path
+        required: true
+        description: A decimal expressing the version of the codelist. e.g. 1.0. Only 1 decimal digit is allowed
+        format: decimal
+        x-nullable: false
+      responses:
+        '406':
+          x-nullable: false
+          description: Input version has more than 1 decimal digit
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+  /sdmx/codelists/regions/{version}:
+    get:
+      tags:
+      - Codelist
+      summary: SDMX Regions Codelist
+      operationId: Codelist_GetRegions
+      produces:
+      - application/xml
+      parameters:
+      - type: number
+        name: version
+        in: path
+        required: true
+        description: A decimal expressing the version of the codelist. e.g. 1.0. Only 1 decimal digit is allowed
+        format: decimal
+        x-nullable: false
+      responses:
+        '406':
+          x-nullable: false
+          description: Input version has more than 1 decimal digit
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+definitions:
+  ProblemDetails:
+    type: object
+    additionalProperties: {}
+    required:
+    - extensions
+    properties:
+      type:
+        type: string
+      title:
+        type: string
+      status:
+        type: integer
+        format: int32
+      detail:
+        type: string
+      instance:
+        type: string
+      extensions:
+        type: object
+        additionalProperties: {}
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

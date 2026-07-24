@@ -1,0 +1,55 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap YearAssignmentMethod API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: YearAssignmentMethod
+paths:
+  /api/YearAssignmentMethods:
+    get:
+      tags:
+      - YearAssignmentMethod
+      summary: Get the list of all indicator year assignement methods
+      operationId: YearAssignmentMethod_GetYearAssignmentMethods
+      produces:
+      - application/json
+      responses:
+        '200':
+          x-nullable: false
+          description: The list of all indicator year assignement methods, e.g. "Start of Fieldwork" or "End of Fieldwork"
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/YearAssignmentMethodItem'
+definitions:
+  YearAssignmentMethodItem:
+    type: object
+    required:
+    - yamId
+    properties:
+      yamId:
+        type: integer
+        format: int32
+      name:
+        type: string
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+      code:
+        type: string
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

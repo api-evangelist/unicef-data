@@ -1,0 +1,1464 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap Country API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: Country
+paths:
+  /api/countries:
+    get:
+      tags:
+      - Country
+      summary: Get the list of all existing and existed countries
+      operationId: Country_GetCountries
+      produces:
+      - application/json
+      responses:
+        '200':
+          x-nullable: false
+          description: The list of all existing and existed countries
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CountryItem'
+  /api/countries/current:
+    get:
+      tags:
+      - Country
+      summary: Get the list of all current countries
+      operationId: Country_GetCurrentCountries
+      produces:
+      - application/json
+      responses:
+        '200':
+          x-nullable: false
+          description: The list of all current countries
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CountryItem'
+  /api/countries/organizations:
+    get:
+      tags:
+      - Country
+      summary: Get the list of all organizations responsible for country names
+      operationId: Country_GetCountryNameOrganizations
+      produces:
+      - application/json
+      responses:
+        '200':
+          x-nullable: false
+          description: The list of all organizations responsible for country names, e.g. UNICEF, UNSD, WB
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CountryOrganization'
+definitions:
+  SubdomainItem:
+    type: object
+    required:
+    - subdomainId
+    - sectorId
+    - domainId
+    properties:
+      subdomainId:
+        type: integer
+        format: int32
+      sectorId:
+        type: integer
+        format: int32
+      sectorName:
+        type: string
+      domainId:
+        type: integer
+        format: int32
+      domainName:
+        type: string
+      name:
+        type: string
+      shortName:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+  RegionName:
+    type: object
+    required:
+    - id
+    - regionId
+    - languageId
+    - createdDate
+    properties:
+      id:
+        type: integer
+        format: int32
+      regionId:
+        type: integer
+        format: int32
+      languageId:
+        type: integer
+        format: int32
+      value:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      language:
+        $ref: '#/definitions/Language'
+      region:
+        $ref: '#/definitions/Region'
+  StrategicPlanStatement:
+    type: object
+    required:
+    - id
+    - editedDate
+    properties:
+      id:
+        type: integer
+        format: int32
+      code:
+        type: string
+      statement:
+        type: string
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+        format: date-time
+      spareaId:
+        type: integer
+        format: int32
+      indicators:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator'
+      sparea:
+        $ref: '#/definitions/StrategicPlan'
+  Country2SectorPriority:
+    type: object
+    required:
+    - id
+    - countryId
+    - sectorId
+    properties:
+      id:
+        type: integer
+        format: int64
+      countryId:
+        type: integer
+        format: int32
+      sectorId:
+        type: integer
+        format: int32
+      country:
+        $ref: '#/definitions/Country'
+      sector:
+        $ref: '#/definitions/Sector'
+  RegionCollection:
+    type: object
+    required:
+    - regionCollectionId
+    - createdDate
+    properties:
+      regionCollectionId:
+        type: integer
+        format: int32
+      name:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      code:
+        type: string
+      regions:
+        type: array
+        items:
+          $ref: '#/definitions/Region'
+  Indicator2DataSource:
+    type: object
+    required:
+    - id
+    - indicatorId
+    - dataSourceId
+    - createdDate
+    properties:
+      id:
+        type: integer
+        format: int64
+      indicatorId:
+        type: integer
+        format: int32
+      dataSourceId:
+        type: integer
+        format: int64
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      dataSource:
+        $ref: '#/definitions/DataSource'
+      indicator:
+        $ref: '#/definitions/Indicator'
+  Tags2Indicator:
+    type: object
+    required:
+    - id
+    - indicatorId
+    - tagId
+    - createdDate
+    properties:
+      id:
+        type: integer
+        format: int64
+      indicatorId:
+        type: integer
+        format: int32
+      tagId:
+        type: integer
+        format: int64
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      indicator:
+        $ref: '#/definitions/Indicator'
+      tag:
+        $ref: '#/definitions/Tag'
+  Indicator:
+    type: object
+    required:
+    - indicatorId
+    - createdDate
+    - isPublished
+    - isDeleted
+    properties:
+      indicatorId:
+        type: integer
+        format: int32
+      code:
+        type: string
+      collectionMechanismId:
+        type: integer
+        format: int32
+      yamid:
+        type: integer
+        format: int32
+      subdomainId:
+        type: integer
+        format: int32
+      domainId:
+        type: integer
+        format: int32
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+        format: date-time
+      helixCode:
+        type: string
+      isPublished:
+        type: boolean
+      changePublishedBy:
+        type: string
+      changePublishedDate:
+        type: string
+        format: date-time
+      isDeleted:
+        type: boolean
+      strategicPlanId:
+        type: integer
+        format: int32
+      indType:
+        type: integer
+        format: int64
+      strategicPlanStatementId:
+        type: integer
+        format: int32
+      custodian:
+        type: integer
+        format: int32
+      ownerAgency:
+        type: integer
+        format: int32
+      parentIndicatorId:
+        type: integer
+        format: int32
+      collectionMechanism:
+        $ref: '#/definitions/CollectionMechanism'
+      custodianNavigation:
+        $ref: '#/definitions/Custodian'
+      domain:
+        $ref: '#/definitions/Domain'
+      indTypeNavigation:
+        $ref: '#/definitions/IndicatorType'
+      indicator2Agencies:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator2Agency'
+      indicator2Classifications:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator2Classification'
+      indicator2Custodians:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator2Custodian'
+      indicator2DataCompilers:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator2DataCompiler'
+      indicator2DataProviders:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator2DataProvider'
+      indicator2DataSources:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator2DataSource'
+      indicatorFiles:
+        type: array
+        items:
+          $ref: '#/definitions/IndicatorFile'
+      indicatorQuestions:
+        type: array
+        items:
+          $ref: '#/definitions/IndicatorQuestion'
+      indicatorSimpleAttributeValues:
+        type: array
+        items:
+          $ref: '#/definitions/IndicatorSimpleAttributeValue'
+      inverseParentIndicator:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator'
+      ownerAgencyNavigation:
+        $ref: '#/definitions/CountryOrganization'
+      parentIndicator:
+        $ref: '#/definitions/Indicator'
+      relatedIndicatorIndicators:
+        type: array
+        items:
+          $ref: '#/definitions/RelatedIndicator'
+      relatedIndicatorTargetIndicators:
+        type: array
+        items:
+          $ref: '#/definitions/RelatedIndicator'
+      strategicPlan:
+        $ref: '#/definitions/StrategicPlan'
+      strategicPlanStatement:
+        $ref: '#/definitions/StrategicPlanStatement'
+      subdomain:
+        $ref: '#/definitions/Subdomain'
+      tags2Indicators:
+        type: array
+        items:
+          $ref: '#/definitions/Tags2Indicator'
+      yam:
+        $ref: '#/definitions/YearAssignmentMethod'
+  CountryRegionsItem:
+    type: object
+    properties:
+      countryId:
+        type: integer
+        format: int32
+      countryCndCode:
+        type: string
+      countryISO:
+        type: string
+      regionId:
+        type: integer
+        format: int32
+      regionCndCode:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+  User:
+    type: object
+    required:
+    - userId
+    - isAdministrator
+    - isActive
+    - isAgencyAdmin
+    properties:
+      userId:
+        type: integer
+        format: int32
+      username:
+        type: string
+      fullname:
+        type: string
+      isAdministrator:
+        type: boolean
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+        format: date-time
+      isActive:
+        type: boolean
+      division:
+        type: string
+      agency:
+        type: integer
+        format: int32
+      isAgencyAdmin:
+        type: boolean
+      agencyNavigation:
+        $ref: '#/definitions/CountryOrganization'
+      user2Sectors:
+        type: array
+        items:
+          $ref: '#/definitions/User2Sector'
+  Indicator2Classification:
+    type: object
+    required:
+    - id
+    - indicatorId
+    - classificationId
+    properties:
+      id:
+        type: integer
+        format: int32
+      indicatorId:
+        type: integer
+        format: int32
+      classificationId:
+        type: integer
+        format: int32
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      value:
+        type: string
+      classification:
+        $ref: '#/definitions/IndicatorClassification'
+      indicator:
+        $ref: '#/definitions/Indicator'
+  YearAssignmentMethod:
+    type: object
+    required:
+    - yamid
+    properties:
+      yamid:
+        type: integer
+        format: int32
+      name:
+        type: string
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+        format: date-time
+      code:
+        type: string
+      indicators:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator'
+  Domain:
+    type: object
+    required:
+    - domainId
+    - sectorId
+    properties:
+      domainId:
+        type: integer
+        format: int32
+      name:
+        type: string
+      shortName:
+        type: string
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+        format: date-time
+      sectorId:
+        type: integer
+        format: int32
+      indicators:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator'
+      sector:
+        $ref: '#/definitions/Sector'
+      subdomains:
+        type: array
+        items:
+          $ref: '#/definitions/Subdomain'
+  StrategicPlan:
+    type: object
+    required:
+    - id
+    - editedDate
+    properties:
+      id:
+        type: integer
+        format: int32
+      name:
+        type: string
+      description:
+        type: string
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+        format: date-time
+      code:
+        type: string
+      indicators:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator'
+      strategicPlanStatements:
+        type: array
+        items:
+          $ref: '#/definitions/StrategicPlanStatement'
+  RelatedIndicator:
+    type: object
+    required:
+    - id
+    - indicatorId
+    - targetIndicatorId
+    - createdDate
+    properties:
+      id:
+        type: integer
+        format: int64
+      indicatorId:
+        type: integer
+        format: int32
+      targetIndicatorId:
+        type: integer
+        format: int32
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      indicator:
+        $ref: '#/definitions/Indicator'
+      targetIndicator:
+        $ref: '#/definitions/Indicator'
+  DomainItem:
+    type: object
+    required:
+    - domainId
+    - sectorId
+    properties:
+      domainId:
+        type: integer
+        format: int32
+      sectorId:
+        type: integer
+        format: int32
+      sectorName:
+        type: string
+      name:
+        type: string
+      shortName:
+        type: string
+      subdomains:
+        type: array
+        items:
+          $ref: '#/definitions/SubdomainItem'
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+  RegionSeries2Custodian:
+    type: object
+    required:
+    - regionSeries2CustodianId
+    - regionSeriesId
+    - custodianId
+    - createdDate
+    properties:
+      regionSeries2CustodianId:
+        type: integer
+        format: int32
+      regionSeriesId:
+        type: integer
+        format: int32
+      custodianId:
+        type: integer
+        format: int32
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      custodian:
+        $ref: '#/definitions/Custodian'
+      regionSeries:
+        $ref: '#/definitions/RegionSeries'
+  Sector:
+    type: object
+    required:
+    - sectorId
+    properties:
+      sectorId:
+        type: integer
+        format: int32
+      name:
+        type: string
+      shortName:
+        type: string
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+        format: date-time
+      helixName:
+        type: string
+      country2SectorPriorities:
+        type: array
+        items:
+          $ref: '#/definitions/Country2SectorPriority'
+      domains:
+        type: array
+        items:
+          $ref: '#/definitions/Domain'
+      sector2Agencies:
+        type: array
+        items:
+          $ref: '#/definitions/Sector2Agency'
+      user2Sectors:
+        type: array
+        items:
+          $ref: '#/definitions/User2Sector'
+  IndicatorClassification:
+    type: object
+    required:
+    - iclassId
+    - editedDate
+    properties:
+      iclassId:
+        type: integer
+        format: int32
+      name:
+        type: string
+      type:
+        type: string
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+        format: date-time
+      code:
+        type: string
+      indicator2Classifications:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator2Classification'
+  Country2Region:
+    type: object
+    required:
+    - id
+    - countryId
+    - regionId
+    - createdDate
+    properties:
+      id:
+        type: integer
+        format: int32
+      countryId:
+        type: integer
+        format: int32
+      regionId:
+        type: integer
+        format: int32
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      country:
+        $ref: '#/definitions/Country'
+      region:
+        $ref: '#/definitions/Region'
+  CountryName:
+    type: object
+    required:
+    - countryNameId
+    - countryId
+    - languageId
+    properties:
+      countryNameId:
+        type: integer
+        format: int32
+      countryId:
+        type: integer
+        format: int32
+      languageId:
+        type: integer
+        format: int32
+      value:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      organizationId:
+        type: integer
+        format: int32
+      country:
+        $ref: '#/definitions/Country'
+      language:
+        $ref: '#/definitions/Language'
+      organization:
+        $ref: '#/definitions/CountryOrganization'
+  Country:
+    type: object
+    required:
+    - countryId
+    - createdDate
+    properties:
+      countryId:
+        type: integer
+        format: int32
+      iso3:
+        type: string
+      m49:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      cndcountryCode:
+        type: string
+      isCurrent:
+        type: boolean
+      isSowc:
+        type: boolean
+      isCountDown:
+        type: boolean
+      isPublished:
+        type: boolean
+      country2Regions:
+        type: array
+        items:
+          $ref: '#/definitions/Country2Region'
+      country2SectorPriorities:
+        type: array
+        items:
+          $ref: '#/definitions/Country2SectorPriority'
+      countryNames:
+        type: array
+        items:
+          $ref: '#/definitions/CountryName'
+  Indicator2DataCompiler:
+    type: object
+    required:
+    - id
+    - indicatorId
+    - dataCompilerId
+    properties:
+      id:
+        type: integer
+        format: int32
+      indicatorId:
+        type: integer
+        format: int32
+      dataCompilerId:
+        type: integer
+        format: int32
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      dataCompiler:
+        $ref: '#/definitions/Custodian'
+      indicator:
+        $ref: '#/definitions/Indicator'
+  CollectionMechanism:
+    type: object
+    required:
+    - collectionMechanismId
+    - editedDate
+    properties:
+      collectionMechanismId:
+        type: integer
+        format: int32
+      name:
+        type: string
+      description:
+        type: string
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+        format: date-time
+      code:
+        type: string
+      dataRelease:
+        type: string
+      dataCollection:
+        type: string
+      indicators:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator'
+  Indicator2Custodian:
+    type: object
+    required:
+    - id
+    - indicatorId
+    - custodianId
+    properties:
+      id:
+        type: integer
+        format: int32
+      indicatorId:
+        type: integer
+        format: int32
+      custodianId:
+        type: integer
+        format: int32
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      custodian:
+        $ref: '#/definitions/Custodian'
+      indicator:
+        $ref: '#/definitions/Indicator'
+  Tag:
+    type: object
+    required:
+    - id
+    properties:
+      id:
+        type: integer
+        format: int64
+      tagName:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      tags2Indicators:
+        type: array
+        items:
+          $ref: '#/definitions/Tags2Indicator'
+  Custodian:
+    type: object
+    required:
+    - custodianId
+    - editedDate
+    properties:
+      custodianId:
+        type: integer
+        format: int32
+      name:
+        type: string
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+        format: date-time
+      code:
+        type: string
+      indicator2Custodians:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator2Custodian'
+      indicator2DataCompilers:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator2DataCompiler'
+      indicator2DataProviders:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator2DataProvider'
+      indicators:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator'
+      regionSeries2Custodians:
+        type: array
+        items:
+          $ref: '#/definitions/RegionSeries2Custodian'
+  Language:
+    type: object
+    required:
+    - languageId
+    properties:
+      languageId:
+        type: integer
+        format: int32
+      name:
+        type: string
+      iso6392:
+        type: string
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+        format: date-time
+      countryNames:
+        type: array
+        items:
+          $ref: '#/definitions/CountryName'
+      indicatorSimpleAttributeValues:
+        type: array
+        items:
+          $ref: '#/definitions/IndicatorSimpleAttributeValue'
+      regionNames:
+        type: array
+        items:
+          $ref: '#/definitions/RegionName'
+  IndicatorQuestion:
+    type: object
+    required:
+    - id
+    - indicatorId
+    - createdDate
+    properties:
+      id:
+        type: integer
+        format: int64
+      indicatorId:
+        type: integer
+        format: int32
+      question:
+        type: string
+      dwDataPointId:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      indicator:
+        $ref: '#/definitions/Indicator'
+  Indicator2Agency:
+    type: object
+    required:
+    - id
+    - indicatorId
+    - agencyId
+    - createdDate
+    properties:
+      id:
+        type: integer
+        format: int64
+      indicatorId:
+        type: integer
+        format: int32
+      agencyId:
+        type: integer
+        format: int32
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      agency:
+        $ref: '#/definitions/CountryOrganization'
+      indicator:
+        $ref: '#/definitions/Indicator'
+  Sector2Agency:
+    type: object
+    required:
+    - id
+    - sectorId
+    - agencyId
+    - createdDate
+    properties:
+      id:
+        type: integer
+        format: int64
+      sectorId:
+        type: integer
+        format: int32
+      agencyId:
+        type: integer
+        format: int32
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      agency:
+        $ref: '#/definitions/CountryOrganization'
+      sector:
+        $ref: '#/definitions/Sector'
+  IndicatorSimpleAttribute:
+    type: object
+    required:
+    - attributeId
+    - hasTranslation
+    - editedDate
+    properties:
+      attributeId:
+        type: integer
+        format: int32
+      code:
+        type: string
+      name:
+        type: string
+      displayName:
+        type: string
+      hasTranslation:
+        type: boolean
+      weight:
+        type: integer
+        format: int32
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+        format: date-time
+      definition:
+        type: string
+      indicatorFiles:
+        type: array
+        items:
+          $ref: '#/definitions/IndicatorFile'
+      indicatorSimpleAttributeValues:
+        type: array
+        items:
+          $ref: '#/definitions/IndicatorSimpleAttributeValue'
+  CountryNameItem:
+    type: object
+    properties:
+      countryId:
+        type: integer
+        format: int32
+      languageId:
+        type: integer
+        format: int32
+      languageName:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+      value:
+        type: string
+      organization:
+        type: string
+      organizationId:
+        type: integer
+        format: int32
+  Indicator2DataProvider:
+    type: object
+    required:
+    - id
+    - indicatorId
+    - dataProviderId
+    properties:
+      id:
+        type: integer
+        format: int32
+      indicatorId:
+        type: integer
+        format: int32
+      dataProviderId:
+        type: integer
+        format: int32
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      dataProvider:
+        $ref: '#/definitions/Custodian'
+      indicator:
+        $ref: '#/definitions/Indicator'
+  CountryItem:
+    type: object
+    required:
+    - countryId
+    - isCurrent
+    - isSOWC
+    - isCountDown
+    - isPublished
+    properties:
+      countryId:
+        type: integer
+        format: int32
+      iso3:
+        type: string
+      m49:
+        type: string
+      isCurrent:
+        type: boolean
+      isSOWC:
+        type: boolean
+      isCountDown:
+        type: boolean
+      isPublished:
+        type: boolean
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+      cndcountryCode:
+        type: string
+      regions:
+        type: array
+        items:
+          $ref: '#/definitions/CountryRegionsItem'
+      language2Name:
+        type: array
+        items:
+          $ref: '#/definitions/CountryNameItem'
+      sectorPriorities:
+        type: array
+        items:
+          $ref: '#/definitions/SectorItem'
+  CountryOrganization:
+    type: object
+    required:
+    - id
+    properties:
+      id:
+        type: integer
+        format: int32
+      organization:
+        type: string
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+        format: date-time
+      code:
+        type: string
+      countryNames:
+        type: array
+        items:
+          $ref: '#/definitions/CountryName'
+      indicator2Agencies:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator2Agency'
+      indicators:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator'
+      sector2Agencies:
+        type: array
+        items:
+          $ref: '#/definitions/Sector2Agency'
+      users:
+        type: array
+        items:
+          $ref: '#/definitions/User'
+  IndicatorType:
+    type: object
+    required:
+    - id
+    properties:
+      id:
+        type: integer
+        format: int64
+      typeName:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      indicators:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator'
+  DataSource:
+    type: object
+    required:
+    - id
+    properties:
+      id:
+        type: integer
+        format: int64
+      sourceName:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      indicator2DataSources:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator2DataSource'
+  Region:
+    type: object
+    required:
+    - regionId
+    - level
+    properties:
+      regionId:
+        type: integer
+        format: int32
+      m49:
+        type: string
+      altName:
+        type: string
+      status:
+        type: string
+      level:
+        type: integer
+        format: int32
+      description:
+        type: string
+      parentRegionId:
+        type: integer
+        format: int32
+      collectionId:
+        type: integer
+        format: int32
+      seriesId:
+        type: integer
+        format: int32
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      cndregionalCode:
+        type: string
+      organization:
+        type: string
+      collection:
+        $ref: '#/definitions/RegionCollection'
+      country2Regions:
+        type: array
+        items:
+          $ref: '#/definitions/Country2Region'
+      inverseParentRegion:
+        type: array
+        items:
+          $ref: '#/definitions/Region'
+      parentRegion:
+        $ref: '#/definitions/Region'
+      regionNames:
+        type: array
+        items:
+          $ref: '#/definitions/RegionName'
+      series:
+        $ref: '#/definitions/RegionSeries'
+  IndicatorFile:
+    type: object
+    required:
+    - id
+    - indicator
+    - uploadedDate
+    properties:
+      id:
+        type: integer
+        format: int64
+      fileName:
+        type: string
+      originalFileName:
+        type: string
+      title:
+        type: string
+      description:
+        type: string
+      indicator:
+        type: integer
+        format: int32
+      attribute:
+        type: integer
+        format: int32
+      idDeleted:
+        type: boolean
+      uploadedBy:
+        type: string
+      uploadedDate:
+        type: string
+        format: date-time
+      attributeNavigation:
+        $ref: '#/definitions/IndicatorSimpleAttribute'
+      indicatorNavigation:
+        $ref: '#/definitions/Indicator'
+  Subdomain:
+    type: object
+    required:
+    - subdomainId
+    - editedDate
+    - domainId
+    properties:
+      subdomainId:
+        type: integer
+        format: int32
+      name:
+        type: string
+      shortName:
+        type: string
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+        format: date-time
+      domainId:
+        type: integer
+        format: int32
+      domain:
+        $ref: '#/definitions/Domain'
+      indicators:
+        type: array
+        items:
+          $ref: '#/definitions/Indicator'
+  IndicatorSimpleAttributeValue:
+    type: object
+    required:
+    - indicatorSimpleAttributeValueId
+    - indicatorId
+    - attributeId
+    - languageId
+    - version
+    properties:
+      indicatorSimpleAttributeValueId:
+        type: integer
+        format: int32
+      indicatorId:
+        type: integer
+        format: int32
+      attributeId:
+        type: integer
+        format: int32
+      languageId:
+        type: integer
+        format: int32
+      version:
+        type: string
+        format: date-time
+      value:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      attribute:
+        $ref: '#/definitions/IndicatorSimpleAttribute'
+      indicator:
+        $ref: '#/definitions/Indicator'
+      language:
+        $ref: '#/definitions/Language'
+  SectorItem:
+    type: object
+    required:
+    - sectorId
+    properties:
+      sectorId:
+        type: integer
+        format: int32
+      name:
+        type: string
+      shortName:
+        type: string
+      helixName:
+        type: string
+      domains:
+        type: array
+        items:
+          $ref: '#/definitions/DomainItem'
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+      agencies:
+        type: array
+        items:
+          type: string
+      agenciesId:
+        type: array
+        items:
+          type: integer
+          format: int32
+  User2Sector:
+    type: object
+    required:
+    - id
+    - userId
+    - sectorId
+    - createdDate
+    properties:
+      id:
+        type: integer
+        format: int64
+      userId:
+        type: integer
+        format: int32
+      sectorId:
+        type: integer
+        format: int32
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      sector:
+        $ref: '#/definitions/Sector'
+      user:
+        $ref: '#/definitions/User'
+  RegionSeries:
+    type: object
+    required:
+    - regionSeriesId
+    - createdDate
+    properties:
+      regionSeriesId:
+        type: integer
+        format: int32
+      code:
+        type: string
+      name:
+        type: string
+      description:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+      regionSeries2Custodians:
+        type: array
+        items:
+          $ref: '#/definitions/RegionSeries2Custodian'
+      regions:
+        type: array
+        items:
+          $ref: '#/definitions/Region'
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

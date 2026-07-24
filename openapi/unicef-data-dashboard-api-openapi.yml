@@ -1,0 +1,261 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap Dashboard API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: Dashboard
+paths:
+  /dashboards/:
+    parameters: []
+    get:
+      operationId: dashboard-list
+      description: Return list of accessed dashboard for the user.
+      parameters:
+      - name: page
+        in: query
+        description: Page number in pagination
+        type: integer
+        default: 1
+      - name: page_size
+        in: query
+        description: Total records in a page
+        type: integer
+        default: 25
+      - name: sort
+        in: query
+        description: 'Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc'
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: 'Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category'
+        required: false
+        type: string
+      - name: name__contains
+        in: query
+        description: Filter data by partial name.
+        type: string
+      - name: description__contains
+        in: query
+        description: Filter data by partial description.
+        type: string
+      - name: category__name__in
+        in: query
+        description: Filter data by multiple category. Put multiple filter using comma separator.
+        type: string
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/DashboardBasic'
+      tags:
+      - Dashboard
+  /dashboards/groups/:
+    parameters: []
+    get:
+      operationId: dashboard-group-list
+      description: List dashboard groups.
+      parameters:
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/DashboardBasic'
+      tags:
+      - Dashboard
+  /dashboards/{slug}/:
+    parameters:
+    - name: slug
+      in: path
+      required: true
+      type: string
+    get:
+      operationId: dashboard-detail
+      description: Return detailed of dashboard.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/DashboardBasic'
+      tags:
+      - Dashboard
+    delete:
+      operationId: dashboard-detail-delete
+      description: Delete a dashboard.
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Dashboard
+  /dashboards/{slug}/as-feature/:
+    parameters:
+    - name: slug
+      in: path
+      required: true
+      type: string
+    post:
+      operationId: dashboard-detail-as-feature
+      description: Feature a dashboard.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DashboardBasic'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/DashboardBasic'
+      tags:
+      - Dashboard
+  /dashboards/{slug}/remove-as-feature/:
+    parameters:
+    - name: slug
+      in: path
+      required: true
+      type: string
+    post:
+      operationId: dashboard-detail-remove-as-feature
+      description: Remove feature a dashboard.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DashboardBasic'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/DashboardBasic'
+      tags:
+      - Dashboard
+definitions:
+  DashboardBasic:
+    required:
+    - slug
+    - name
+    type: object
+    properties:
+      id:
+        title: Id
+        type: string
+        readOnly: true
+      slug:
+        title: Slug
+        type: string
+        format: slug
+        pattern: ^[-a-zA-Z0-9_]+$
+        maxLength: 512
+        minLength: 1
+      icon:
+        title: Icon
+        type: string
+        readOnly: true
+        x-nullable: true
+        format: uri
+      thumbnail:
+        title: Thumbnail
+        type: string
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 512
+        minLength: 1
+      description:
+        title: Description
+        type: string
+        x-nullable: true
+      group:
+        title: Group
+        type: string
+        readOnly: true
+      category:
+        title: Category
+        type: string
+        readOnly: true
+      permission:
+        title: Permission
+        type: string
+        readOnly: true
+      reference_layer:
+        title: Reference layer
+        description: Reference layer.
+        type: integer
+        x-nullable: true
+      featured:
+        title: Featured
+        type: boolean
+      created_at:
+        title: Created at
+        type: string
+        readOnly: true
+      modified_at:
+        title: Modified at
+        type: string
+        readOnly: true
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

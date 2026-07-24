@@ -1,0 +1,717 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap Context layer API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: Context layer
+paths:
+  /context-layers/:
+    parameters: []
+    get:
+      operationId: context-layer-list
+      description: Return list of accessed context layer for the user.
+      parameters:
+      - name: page
+        in: query
+        description: Page number in pagination
+        type: integer
+        default: 1
+      - name: page_size
+        in: query
+        description: Total records in a page
+        type: integer
+        default: 25
+      - name: sort
+        in: query
+        description: 'Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc'
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: 'Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category'
+        required: false
+        type: string
+      - name: name__contains
+        in: query
+        description: Filter data by partial name.
+        type: string
+      - name: description__contains
+        in: query
+        description: Filter data by partial description.
+        type: string
+      - name: category__name__in
+        in: query
+        description: Filter data by multiple category. Put multiple filter using comma separator.
+        type: string
+      - name: type__in
+        in: query
+        description: Filter data by multiple type. Put multiple filter using comma separator.
+        type: string
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ContextLayer'
+      tags:
+      - Context layer
+    post:
+      operationId: context-layer-create
+      description: Create a context layer.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          description: Data that is needed to create/edit context layer.
+          type: object
+          properties:
+            name:
+              title: Name
+              type: string
+            description:
+              title: Description
+              type: string
+            category:
+              title: Category
+              type: string
+            url:
+              title: Url
+              type: string
+            type:
+              title: Type
+              description: The choices are ['ARCGIS', 'Geojson', 'Raster COG', 'Raster Tile', 'Vector Tile', 'Related Table', 'Cloud Native GIS Layer']
+              type: string
+            styles:
+              title: Styles
+              description: String of JSON containing style configuration. The styles are simply a list of layers in a Mapbox style.
+              type: object
+          example:
+            name: Context Layer
+            description: ''
+            layer_type: Cloud Native GIS Layer
+            category: Test
+            styles:
+            - id: '1'
+              type: circle
+              paint:
+                circle-color: '#98F194'
+                circle-radius: 6
+                circle-opacity: 1
+                circle-stroke-width: 1
+              source: 00000000-0000-0000-0000-000000000000
+              source-layer: default
+            - id: '2'
+              type: circle
+              paint:
+                circle-color: '#88005C'
+                circle-radius: 6
+                circle-opacity: 1
+                circle-stroke-width: 1
+              source: 00000000-0000-0000-0000-000000000000
+              source-layer: default
+      responses:
+        '201':
+          description: ''
+          schema:
+            description: Data that is needed to create/edit context layer.
+            type: object
+            properties:
+              name:
+                title: Name
+                type: string
+              description:
+                title: Description
+                type: string
+              category:
+                title: Category
+                type: string
+              url:
+                title: Url
+                type: string
+              type:
+                title: Type
+                description: The choices are ['ARCGIS', 'Geojson', 'Raster COG', 'Raster Tile', 'Vector Tile', 'Related Table', 'Cloud Native GIS Layer']
+                type: string
+              styles:
+                title: Styles
+                description: String of JSON containing style configuration. The styles are simply a list of layers in a Mapbox style.
+                type: object
+            example:
+              name: Context Layer
+              description: ''
+              layer_type: Cloud Native GIS Layer
+              category: Test
+              styles:
+              - id: '1'
+                type: circle
+                paint:
+                  circle-color: '#98F194'
+                  circle-radius: 6
+                  circle-opacity: 1
+                  circle-stroke-width: 1
+                source: 00000000-0000-0000-0000-000000000000
+                source-layer: default
+              - id: '2'
+                type: circle
+                paint:
+                  circle-color: '#88005C'
+                  circle-radius: 6
+                  circle-opacity: 1
+                  circle-stroke-width: 1
+                source: 00000000-0000-0000-0000-000000000000
+                source-layer: default
+      tags:
+      - Context layer
+  /context-layers/{context_layer_id}/attributes/:
+    parameters:
+    - name: context_layer_id
+      in: path
+      required: true
+      type: string
+    get:
+      operationId: context-layer-attribute-list
+      description: Return attributes of accessed context layer for the user.Specifically for cloud native layer.
+      parameters:
+      - name: page
+        in: query
+        description: Page number in pagination
+        type: integer
+        default: 1
+      - name: page_size
+        in: query
+        description: Total records in a page
+        type: integer
+        default: 25
+      - name: sort
+        in: query
+        description: 'Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc'
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: 'Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category'
+        required: false
+        type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Context layer
+  /context-layers/{context_layer_id}/data/download/:
+    parameters:
+    - name: context_layer_id
+      in: path
+      required: true
+      type: string
+    post:
+      operationId: context-layer-features-download
+      description: Download data based on output type.
+      parameters:
+      - name: file_format
+        in: query
+        description: Selected file format to be returned.
+        required: true
+        type: string
+        enum:
+        - original
+        - geojson
+        - shapefile
+        - geopackage
+        - kml
+      responses:
+        '201':
+          description: ''
+      tags:
+      - Context layer
+  /context-layers/{context_layer_id}/data/features/:
+    parameters:
+    - name: context_layer_id
+      in: path
+      required: true
+      type: string
+    get:
+      operationId: context-layer-features-list
+      description: Retrieve features of accessed context layer for the user.Specifically for cloud native layer.
+      parameters:
+      - name: page
+        in: query
+        description: Page number in pagination
+        type: integer
+        default: 1
+      - name: page_size
+        in: query
+        description: Total records in a page
+        type: integer
+        default: 25
+      - name: sort
+        in: query
+        description: 'Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc'
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: 'Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category'
+        required: false
+        type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Context layer
+    post:
+      operationId: context-layer-features-post
+      description: 'Add new feature(s) for the accessed context layer for the user.
+
+        Need to be at least edit data permission.
+
+
+        Payload is geojson format. The geometry type should be the same with the current data.
+
+        '
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          description: Geojson data.
+          type: object
+          example:
+            type: FeatureCollection
+            features:
+            - type: Feature
+              properties:
+                id: 1
+                name: New data
+                category: Category 1
+              geometry:
+                type: Point
+                coordinates:
+                - 0
+                - 0
+      responses:
+        '201':
+          description: ''
+          schema:
+            description: Geojson data.
+            type: object
+            example:
+              type: FeatureCollection
+              features:
+              - type: Feature
+                properties:
+                  id: 1
+                  name: New data
+                  category: Category 1
+                geometry:
+                  type: Point
+                  coordinates:
+                  - 0
+                  - 0
+      tags:
+      - Context layer
+    patch:
+      operationId: context-layer-features-put
+      description: "Update filtered feature of the accessed context layer for the user. Restricted to updating only one feature at a time. \nNeed to be at least edit data permission.\n\nPayload is in json with field names as keys and value as the new value. \ne.g. {\"field_1\": \"new_value\", \"field_2\": \"new_value}."
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Context layer
+    delete:
+      operationId: context-layer-features-delete
+      description: 'Remove filtered feature of the accessed context layer for the user. Restricted to deleting only one feature at a time.
+
+        Need to be at least edit data permission.'
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Context layer
+  /context-layers/{context_layer_id}/data/replace/:
+    parameters:
+    - name: context_layer_id
+      in: path
+      required: true
+      type: string
+    post:
+      operationId: context-layer-features-replace
+      description: 'Replace all data ofthe accessed context layer for the user.
+
+        Need to be at least edit data permission.
+
+
+        Payload is geojson format.'
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          description: Geojson data.
+          type: object
+          example:
+            type: FeatureCollection
+            features:
+            - type: Feature
+              properties:
+                id: 1
+                name: New data
+                category: Category 1
+              geometry:
+                type: Point
+                coordinates:
+                - 0
+                - 0
+      responses:
+        '201':
+          description: ''
+          schema:
+            description: Geojson data.
+            type: object
+            example:
+              type: FeatureCollection
+              features:
+              - type: Feature
+                properties:
+                  id: 1
+                  name: New data
+                  category: Category 1
+                geometry:
+                  type: Point
+                  coordinates:
+                  - 0
+                  - 0
+      tags:
+      - Context layer
+  /context-layers/{id}/:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      type: string
+    get:
+      operationId: context-layer-detail
+      description: Return detailed of context layer.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ContextLayer'
+      tags:
+      - Context layer
+    put:
+      operationId: context-layer-detail-update
+      description: Replace a detailed of context layer.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          description: Data that is needed to create/edit context layer.
+          type: object
+          properties:
+            name:
+              title: Name
+              type: string
+            description:
+              title: Description
+              type: string
+            category:
+              title: Category
+              type: string
+            url:
+              title: Url
+              type: string
+            type:
+              title: Type
+              description: The choices are ['ARCGIS', 'Geojson', 'Raster COG', 'Raster Tile', 'Vector Tile', 'Related Table', 'Cloud Native GIS Layer']
+              type: string
+            styles:
+              title: Styles
+              description: String of JSON containing style configuration. The styles are simply a list of layers in a Mapbox style.
+              type: object
+          example:
+            name: Context Layer
+            description: ''
+            layer_type: Cloud Native GIS Layer
+            category: Test
+            styles:
+            - id: '1'
+              type: circle
+              paint:
+                circle-color: '#98F194'
+                circle-radius: 6
+                circle-opacity: 1
+                circle-stroke-width: 1
+              source: 00000000-0000-0000-0000-000000000000
+              source-layer: default
+            - id: '2'
+              type: circle
+              paint:
+                circle-color: '#88005C'
+                circle-radius: 6
+                circle-opacity: 1
+                circle-stroke-width: 1
+              source: 00000000-0000-0000-0000-000000000000
+              source-layer: default
+      responses:
+        '200':
+          description: ''
+          schema:
+            description: Data that is needed to create/edit context layer.
+            type: object
+            properties:
+              name:
+                title: Name
+                type: string
+              description:
+                title: Description
+                type: string
+              category:
+                title: Category
+                type: string
+              url:
+                title: Url
+                type: string
+              type:
+                title: Type
+                description: The choices are ['ARCGIS', 'Geojson', 'Raster COG', 'Raster Tile', 'Vector Tile', 'Related Table', 'Cloud Native GIS Layer']
+                type: string
+              styles:
+                title: Styles
+                description: String of JSON containing style configuration. The styles are simply a list of layers in a Mapbox style.
+                type: object
+            example:
+              name: Context Layer
+              description: ''
+              layer_type: Cloud Native GIS Layer
+              category: Test
+              styles:
+              - id: '1'
+                type: circle
+                paint:
+                  circle-color: '#98F194'
+                  circle-radius: 6
+                  circle-opacity: 1
+                  circle-stroke-width: 1
+                source: 00000000-0000-0000-0000-000000000000
+                source-layer: default
+              - id: '2'
+                type: circle
+                paint:
+                  circle-color: '#88005C'
+                  circle-radius: 6
+                  circle-opacity: 1
+                  circle-stroke-width: 1
+                source: 00000000-0000-0000-0000-000000000000
+                source-layer: default
+      tags:
+      - Context layer
+    patch:
+      operationId: context-layer-detail-partial-update
+      description: Update just partial data based on payload a detailed of context layer.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          description: Data that is needed to create/edit context layer.
+          type: object
+          properties:
+            name:
+              title: Name
+              type: string
+            description:
+              title: Description
+              type: string
+            category:
+              title: Category
+              type: string
+            url:
+              title: Url
+              type: string
+            type:
+              title: Type
+              description: The choices are ['ARCGIS', 'Geojson', 'Raster COG', 'Raster Tile', 'Vector Tile', 'Related Table', 'Cloud Native GIS Layer']
+              type: string
+            styles:
+              title: Styles
+              description: String of JSON containing style configuration. The styles are simply a list of layers in a Mapbox style.
+              type: object
+          example:
+            name: Context Layer
+            description: ''
+            layer_type: Cloud Native GIS Layer
+            category: Test
+            styles:
+            - id: '1'
+              type: circle
+              paint:
+                circle-color: '#98F194'
+                circle-radius: 6
+                circle-opacity: 1
+                circle-stroke-width: 1
+              source: 00000000-0000-0000-0000-000000000000
+              source-layer: default
+            - id: '2'
+              type: circle
+              paint:
+                circle-color: '#88005C'
+                circle-radius: 6
+                circle-opacity: 1
+                circle-stroke-width: 1
+              source: 00000000-0000-0000-0000-000000000000
+              source-layer: default
+      responses:
+        '200':
+          description: ''
+          schema:
+            description: Data that is needed to create/edit context layer.
+            type: object
+            properties:
+              name:
+                title: Name
+                type: string
+              description:
+                title: Description
+                type: string
+              category:
+                title: Category
+                type: string
+              url:
+                title: Url
+                type: string
+              type:
+                title: Type
+                description: The choices are ['ARCGIS', 'Geojson', 'Raster COG', 'Raster Tile', 'Vector Tile', 'Related Table', 'Cloud Native GIS Layer']
+                type: string
+              styles:
+                title: Styles
+                description: String of JSON containing style configuration. The styles are simply a list of layers in a Mapbox style.
+                type: object
+            example:
+              name: Context Layer
+              description: ''
+              layer_type: Cloud Native GIS Layer
+              category: Test
+              styles:
+              - id: '1'
+                type: circle
+                paint:
+                  circle-color: '#98F194'
+                  circle-radius: 6
+                  circle-opacity: 1
+                  circle-stroke-width: 1
+                source: 00000000-0000-0000-0000-000000000000
+                source-layer: default
+              - id: '2'
+                type: circle
+                paint:
+                  circle-color: '#88005C'
+                  circle-radius: 6
+                  circle-opacity: 1
+                  circle-stroke-width: 1
+                source: 00000000-0000-0000-0000-000000000000
+                source-layer: default
+      tags:
+      - Context layer
+    delete:
+      operationId: context-layer-detail-delete
+      description: Delete a context layer.
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Context layer
+definitions:
+  ContextLayer:
+    required:
+    - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      modified_at:
+        title: Modified at
+        type: string
+        readOnly: true
+      created_at:
+        title: Created at
+        type: string
+        readOnly: true
+      category:
+        title: Category
+        type: string
+        readOnly: true
+      ogc_api:
+        title: Ogc api
+        type: string
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 512
+        minLength: 1
+      description:
+        title: Description
+        type: string
+        x-nullable: true
+      source:
+        title: Source
+        type: string
+        maxLength: 512
+        x-nullable: true
+      layer_type:
+        title: Layer type
+        description: 'The type of layer for this context layer.<br>For <b>ArcGIS</b>, put feature server of REST. e.g : https://{host}/rest/services/{layer}/FeatureServer/1.<br>For <b>GeoJson</b>, put url of geojson.<br>For <b>Raster tile</b>, put XYZ url.<br>For <b>Raster COG</b>, put url of cog.<br>For <b>Related table</b>, select existing related table name.<br>For <b>Vector tile</b>, put XYZ url.<br>For <b>Cloud native gis layer</b>, select the layer from cloud native gis.'
+        type: string
+        enum:
+        - ARCGIS
+        - Geojson
+        - Raster Tile
+        - Raster COG
+        - Vector Tile
+        - Related Table
+        - Cloud Native GIS Layer
+      label_config:
+        title: Label config
+        type: object
+        x-nullable: true
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

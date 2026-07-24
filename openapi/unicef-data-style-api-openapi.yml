@@ -1,0 +1,209 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap Style API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: Style
+paths:
+  /styles/:
+    parameters: []
+    get:
+      operationId: style-list
+      description: Return list of accessed style for the user.
+      parameters:
+      - name: page
+        in: query
+        description: Page number in pagination
+        type: integer
+        default: 1
+      - name: page_size
+        in: query
+        description: Total records in a page
+        type: integer
+        default: 25
+      - name: sort
+        in: query
+        description: 'Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc'
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: 'Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category'
+        required: false
+        type: string
+      - name: name__contains
+        in: query
+        description: Filter data by partial name.
+        type: string
+      - name: description__contains
+        in: query
+        description: Filter data by partial description.
+        type: string
+      - name: category__name__in
+        in: query
+        description: Filter data by multiple category. Put multiple filter using comma separator.
+        type: string
+      - name: type__in
+        in: query
+        description: Filter data by multiple type. Put multiple filter using comma separator.
+        type: string
+      - name: project_slug__in
+        in: query
+        description: Filter data by multiple project slug. Put multiple filter using comma separator.
+        type: string
+      - name: project_id__in
+        in: query
+        description: Filter data by multiple project id. Put multiple filter using comma separator.
+        type: string
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/Style'
+      tags:
+      - Style
+    post:
+      operationId: style-create
+      description: Create a style.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Style'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Style'
+      tags:
+      - Style
+  /styles/{id}/:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      type: string
+    get:
+      operationId: style-detail
+      description: Return detailed of style.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Style'
+      tags:
+      - Style
+    put:
+      operationId: style-detail-update
+      description: Replace a detailed of style.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Style'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Style'
+      tags:
+      - Style
+    patch:
+      operationId: style-detail-partial-update
+      description: Update just partial data based on payload a detailed of style.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Style'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Style'
+      tags:
+      - Style
+    delete:
+      operationId: style-detail-delete
+      description: Delete a style.
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Style
+definitions:
+  Style:
+    required:
+    - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      modified_at:
+        title: Modified at
+        type: string
+        readOnly: true
+      created_at:
+        title: Created at
+        type: string
+        readOnly: true
+      category:
+        title: Category
+        type: string
+        readOnly: true
+      description:
+        title: Description
+        type: string
+        x-nullable: true
+      name:
+        title: Name
+        type: string
+        maxLength: 512
+        minLength: 1
+      style_type:
+        title: Style type
+        type: string
+        enum:
+        - Predefined style/color rules.
+        - Dynamic quantitative style.
+        - Dynamic qualitative style.
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

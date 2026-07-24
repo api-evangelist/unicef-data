@@ -1,0 +1,53 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap DataSource API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: DataSource
+paths:
+  /api/datasources:
+    get:
+      tags:
+      - DataSource
+      summary: Get the list of all indicator data sources defined in the database
+      operationId: DataSource_GetDataSources
+      produces:
+      - application/json
+      responses:
+        '200':
+          x-nullable: false
+          description: The list of all indicator data sources defined in the database.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DataSourceItem'
+definitions:
+  DataSourceItem:
+    type: object
+    required:
+    - id
+    properties:
+      id:
+        type: integer
+        format: int64
+      sourceName:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

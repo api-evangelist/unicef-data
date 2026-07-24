@@ -1,0 +1,56 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap Tag API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: Tag
+paths:
+  /api/tags:
+    get:
+      tags:
+      - Tag
+      summary: Get the list of all indicator tags defined in the database
+      operationId: Tag_GetTags
+      produces:
+      - application/json
+      responses:
+        '200':
+          x-nullable: false
+          description: The list of all indicator tags defined in the database.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TagItem'
+definitions:
+  TagItem:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      tagName:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+      indicators:
+        type: array
+        items:
+          type: integer
+          format: int32
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

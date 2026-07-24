@@ -1,0 +1,55 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap Language API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: Language
+paths:
+  /api/languages:
+    get:
+      tags:
+      - Language
+      summary: Get the list of all languages used in the system
+      operationId: Language_GetLanguage
+      produces:
+      - application/json
+      responses:
+        '200':
+          x-nullable: false
+          description: The list of all languages used in the system to have multilingual names of code lists
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LanguageItem'
+definitions:
+  LanguageItem:
+    type: object
+    required:
+    - languageID
+    properties:
+      languageID:
+        type: integer
+        format: int32
+      name:
+        type: string
+      isO6392:
+        type: string
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

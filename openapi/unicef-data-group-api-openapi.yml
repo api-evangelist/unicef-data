@@ -1,0 +1,166 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap Group API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: Group
+paths:
+  /groups/:
+    parameters: []
+    get:
+      operationId: group-list
+      description: Return list of accessed group for the user.
+      parameters:
+      - name: page
+        in: query
+        description: Page number in pagination
+        type: integer
+        default: 1
+      - name: page_size
+        in: query
+        description: Total records in a page
+        type: integer
+        default: 25
+      - name: sort
+        in: query
+        description: 'Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc'
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: 'Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category'
+        required: false
+        type: string
+      - name: name__contains
+        in: query
+        description: Filter data by partial name.
+        type: string
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/Group'
+      tags:
+      - Group
+    post:
+      operationId: group-create
+      description: Create a group.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Group'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Group'
+      tags:
+      - Group
+  /groups/{id}/:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      type: string
+    get:
+      operationId: group-detail
+      description: Return detailed of group.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Group'
+      tags:
+      - Group
+    put:
+      operationId: group-detail-update
+      description: Replace a detailed of group.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Group'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Group'
+      tags:
+      - Group
+    patch:
+      operationId: group-detail-partial-update
+      description: Update just partial data based on payload a detailed of group.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Group'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Group'
+      tags:
+      - Group
+    delete:
+      operationId: group-detail-delete
+      description: Delete a group.
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Group
+definitions:
+  Group:
+    required:
+    - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 150
+        minLength: 1
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

@@ -1,0 +1,175 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap StrategicPlan API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: StrategicPlan
+paths:
+  /api/strategicplan:
+    get:
+      tags:
+      - StrategicPlan
+      summary: Get the list of all strategic plan areas
+      operationId: StrategicPlan_GetStrategicPlanGoalAreas
+      produces:
+      - application/json
+      responses:
+        '200':
+          x-nullable: false
+          description: The list of all of all strategic plan areas related to indicators.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/StrategicPlanAreaItem'
+  /api/strategicplan/goalarea/{areaID}:
+    get:
+      tags:
+      - StrategicPlan
+      summary: Get the a strategic plan goal area by id
+      operationId: StrategicPlan_GetStrategicPlanGoalArea
+      produces:
+      - application/json
+      parameters:
+      - type: integer
+        name: areaID
+        in: path
+        required: true
+        format: int32
+        x-nullable: false
+      responses:
+        '200':
+          x-nullable: false
+          description: The strategic plan goal area by id.
+          schema:
+            $ref: '#/definitions/StrategicPlanAreaItem'
+  /api/strategicplan/statements:
+    get:
+      tags:
+      - StrategicPlan
+      summary: Get the list of all strategic plan statements
+      operationId: StrategicPlan_GetStrategicPlanStatements
+      produces:
+      - application/json
+      responses:
+        '200':
+          x-nullable: false
+          description: The list of all of all strategic plan statements.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/StrategicPlanStatementItem'
+  /api/strategicplan/statement/{statementCode}:
+    get:
+      tags:
+      - StrategicPlan
+      summary: Get the a strategic plan statement by helix code
+      operationId: StrategicPlan_GetStrategicPlanStatement
+      produces:
+      - application/json
+      parameters:
+      - type: string
+        name: statementCode
+        in: path
+        required: true
+        x-nullable: false
+      responses:
+        '200':
+          x-nullable: false
+          description: The strategic plan statement by helix code.
+          schema:
+            $ref: '#/definitions/StrategicPlanStatementItem'
+  /api/strategicplan/statement/id/{statementID}:
+    get:
+      tags:
+      - StrategicPlan
+      summary: Get the a strategic plan statement by id
+      operationId: StrategicPlan_GetStrategicPlanStatement2
+      produces:
+      - application/json
+      parameters:
+      - type: integer
+        name: statementID
+        in: path
+        required: true
+        format: int32
+        x-nullable: false
+      responses:
+        '200':
+          x-nullable: false
+          description: The strategic plan statement by helix code.
+          schema:
+            $ref: '#/definitions/StrategicPlanStatementItem'
+  /api/strategicplan/statements/area/{SPAreaCode}:
+    get:
+      tags:
+      - StrategicPlan
+      summary: Get the list of all strategic plan statements of a strategic plan goal area, by SP goal area Helix Code (GA_1, GA2, etc.)
+      operationId: StrategicPlan_GetStrategicPlanStatementByArea
+      produces:
+      - application/json
+      parameters:
+      - type: string
+        name: SPAreaCode
+        in: path
+        required: true
+        x-nullable: false
+      responses:
+        '200':
+          x-nullable: false
+          description: The list of all of all strategic plan statements of a strategic plan goal area, by SP goal area Helix Code (GA_1, GA2, etc.).
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/StrategicPlanStatementItem'
+definitions:
+  StrategicPlanAreaItem:
+    type: object
+    required:
+    - id
+    properties:
+      id:
+        type: integer
+        format: int32
+      name:
+        type: string
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+      description:
+        type: string
+      code:
+        type: string
+  StrategicPlanStatementItem:
+    type: object
+    required:
+    - id
+    properties:
+      id:
+        type: integer
+        format: int32
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+      statement:
+        type: string
+      code:
+        type: string
+      spArea:
+        $ref: '#/definitions/StrategicPlanAreaItem'
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

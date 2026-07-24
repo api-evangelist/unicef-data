@@ -1,0 +1,241 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap Region API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: Region
+paths:
+  /api/regions:
+    get:
+      tags:
+      - Region
+      summary: Get the list of all Regions
+      operationId: Region_GetRegions
+      produces:
+      - application/json
+      responses:
+        '200':
+          x-nullable: false
+          description: The list of all Regions
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RegionItem'
+  /api/regions/byseries/{RegionSeriesId}:
+    get:
+      tags:
+      - Region
+      summary: Get the list of all Regions by Series ID
+      operationId: Region_GetRegionsBySeries
+      produces:
+      - application/json
+      parameters:
+      - type: integer
+        name: RegionSeriesId
+        in: path
+        required: true
+        format: int32
+        x-nullable: false
+      responses:
+        '200':
+          x-nullable: false
+          description: The list of all Regions by Series ID
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RegionItem'
+  /api/regions/series:
+    get:
+      tags:
+      - Region
+      summary: Get the list of all region series
+      operationId: Region_GetSeries
+      produces:
+      - application/json
+      responses:
+        '200':
+          x-nullable: false
+          description: The list of all region series, like "UNICEF Reporting Regions" or "World Bank Regional Classifications"
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RegionSeriesItem'
+  /api/regions/collections:
+    get:
+      tags:
+      - Region
+      summary: Get the list of all region collections
+      operationId: Region_GetCollections
+      produces:
+      - application/json
+      responses:
+        '200':
+          x-nullable: false
+          description: The list of all region collections, like "UNICEF Regions" or "World Bank Regions"
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RegionCollectionItem'
+definitions:
+  CustodianItem:
+    type: object
+    required:
+    - id
+    properties:
+      id:
+        type: integer
+        format: int32
+      name:
+        type: string
+      editedBy:
+        type: string
+      editedDate:
+        type: string
+      code:
+        type: string
+  RegionItem:
+    type: object
+    required:
+    - regionId
+    - level
+    properties:
+      regionId:
+        type: integer
+        format: int32
+      m49:
+        type: string
+      altName:
+        type: string
+      status:
+        type: string
+      level:
+        type: integer
+        format: int32
+      description:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+      cndregionalCode:
+        type: string
+      organization:
+        type: string
+      language2Name:
+        type: array
+        items:
+          $ref: '#/definitions/RegionNameItem'
+      countries:
+        type: array
+        items:
+          $ref: '#/definitions/CountryRegionsItem'
+      parentRegionID:
+        type: integer
+        format: int32
+      parentCndregionalCode:
+        type: string
+      collection:
+        $ref: '#/definitions/RegionCollectionItem'
+      series:
+        $ref: '#/definitions/RegionSeriesItem'
+  RegionNameItem:
+    type: object
+    required:
+    - regionId
+    - languageId
+    properties:
+      regionId:
+        type: integer
+        format: int32
+      languageId:
+        type: integer
+        format: int32
+      languageName:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+      value:
+        type: string
+  RegionSeriesItem:
+    type: object
+    required:
+    - regionSeriesId
+    properties:
+      regionSeriesId:
+        type: integer
+        format: int32
+      code:
+        type: string
+      name:
+        type: string
+      description:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+      custodians:
+        type: array
+        items:
+          $ref: '#/definitions/CustodianItem'
+      regions:
+        type: array
+        items:
+          $ref: '#/definitions/RegionItem'
+  CountryRegionsItem:
+    type: object
+    properties:
+      countryId:
+        type: integer
+        format: int32
+      countryCndCode:
+        type: string
+      countryISO:
+        type: string
+      regionId:
+        type: integer
+        format: int32
+      regionCndCode:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+        format: date-time
+  RegionCollectionItem:
+    type: object
+    required:
+    - regionCollectionId
+    properties:
+      regionCollectionId:
+        type: integer
+        format: int32
+      code:
+        type: string
+      name:
+        type: string
+      createdBy:
+        type: string
+      createdDate:
+        type: string
+      regions:
+        type: array
+        items:
+          $ref: '#/definitions/RegionItem'
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

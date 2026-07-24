@@ -1,0 +1,385 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap Related table API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: Related table
+paths:
+  /related-tables/:
+    parameters: []
+    get:
+      operationId: related-table-list
+      description: Return list of accessible related tables for the user.
+      parameters:
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: Resource fetching successful.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RelatedTableApi'
+      tags:
+      - Related table
+    post:
+      operationId: related-table-create
+      description: Create a related table.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          description: Data needed to create/edit related tables.
+          type: object
+          properties:
+            id:
+              title: Id
+              type: integer
+              readOnly: true
+            name:
+              title: Name
+              type: string
+              readOnly: false
+            fields_definition:
+              title: Fields definition
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    title: Field name
+                    type: string
+                    readOnly: false
+                  label:
+                    title: Field label
+                    type: string
+                    readOnly: false
+                  type:
+                    title: Field type
+                    type: string
+                    pattern: date | number | string
+            description:
+              title: Description
+              type: string
+              readOnly: false
+            url:
+              title: Url
+              type: string
+              readOnly: true
+            creator:
+              title: Creator
+              type: string
+              readOnly: true
+            created_at:
+              title: Created at
+              type: string
+              readOnly: true
+            modified_at:
+              title: Created at
+              type: string
+              readOnly: true
+      responses:
+        '201':
+          description: ''
+          schema:
+            description: Data needed to create/edit related tables.
+            type: object
+            properties:
+              id:
+                title: Id
+                type: integer
+                readOnly: true
+              name:
+                title: Name
+                type: string
+                readOnly: false
+              fields_definition:
+                title: Fields definition
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      title: Field name
+                      type: string
+                      readOnly: false
+                    label:
+                      title: Field label
+                      type: string
+                      readOnly: false
+                    type:
+                      title: Field type
+                      type: string
+                      pattern: date | number | string
+              description:
+                title: Description
+                type: string
+                readOnly: false
+              url:
+                title: Url
+                type: string
+                readOnly: true
+              creator:
+                title: Creator
+                type: string
+                readOnly: true
+              created_at:
+                title: Created at
+                type: string
+                readOnly: true
+              modified_at:
+                title: Created at
+                type: string
+                readOnly: true
+      tags:
+      - Related table
+  /related-tables/{id}/:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      type: string
+    get:
+      operationId: related-table-detail
+      description: Return detail of a related tables for the user.
+      parameters: []
+      responses:
+        '200':
+          description: Resource fetching successful.
+          schema:
+            $ref: '#/definitions/RelatedTableApi'
+      tags:
+      - Related table
+    put:
+      operationId: related-table-update
+      description: Update a related table.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          description: Data needed to create/edit related tables.
+          type: object
+          properties:
+            id:
+              title: Id
+              type: integer
+              readOnly: true
+            name:
+              title: Name
+              type: string
+              readOnly: false
+            fields_definition:
+              title: Fields definition
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    title: Field name
+                    type: string
+                    readOnly: false
+                  label:
+                    title: Field label
+                    type: string
+                    readOnly: false
+                  type:
+                    title: Field type
+                    type: string
+                    pattern: date | number | string
+            description:
+              title: Description
+              type: string
+              readOnly: false
+            url:
+              title: Url
+              type: string
+              readOnly: true
+            creator:
+              title: Creator
+              type: string
+              readOnly: true
+            created_at:
+              title: Created at
+              type: string
+              readOnly: true
+            modified_at:
+              title: Created at
+              type: string
+              readOnly: true
+      responses:
+        '200':
+          description: ''
+          schema:
+            description: Data needed to create/edit related tables.
+            type: object
+            properties:
+              id:
+                title: Id
+                type: integer
+                readOnly: true
+              name:
+                title: Name
+                type: string
+                readOnly: false
+              fields_definition:
+                title: Fields definition
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      title: Field name
+                      type: string
+                      readOnly: false
+                    label:
+                      title: Field label
+                      type: string
+                      readOnly: false
+                    type:
+                      title: Field type
+                      type: string
+                      pattern: date | number | string
+              description:
+                title: Description
+                type: string
+                readOnly: false
+              url:
+                title: Url
+                type: string
+                readOnly: true
+              creator:
+                title: Creator
+                type: string
+                readOnly: true
+              created_at:
+                title: Created at
+                type: string
+                readOnly: true
+              modified_at:
+                title: Created at
+                type: string
+                readOnly: true
+      tags:
+      - Related table
+    patch:
+      operationId: related-table-partial-update
+      description: Update an existing related table.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/RelatedTableApi'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/RelatedTableApi'
+      tags:
+      - Related table
+    delete:
+      operationId: related-table-delete
+      description: Delete a related table.
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Related table
+definitions:
+  RelatedTableApi:
+    required:
+    - name
+    - fields_definition
+    type: object
+    properties:
+      id:
+        title: Id
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        readOnly: false
+      fields_definition:
+        title: Fields definition
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              title: Field name
+              type: string
+              readOnly: false
+            label:
+              title: Field label
+              type: string
+              readOnly: false
+            type:
+              title: Field type
+              type: string
+              pattern: date | number | string
+      description:
+        title: Description
+        type: string
+        readOnly: false
+      url:
+        title: Url
+        type: string
+        readOnly: true
+      creator:
+        title: Creator
+        type: string
+        readOnly: true
+      created_at:
+        title: Created at
+        type: string
+        readOnly: true
+      modified_at:
+        title: Created at
+        type: string
+        readOnly: true
+    title: RelatedTable
+    example:
+      id: 1
+      name: My related table
+      fields_definition:
+      - name: field_1
+        label: Field 1
+        type: string
+      - name: field_2
+        label: Field 2
+        type: date
+      - name: field_3
+        label: Field 3
+        type: number
+      description: A related table for testing apidocs
+      url: https://a.tile.openstreetmap.org/{z}/{x}/{y}.png
+      creator: Admin
+      created_at: '2023-01-01T00:00:00.00000Z'
+      modified_at: '2023-01-01T00:00:00.00000Z'
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization

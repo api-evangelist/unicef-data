@@ -1,0 +1,108 @@
+swagger: '2.0'
+info:
+  title: GeoSight Basemap User API
+  version: v1.0.0
+host: geosight.unicef.org
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKey Auth: []
+tags:
+- name: User
+paths:
+  /users/:
+    parameters: []
+    get:
+      operationId: user-list
+      description: Return list of accessed user for the user.
+      parameters:
+      - name: page
+        in: query
+        description: Page number in pagination
+        type: integer
+        default: 1
+      - name: page_size
+        in: query
+        description: Total records in a page
+        type: integer
+        default: 25
+      - name: sort
+        in: query
+        description: 'Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc'
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: 'Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category'
+        required: false
+        type: string
+      - name: name__contains
+        in: query
+        description: Filter data by partial name.
+        type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+      - User
+    post:
+      operationId: user-create
+      description: Create a user.
+      parameters: []
+      responses:
+        '201':
+          description: ''
+      tags:
+      - User
+  /users/{id}/:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      type: string
+    get:
+      operationId: user-detail
+      description: Return detailed of user.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - User
+    put:
+      operationId: user-detail-update
+      description: Replace a detailed of user.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - User
+    patch:
+      operationId: user-detail-partial-update
+      description: Update just partial data based on payload a detailed of user.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - User
+    delete:
+      operationId: user-detail-delete
+      description: Delete a user.
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - User
+securityDefinitions:
+  ApiKey Auth:
+    type: apiKey
+    in: header
+    name: Authorization
