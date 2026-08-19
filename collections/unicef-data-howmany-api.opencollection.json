@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GeoSight Basemap HowMany API",
+    "version": "v1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "HowMany",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ask a question in natural language, in English, and get one or more data points back",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/howmany",
+            "params": [
+              {
+                "name": "question",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Ask a question in natural language, in English, and get one or more data points back"
+        },
+        {
+          "info": {
+            "name": "More like this for answering a question in natural language, in English",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/howmany/mlt",
+            "params": [
+              {
+                "name": "question",
+                "value": "",
+                "type": "query",
+                "description": "The original question, asked before the more like this"
+              },
+              {
+                "name": "locationCode",
+                "value": "",
+                "type": "query",
+                "description": "The code of the country or region. If null, it means the world"
+              },
+              {
+                "name": "indicatorCode",
+                "value": "",
+                "type": "query",
+                "description": "The indicator Helix Code, e.g. DM_POP_U18"
+              },
+              {
+                "name": "indicatorID",
+                "value": "",
+                "type": "query",
+                "description": "The Solr wildcarded ID of a data point, e.g. UNICEF|MNCH|1.0|{ASTERISK}|MNCH_MLRCARE|_T|Y0T4|_T|_T|_T|_T|{ASTERISK}|{ASTERISK}"
+              }
+            ]
+          },
+          "docs": "More like this for answering a question in natural language, in English"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

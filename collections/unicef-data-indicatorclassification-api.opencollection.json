@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GeoSight Basemap IndicatorClassification API",
+    "version": "v1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "IndicatorClassification",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of all indicator classifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/IndicatorClassifications"
+          },
+          "docs": "Get the list of all indicator classifications"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

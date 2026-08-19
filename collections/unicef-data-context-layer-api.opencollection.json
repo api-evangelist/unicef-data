@@ -1,0 +1,342 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GeoSight Basemap Context layer API",
+    "version": "v1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Context layer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "context-layer-list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/context-layers/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number in pagination"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Total records in a page"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category"
+              },
+              {
+                "name": "name__contains",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by partial name."
+              },
+              {
+                "name": "description__contains",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by partial description."
+              },
+              {
+                "name": "category__name__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by multiple category. Put multiple filter using comma separator."
+              },
+              {
+                "name": "type__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by multiple type. Put multiple filter using comma separator."
+              }
+            ]
+          },
+          "docs": "Return list of accessed context layer for the user."
+        },
+        {
+          "info": {
+            "name": "context-layer-create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/context-layers/"
+          },
+          "docs": "Create a context layer."
+        },
+        {
+          "info": {
+            "name": "context-layer-attribute-list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/context-layers/:context_layer_id/attributes/",
+            "params": [
+              {
+                "name": "context_layer_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number in pagination"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Total records in a page"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category"
+              }
+            ]
+          },
+          "docs": "Return attributes of accessed context layer for the user.Specifically for cloud native layer."
+        },
+        {
+          "info": {
+            "name": "context-layer-features-download",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/context-layers/:context_layer_id/data/download/",
+            "params": [
+              {
+                "name": "context_layer_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "file_format",
+                "value": "",
+                "type": "query",
+                "description": "Selected file format to be returned."
+              }
+            ]
+          },
+          "docs": "Download data based on output type."
+        },
+        {
+          "info": {
+            "name": "context-layer-features-list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/context-layers/:context_layer_id/data/features/",
+            "params": [
+              {
+                "name": "context_layer_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number in pagination"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Total records in a page"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category"
+              }
+            ]
+          },
+          "docs": "Retrieve features of accessed context layer for the user.Specifically for cloud native layer."
+        },
+        {
+          "info": {
+            "name": "context-layer-features-post",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/context-layers/:context_layer_id/data/features/",
+            "params": [
+              {
+                "name": "context_layer_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Add new feature(s) for the accessed context layer for the user.\nNeed to be at least edit data permission.\n\nPayload is geojson format. The geometry type should be the same with the current data.\n"
+        },
+        {
+          "info": {
+            "name": "context-layer-features-put",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/context-layers/:context_layer_id/data/features/",
+            "params": [
+              {
+                "name": "context_layer_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update filtered feature of the accessed context layer for the user. Restricted to updating only one feature at a time. \nNeed to be at least edit data permission.\n\nPayload is in json with field names as keys and value as the new value. \ne.g. {\"field_1\": \"new_value\", \"field_2\": \"new_value}."
+        },
+        {
+          "info": {
+            "name": "context-layer-features-delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/context-layers/:context_layer_id/data/features/",
+            "params": [
+              {
+                "name": "context_layer_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove filtered feature of the accessed context layer for the user. Restricted to deleting only one feature at a time.\nNeed to be at least edit data permission."
+        },
+        {
+          "info": {
+            "name": "context-layer-features-replace",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/context-layers/:context_layer_id/data/replace/",
+            "params": [
+              {
+                "name": "context_layer_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Replace all data ofthe accessed context layer for the user.\nNeed to be at least edit data permission.\n\nPayload is geojson format."
+        },
+        {
+          "info": {
+            "name": "context-layer-detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/context-layers/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return detailed of context layer."
+        },
+        {
+          "info": {
+            "name": "context-layer-detail-update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/context-layers/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Replace a detailed of context layer."
+        },
+        {
+          "info": {
+            "name": "context-layer-detail-partial-update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/context-layers/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update just partial data based on payload a detailed of context layer."
+        },
+        {
+          "info": {
+            "name": "context-layer-detail-delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/context-layers/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a context layer."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

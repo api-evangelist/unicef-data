@@ -1,0 +1,501 @@
+{
+  "item": [
+    {
+      "id": "86761625-7ad7-46d8-a912-6c12b3babc2b",
+      "name": "Codelist",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ba361bb7-783a-430d-946d-e9777f566709",
+          "name": "SDMX published indicators codelist for a given Agency",
+          "request": {
+            "name": "SDMX published indicators codelist for a given Agency",
+            "description": {},
+            "url": {
+              "path": [
+                "sdmx",
+                "codelists",
+                "indicators",
+                ":Version",
+                ":Agency",
+                ":IndicatorCodelist"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<decimal>",
+                  "key": "Version",
+                  "description": "(Required) The version of the codelist (e.g. 1.3). Only 1 decimal digit is allowed"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "Agency",
+                  "description": "(Required) The name of the agency used to filter indicators (e.g. UNICEF). This is the agency owner of the indicator. Indicators borrowed by other agencies are not returned by this method"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "IndicatorCodelist",
+                  "description": "(Required) The name of the SDMX indicator codelist associated to the agency (e.g. CL_UNICEF_INDICATOR)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9053f955-6909-42f0-963c-9a441516ebc6",
+              "name": "Input version has more than 1 decimal digit",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sdmx",
+                    "codelists",
+                    "indicators",
+                    ":Version",
+                    ":Agency",
+                    ":IndicatorCodelist"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<decimal>",
+                      "key": "Version",
+                      "description": "(Required) The version of the codelist (e.g. 1.3). Only 1 decimal digit is allowed"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "Agency",
+                      "description": "(Required) The name of the agency used to filter indicators (e.g. UNICEF). This is the agency owner of the indicator. Indicators borrowed by other agencies are not returned by this method"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "IndicatorCodelist",
+                      "description": "(Required) The name of the SDMX indicator codelist associated to the agency (e.g. CL_UNICEF_INDICATOR)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <type>(string)</type>\n  <title>(string)</title>\n  <status>(integer)</status>\n  <detail>(string)</detail>\n  <instance>(string)</instance>\n  <extensions>\n  </extensions>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "06cc1f88-b044-4b29-b5c8-d4d530cbfb9c",
+          "name": "Support the agency / sector / domain / subdomain as an SDMX category scheme",
+          "request": {
+            "name": "Support the agency / sector / domain / subdomain as an SDMX category scheme",
+            "description": {},
+            "url": {
+              "path": [
+                "sdmx",
+                "codelists",
+                "domains",
+                ":Version",
+                ":Agency",
+                ":Codelist"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<decimal>",
+                  "key": "Version",
+                  "description": "(Required) The version of the category scheme (e.g. 1.3). Only 1 decimal digit is allowed"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "Agency",
+                  "description": "(Required) The name of the agency used to filter domains (e.g. UNICEF). This is the agency owner of the indicator. Indicators borrowed by other agencies are not returned by this method"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "Codelist",
+                  "description": "(Required) The name of the codelist associated to the agency (e.g. CS_UNICEF)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f6698db5-1abb-44df-a249-219735709fb7",
+              "name": "Input version has more than 1 decimal digit",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sdmx",
+                    "codelists",
+                    "domains",
+                    ":Version",
+                    ":Agency",
+                    ":Codelist"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<decimal>",
+                      "key": "Version",
+                      "description": "(Required) The version of the category scheme (e.g. 1.3). Only 1 decimal digit is allowed"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "Agency",
+                      "description": "(Required) The name of the agency used to filter domains (e.g. UNICEF). This is the agency owner of the indicator. Indicators borrowed by other agencies are not returned by this method"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "Codelist",
+                      "description": "(Required) The name of the codelist associated to the agency (e.g. CS_UNICEF)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <type>(string)</type>\n  <title>(string)</title>\n  <status>(integer)</status>\n  <detail>(string)</detail>\n  <instance>(string)</instance>\n  <extensions>\n  </extensions>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd0384a9-7b54-4768-9023-0f434c93f79f",
+          "name": "SDMX Country Codelist (only published countries)",
+          "request": {
+            "name": "SDMX Country Codelist (only published countries)",
+            "description": {},
+            "url": {
+              "path": [
+                "sdmx",
+                "codelists",
+                "countries",
+                ":version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<decimal>",
+                  "key": "version",
+                  "description": "(Required) A decimal expressing the version of the codelist. e.g. 1.0. Only 1 decimal digit is allowed"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e697ce7e-47ca-4d1e-aae7-e0abbcb4ec60",
+              "name": "Input version has more than 1 decimal digit",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sdmx",
+                    "codelists",
+                    "countries",
+                    ":version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<decimal>",
+                      "key": "version",
+                      "description": "(Required) A decimal expressing the version of the codelist. e.g. 1.0. Only 1 decimal digit is allowed"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <type>(string)</type>\n  <title>(string)</title>\n  <status>(integer)</status>\n  <detail>(string)</detail>\n  <instance>(string)</instance>\n  <extensions>\n  </extensions>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "867bcd7e-d8ab-4701-b85f-4179d318f664",
+          "name": "SDMX Regions Codelist",
+          "request": {
+            "name": "SDMX Regions Codelist",
+            "description": {},
+            "url": {
+              "path": [
+                "sdmx",
+                "codelists",
+                "regions",
+                ":version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<decimal>",
+                  "key": "version",
+                  "description": "(Required) A decimal expressing the version of the codelist. e.g. 1.0. Only 1 decimal digit is allowed"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d0aff681-313b-4d14-aade-40ffa08634fe",
+              "name": "Input version has more than 1 decimal digit",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sdmx",
+                    "codelists",
+                    "regions",
+                    ":version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<decimal>",
+                      "key": "version",
+                      "description": "(Required) A decimal expressing the version of the codelist. e.g. 1.0. Only 1 decimal digit is allowed"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <type>(string)</type>\n  <title>(string)</title>\n  <status>(integer)</status>\n  <detail>(string)</detail>\n  <instance>(string)</instance>\n  <extensions>\n  </extensions>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geosight.unicef.org/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5d3595cb-7f3e-4034-8e83-60770e93847e",
+    "name": "GeoSight Basemap Codelist API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

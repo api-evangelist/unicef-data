@@ -1,0 +1,170 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GeoSight Basemap Dashboard API",
+    "version": "v1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Dashboard",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "dashboard-list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dashboards/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number in pagination"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Total records in a page"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category"
+              },
+              {
+                "name": "name__contains",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by partial name."
+              },
+              {
+                "name": "description__contains",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by partial description."
+              },
+              {
+                "name": "category__name__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by multiple category. Put multiple filter using comma separator."
+              }
+            ]
+          },
+          "docs": "Return list of accessed dashboard for the user."
+        },
+        {
+          "info": {
+            "name": "dashboard-group-list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dashboards/groups/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "List dashboard groups."
+        },
+        {
+          "info": {
+            "name": "dashboard-detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dashboards/:slug/",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return detailed of dashboard."
+        },
+        {
+          "info": {
+            "name": "dashboard-detail-delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/dashboards/:slug/",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a dashboard."
+        },
+        {
+          "info": {
+            "name": "dashboard-detail-as-feature",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/dashboards/:slug/as-feature/",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Feature a dashboard."
+        },
+        {
+          "info": {
+            "name": "dashboard-detail-remove-as-feature",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/dashboards/:slug/remove-as-feature/",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove feature a dashboard."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,256 @@
+{
+  "item": [
+    {
+      "id": "abf86246-570c-45cc-9f74-a2107e40e568",
+      "name": "HowMany",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cda97be7-fa26-427a-82ed-acd3fb91854f",
+          "name": "Ask a question in natural language, in English, and get one or more data points back",
+          "request": {
+            "name": "Ask a question in natural language, in English, and get one or more data points back",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "howmany"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "question",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1d530d3b-2fb2-40e0-b07d-0b8c9b2c60be",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "howmany"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "question",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"numResults\": 4778,\n  \"message\": \"string\",\n  \"errorCountry\": \"string\",\n  \"errorIndicator\": \"string\",\n  \"locationDetected\": \"string\",\n  \"locationCode\": \"string\",\n  \"indicatorDetected\": \"string\",\n  \"indicatorCodeDetected\": \"string\",\n  \"yearDetected\": \"string\",\n  \"similarIndicators\": [\n    {\n      \"score\": 2784.4276215841023,\n      \"id\": \"string\",\n      \"indicator\": \"string\",\n      \"indicatorName\": \"string\"\n    },\n    {\n      \"score\": 1717.0179223725402,\n      \"id\": \"string\",\n      \"indicator\": \"string\",\n      \"indicatorName\": \"string\"\n    }\n  ],\n  \"spellcheckSuggestions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"indicators\": [\n    {\n      \"score\": 1963.8214888900307,\n      \"id\": \"string\",\n      \"value\": \"string\",\n      \"timeperiod\": \"string\",\n      \"location\": \"string\",\n      \"locationCode\": \"string\",\n      \"attributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"dimensions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"excludeDims_ms\": [\n        \"string\",\n        \"string\"\n      ],\n      \"source\": \"string\",\n      \"dataflow\": \"string\",\n      \"indicator\": \"string\",\n      \"indicatorName\": \"string\",\n      \"sdmx_dataquery\": \"string\"\n    },\n    {\n      \"score\": 4208.821832693929,\n      \"id\": \"string\",\n      \"value\": \"string\",\n      \"timeperiod\": \"string\",\n      \"location\": \"string\",\n      \"locationCode\": \"string\",\n      \"attributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"dimensions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"excludeDims_ms\": [\n        \"string\",\n        \"string\"\n      ],\n      \"source\": \"string\",\n      \"dataflow\": \"string\",\n      \"indicator\": \"string\",\n      \"indicatorName\": \"string\",\n      \"sdmx_dataquery\": \"string\"\n    }\n  ],\n  \"indicatorsDetected\": [\n    \"string\",\n    \"string\"\n  ],\n  \"indicatorsNoData\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f36069b-e7ca-4209-886a-6ca5ad808e49",
+          "name": "More like this for answering a question in natural language, in English",
+          "request": {
+            "name": "More like this for answering a question in natural language, in English",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "howmany",
+                "mlt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "question",
+                  "value": "<string>",
+                  "description": "The original question, asked before the more like this"
+                },
+                {
+                  "disabled": false,
+                  "key": "locationCode",
+                  "value": "<string>",
+                  "description": "The code of the country or region. If null, it means the world"
+                },
+                {
+                  "disabled": false,
+                  "key": "indicatorCode",
+                  "value": "<string>",
+                  "description": "The indicator Helix Code, e.g. DM_POP_U18"
+                },
+                {
+                  "disabled": false,
+                  "key": "indicatorID",
+                  "value": "<string>",
+                  "description": "The Solr wildcarded ID of a data point, e.g. UNICEF|MNCH|1.0|{ASTERISK}|MNCH_MLRCARE|_T|Y0T4|_T|_T|_T|_T|{ASTERISK}|{ASTERISK}"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b9ca1d71-4206-4f3a-adf8-b74c5b82583d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "howmany",
+                    "mlt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "question",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locationCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "indicatorCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "indicatorID",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"numResults\": 6717,\n  \"message\": \"string\",\n  \"errorCountry\": \"string\",\n  \"errorIndicator\": \"string\",\n  \"locationDetected\": \"string\",\n  \"locationCode\": \"string\",\n  \"indicatorDetected\": \"string\",\n  \"indicatorCodeDetected\": \"string\",\n  \"yearDetected\": \"string\",\n  \"similarIndicators\": [\n    {\n      \"score\": 158.63343444698418,\n      \"id\": \"string\",\n      \"indicator\": \"string\",\n      \"indicatorName\": \"string\"\n    },\n    {\n      \"score\": 9932.599432689878,\n      \"id\": \"string\",\n      \"indicator\": \"string\",\n      \"indicatorName\": \"string\"\n    }\n  ],\n  \"spellcheckSuggestions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"indicators\": [\n    {\n      \"score\": 8297.707287723086,\n      \"id\": \"string\",\n      \"value\": \"string\",\n      \"timeperiod\": \"string\",\n      \"location\": \"string\",\n      \"locationCode\": \"string\",\n      \"attributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"dimensions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"excludeDims_ms\": [\n        \"string\",\n        \"string\"\n      ],\n      \"source\": \"string\",\n      \"dataflow\": \"string\",\n      \"indicator\": \"string\",\n      \"indicatorName\": \"string\",\n      \"sdmx_dataquery\": \"string\"\n    },\n    {\n      \"score\": 2368.6717825127002,\n      \"id\": \"string\",\n      \"value\": \"string\",\n      \"timeperiod\": \"string\",\n      \"location\": \"string\",\n      \"locationCode\": \"string\",\n      \"attributes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"dimensions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"excludeDims_ms\": [\n        \"string\",\n        \"string\"\n      ],\n      \"source\": \"string\",\n      \"dataflow\": \"string\",\n      \"indicator\": \"string\",\n      \"indicatorName\": \"string\",\n      \"sdmx_dataquery\": \"string\"\n    }\n  ],\n  \"indicatorsDetected\": [\n    \"string\",\n    \"string\"\n  ],\n  \"indicatorsNoData\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geosight.unicef.org/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "72ed9762-17ba-4a13-b136-e28e4e6ca066",
+    "name": "GeoSight Basemap HowMany API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

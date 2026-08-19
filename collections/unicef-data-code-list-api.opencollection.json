@@ -1,0 +1,167 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GeoSight Basemap Code List API",
+    "version": "v1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Code List",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "codelist-list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/code-list/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number in pagination"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Total records in a page"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category"
+              },
+              {
+                "name": "name__contains",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by partial name."
+              }
+            ]
+          },
+          "docs": "Return list of code list."
+        },
+        {
+          "info": {
+            "name": "codelist-create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/code-list/"
+          },
+          "docs": "Create a code list."
+        },
+        {
+          "info": {
+            "name": "codelist-detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/code-list/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Codelist."
+              }
+            ]
+          },
+          "docs": "Return detailed of code list."
+        },
+        {
+          "info": {
+            "name": "codelist-update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/code-list/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Codelist."
+              }
+            ]
+          },
+          "docs": "Update detailed of code list."
+        },
+        {
+          "info": {
+            "name": "codelist-patch",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/code-list/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Codelist."
+              }
+            ]
+          },
+          "docs": "Patch detailed of code list."
+        },
+        {
+          "info": {
+            "name": "codelist-delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/code-list/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Codelist."
+              }
+            ]
+          },
+          "docs": "Delete detailed of code list."
+        },
+        {
+          "info": {
+            "name": "codelist-code-add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/code-list/:id/codes/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Codelist."
+              }
+            ]
+          },
+          "docs": "List dashboard groups."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

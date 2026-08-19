@@ -1,0 +1,1094 @@
+{
+  "item": [
+    {
+      "id": "95d29469-0188-43b8-b8d2-d22374c314b7",
+      "name": "Reference datasets",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d5691365-5604-4f1b-b020-c36e2e3c150a",
+          "name": "reference-datasets-list",
+          "request": {
+            "name": "reference-datasets-list",
+            "description": {
+              "content": "Return list of accessed reference dataset for the user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-datasets",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number in pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "25",
+                  "description": "Total records in a page"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category"
+                },
+                {
+                  "disabled": false,
+                  "key": "name__contains",
+                  "value": "<string>",
+                  "description": "Filter data by partial name."
+                },
+                {
+                  "disabled": false,
+                  "key": "identifier__in",
+                  "value": "<string>",
+                  "description": "Filter data by identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d41a3440-bfa4-4cae-889c-34964402f3ea",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-datasets",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name__contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier__in",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 2240,\n  \"results\": [\n    {\n      \"identifier\": \"string\",\n      \"uuid\": \"string\",\n      \"bbox\": \"string\",\n      \"vector_tiles\": \"string\",\n      \"possible_id_types\": \"string\",\n      \"dataset_levels\": \"string\",\n      \"tags\": \"string\",\n      \"permission\": \"string\",\n      \"countries\": \"string\",\n      \"version_data\": \"1972-01-21T21:52:14.368Z\",\n      \"created_at\": \"2009-10-24T12:57:26.865Z\",\n      \"modified_at\": \"1975-06-09T02:24:27.069Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"in_georepo\": true\n    },\n    {\n      \"identifier\": \"string\",\n      \"uuid\": \"string\",\n      \"bbox\": \"string\",\n      \"vector_tiles\": \"string\",\n      \"possible_id_types\": \"string\",\n      \"dataset_levels\": \"string\",\n      \"tags\": \"string\",\n      \"permission\": \"string\",\n      \"countries\": \"string\",\n      \"version_data\": \"2007-06-19T16:48:42.565Z\",\n      \"created_at\": \"1981-06-30T16:40:16.977Z\",\n      \"modified_at\": \"1968-10-01T12:07:55.363Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"in_georepo\": false\n    }\n  ],\n  \"next\": \"https://PNouXzZRjHDzVmOviKvZuiJPdsMWcHKuJ.iqGDfefXpkRDJfXR8vO3DqEWFhsV0tQ,Xh4pRXtUwAW1M2Pou\",\n  \"previous\": \"http://GstsACSPseCZhAOvYBueFwncWnptkwdgf.qxJvl.uWGMkV9W8rO-o,LNOHGMUMPgNANJ0AnwXVcbhiUtkUnZYqS,y\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "267aea2e-d4b1-40d7-b68a-871b80d059a6",
+          "name": "reference-datasets-entity-list",
+          "request": {
+            "name": "reference-datasets-entity-list",
+            "description": {
+              "content": "Return list of accessed entity of reference dataset for the user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-datasets",
+                "entity",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number in pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "25",
+                  "description": "Total records in a page"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category"
+                },
+                {
+                  "disabled": false,
+                  "key": "name__contains",
+                  "value": "<string>",
+                  "description": "Filter data by partial name."
+                },
+                {
+                  "disabled": false,
+                  "key": "concept_uuid__in",
+                  "value": "<string>",
+                  "description": "Filter data by concept_uuid."
+                },
+                {
+                  "disabled": false,
+                  "key": "admin_level__in",
+                  "value": "<string>",
+                  "description": "Filter data by multiple admin level in number. Put multiple filter using comma separator."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d84e5af-ee9c-4c79-abca-3f3565d32871",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-datasets",
+                    "entity",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name__contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "concept_uuid__in",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "admin_level__in",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6084,\n  \"results\": [\n    {\n      \"id\": 7565,\n      \"name\": \"string\",\n      \"ucode\": \"string\",\n      \"concept_uuid\": \"string\",\n      \"admin_level\": -197443319,\n      \"parents\": \"string\",\n      \"level_name\": \"string\",\n      \"bbox\": \"string\",\n      \"centroid\": \"string\",\n      \"ext_codes\": \"string\"\n    },\n    {\n      \"id\": 1236,\n      \"name\": \"string\",\n      \"ucode\": \"string\",\n      \"concept_uuid\": \"string\",\n      \"admin_level\": 1879638425,\n      \"parents\": \"string\",\n      \"level_name\": \"string\",\n      \"bbox\": \"string\",\n      \"centroid\": \"string\",\n      \"ext_codes\": \"string\"\n    }\n  ],\n  \"next\": \"https://OcklmlOcvlPQ.mxsH76mcYFVnQgI6+MF5TAGSATa7aMyV\",\n  \"previous\": \"http://NdnSzA.jaZDrZh2CfOJtgcoiJubrUqTKcr0M\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0096b1ff-727c-44df-b7e8-3b95eb5deda7",
+          "name": "reference-datasets-entity-detail",
+          "request": {
+            "name": "reference-datasets-entity-detail",
+            "description": {
+              "content": "Return detailed of entity of reference dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-datasets",
+                "entity",
+                ":geom_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "geom_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "77099ef9-c49a-45b8-bd74-92cf07386d16",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-datasets",
+                    "entity",
+                    ":geom_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "geom_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6166,\n  \"name\": \"string\",\n  \"ucode\": \"string\",\n  \"concept_uuid\": \"string\",\n  \"admin_level\": 1254930338,\n  \"parents\": \"string\",\n  \"level_name\": \"string\",\n  \"bbox\": \"string\",\n  \"centroid\": \"string\",\n  \"ext_codes\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "969e5355-4063-4fb9-9b8f-0f61d79feebb",
+          "name": "reference-datasets-detail",
+          "request": {
+            "name": "reference-datasets-detail",
+            "description": {
+              "content": "Return detailed of reference dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-datasets",
+                ":identifier",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0a90460c-33d8-4398-98d5-a392cc855c75",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-datasets",
+                    ":identifier",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"identifier\": \"string\",\n  \"uuid\": \"string\",\n  \"bbox\": \"string\",\n  \"vector_tiles\": \"string\",\n  \"possible_id_types\": \"string\",\n  \"dataset_levels\": \"string\",\n  \"tags\": \"string\",\n  \"permission\": \"string\",\n  \"countries\": \"string\",\n  \"version_data\": \"1983-05-28T14:36:59.879Z\",\n  \"created_at\": \"2004-05-07T19:28:55.892Z\",\n  \"modified_at\": \"1972-09-05T03:18:10.372Z\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"in_georepo\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3bbc82a3-6f18-4f43-b7a5-f77a23420a83",
+          "name": "reference-datasets-detail-delete",
+          "request": {
+            "name": "reference-datasets-detail-delete",
+            "description": {
+              "content": "Delete a reference dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-datasets",
+                ":identifier",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8eb8c9b4-a38c-4c82-a947-a501e06cf5b5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-datasets",
+                    ":identifier",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09ac32f7-23b9-4682-83ee-c52631b02bf6",
+          "name": "reference-datasets-operation-bbox",
+          "request": {
+            "name": "reference-datasets-operation-bbox",
+            "description": {
+              "content": "Return bbox of reference dataset entities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-datasets",
+                ":identifier",
+                "bbox",
+                "concept_uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0980ac67-85c9-4d93-b107-c55c41cb9697",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-datasets",
+                    ":identifier",
+                    "bbox",
+                    "concept_uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb69f8e2-d1d2-49b1-b160-337157384f98",
+          "name": "reference-datasets-operation-bbox",
+          "request": {
+            "name": "reference-datasets-operation-bbox",
+            "description": {
+              "content": "Return bbox of reference dataset entities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-datasets",
+                ":identifier",
+                "bbox",
+                "ucode",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c419dbb-0870-4b24-b565-dd28d51d11ee",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-datasets",
+                    ":identifier",
+                    "bbox",
+                    "ucode",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "756d5ef0-054c-4b78-adb2-fdbf7ba5947d",
+          "name": "reference-datasets-detail-entity-list",
+          "request": {
+            "name": "reference-datasets-detail-entity-list",
+            "description": {
+              "content": "Return list of accessed entity of reference dataset for the user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-datasets",
+                ":identifier",
+                "entity",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number in pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "25",
+                  "description": "Total records in a page"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category"
+                },
+                {
+                  "disabled": false,
+                  "key": "name__contains",
+                  "value": "<string>",
+                  "description": "Filter data by partial name."
+                },
+                {
+                  "disabled": false,
+                  "key": "concept_uuid__in",
+                  "value": "<string>",
+                  "description": "Filter data by concept_uuid."
+                },
+                {
+                  "disabled": false,
+                  "key": "admin_level__in",
+                  "value": "<string>",
+                  "description": "Filter data by multiple admin level in number. Put multiple filter using comma separator."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/geo+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b70cbe38-30dd-45a9-9cde-4b45f16e5b2a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-datasets",
+                    ":identifier",
+                    "entity",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name__contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "concept_uuid__in",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "admin_level__in",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/geo+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/geo+json"
+                }
+              ],
+              "body": "{\n  \"count\": 6084,\n  \"results\": [\n    {\n      \"id\": 7565,\n      \"name\": \"string\",\n      \"ucode\": \"string\",\n      \"concept_uuid\": \"string\",\n      \"admin_level\": -197443319,\n      \"parents\": \"string\",\n      \"level_name\": \"string\",\n      \"bbox\": \"string\",\n      \"centroid\": \"string\",\n      \"ext_codes\": \"string\"\n    },\n    {\n      \"id\": 1236,\n      \"name\": \"string\",\n      \"ucode\": \"string\",\n      \"concept_uuid\": \"string\",\n      \"admin_level\": 1879638425,\n      \"parents\": \"string\",\n      \"level_name\": \"string\",\n      \"bbox\": \"string\",\n      \"centroid\": \"string\",\n      \"ext_codes\": \"string\"\n    }\n  ],\n  \"next\": \"https://OcklmlOcvlPQ.mxsH76mcYFVnQgI6+MF5TAGSATa7aMyV\",\n  \"previous\": \"http://NdnSzA.jaZDrZh2CfOJtgcoiJubrUqTKcr0M\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a588eb2a-f203-4656-93a0-1d89871f91ce",
+          "name": "reference-datasets-detail-entity-detail",
+          "request": {
+            "name": "reference-datasets-detail-entity-detail",
+            "description": {
+              "content": "Return detailed of entity of reference dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-datasets",
+                ":identifier",
+                "entity",
+                ":geom_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "geom_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/geo+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b86c4fa0-7272-4a80-b373-ce4b8b42aa07",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-datasets",
+                    ":identifier",
+                    "entity",
+                    ":geom_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "geom_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/geo+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/geo+json"
+                }
+              ],
+              "body": "{\n  \"id\": 6166,\n  \"name\": \"string\",\n  \"ucode\": \"string\",\n  \"concept_uuid\": \"string\",\n  \"admin_level\": 1254930338,\n  \"parents\": \"string\",\n  \"level_name\": \"string\",\n  \"bbox\": \"string\",\n  \"centroid\": \"string\",\n  \"ext_codes\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geosight.unicef.org/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9381ba6e-8957-4be8-97aa-509e2088f1a7",
+    "name": "GeoSight Basemap Reference datasets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

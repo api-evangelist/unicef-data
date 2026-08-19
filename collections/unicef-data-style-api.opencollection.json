@@ -1,0 +1,174 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GeoSight Basemap Style API",
+    "version": "v1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Style",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "style-list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/styles/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number in pagination"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Total records in a page"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category"
+              },
+              {
+                "name": "name__contains",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by partial name."
+              },
+              {
+                "name": "description__contains",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by partial description."
+              },
+              {
+                "name": "category__name__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by multiple category. Put multiple filter using comma separator."
+              },
+              {
+                "name": "type__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by multiple type. Put multiple filter using comma separator."
+              },
+              {
+                "name": "project_slug__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by multiple project slug. Put multiple filter using comma separator."
+              },
+              {
+                "name": "project_id__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by multiple project id. Put multiple filter using comma separator."
+              }
+            ]
+          },
+          "docs": "Return list of accessed style for the user."
+        },
+        {
+          "info": {
+            "name": "style-create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/styles/"
+          },
+          "docs": "Create a style."
+        },
+        {
+          "info": {
+            "name": "style-detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/styles/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return detailed of style."
+        },
+        {
+          "info": {
+            "name": "style-detail-update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/styles/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Replace a detailed of style."
+        },
+        {
+          "info": {
+            "name": "style-detail-partial-update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/styles/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update just partial data based on payload a detailed of style."
+        },
+        {
+          "info": {
+            "name": "style-detail-delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/styles/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a style."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

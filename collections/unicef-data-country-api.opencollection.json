@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GeoSight Basemap Country API",
+    "version": "v1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Country",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of all existing and existed countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/countries"
+          },
+          "docs": "Get the list of all existing and existed countries"
+        },
+        {
+          "info": {
+            "name": "Get the list of all current countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/countries/current"
+          },
+          "docs": "Get the list of all current countries"
+        },
+        {
+          "info": {
+            "name": "Get the list of all organizations responsible for country names",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/countries/organizations"
+          },
+          "docs": "Get the list of all organizations responsible for country names"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

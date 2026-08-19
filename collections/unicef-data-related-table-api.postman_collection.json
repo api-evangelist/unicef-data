@@ -1,0 +1,656 @@
+{
+  "item": [
+    {
+      "id": "2c326c8d-14db-4e46-b171-812d1483e69d",
+      "name": "Related table",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1aea57b8-2016-4145-9b87-ad8d4b57990a",
+          "name": "related-table-list",
+          "request": {
+            "name": "related-table-list",
+            "description": {
+              "content": "Return list of accessible related tables for the user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "related-tables",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "08980fcd-967a-4a45-9aaf-15511fc6ba12",
+              "name": "Resource fetching successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "related-tables",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"fields_definition\": [\n      {\n        \"name\": \"string\",\n        \"label\": \"string\",\n        \"type\": \" number \"\n      },\n      {\n        \"name\": \"string\",\n        \"label\": \"string\",\n        \"type\": \" string\"\n      }\n    ],\n    \"id\": 1360,\n    \"description\": \"string\",\n    \"url\": \"string\",\n    \"creator\": \"string\",\n    \"created_at\": \"string\",\n    \"modified_at\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"fields_definition\": [\n      {\n        \"name\": \"string\",\n        \"label\": \"string\",\n        \"type\": \"date \"\n      },\n      {\n        \"name\": \"string\",\n        \"label\": \"string\",\n        \"type\": \" string\"\n      }\n    ],\n    \"id\": 9429,\n    \"description\": \"string\",\n    \"url\": \"string\",\n    \"creator\": \"string\",\n    \"created_at\": \"string\",\n    \"modified_at\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f4dc2df-b35a-4d3c-8cef-2bb74e8757ec",
+          "name": "related-table-create",
+          "request": {
+            "name": "related-table-create",
+            "description": {
+              "content": "Create a related table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "related-tables",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"fields_definition\": [\n    {\n      \"name\": \"<string>\",\n      \"label\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"label\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bfa1e401-3294-4386-807a-29d8640ad196",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "related-tables",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9605,\n  \"name\": \"string\",\n  \"fields_definition\": [\n    {\n      \"name\": \"string\",\n      \"label\": \"string\",\n      \"type\": \" number \"\n    },\n    {\n      \"name\": \"string\",\n      \"label\": \"string\",\n      \"type\": \"date \"\n    }\n  ],\n  \"description\": \"string\",\n  \"url\": \"string\",\n  \"creator\": \"string\",\n  \"created_at\": \"string\",\n  \"modified_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5574b3be-dbe8-4008-bf96-b77bce85d93c",
+          "name": "related-table-detail",
+          "request": {
+            "name": "related-table-detail",
+            "description": {
+              "content": "Return detail of a related tables for the user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "related-tables",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "19a2b0bd-cc4e-4583-9b11-3e40c3ed7a60",
+              "name": "Resource fetching successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "related-tables",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"fields_definition\": [\n    {\n      \"name\": \"string\",\n      \"label\": \"string\",\n      \"type\": \"date \"\n    },\n    {\n      \"name\": \"string\",\n      \"label\": \"string\",\n      \"type\": \"date \"\n    }\n  ],\n  \"id\": 1168,\n  \"description\": \"string\",\n  \"url\": \"string\",\n  \"creator\": \"string\",\n  \"created_at\": \"string\",\n  \"modified_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e97e93b-df85-4f96-9e07-4fcac0746614",
+          "name": "related-table-update",
+          "request": {
+            "name": "related-table-update",
+            "description": {
+              "content": "Update a related table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "related-tables",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"fields_definition\": [\n    {\n      \"name\": \"<string>\",\n      \"label\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"label\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8c6b0317-2d00-49d3-8745-b1479566e8cb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "related-tables",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9605,\n  \"name\": \"string\",\n  \"fields_definition\": [\n    {\n      \"name\": \"string\",\n      \"label\": \"string\",\n      \"type\": \" number \"\n    },\n    {\n      \"name\": \"string\",\n      \"label\": \"string\",\n      \"type\": \"date \"\n    }\n  ],\n  \"description\": \"string\",\n  \"url\": \"string\",\n  \"creator\": \"string\",\n  \"created_at\": \"string\",\n  \"modified_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e24ed876-708d-40ab-8565-a71c3d52ef81",
+          "name": "related-table-partial-update",
+          "request": {
+            "name": "related-table-partial-update",
+            "description": {
+              "content": "Update an existing related table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "related-tables",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"fields_definition\": [\n    {\n      \"name\": \"<string>\",\n      \"label\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"label\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d97cc7e9-c929-47b1-b032-7c0a4364454e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "related-tables",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"fields_definition\": [\n    {\n      \"name\": \"<string>\",\n      \"label\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"label\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"fields_definition\": [\n    {\n      \"name\": \"<string>\",\n      \"label\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"label\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"id\": 1728,\n  \"description\": \"<string>\",\n  \"url\": \"string\",\n  \"creator\": \"string\",\n  \"created_at\": \"string\",\n  \"modified_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e47b58ff-f466-40a8-a2af-fe5c4c07aac7",
+          "name": "related-table-delete",
+          "request": {
+            "name": "related-table-delete",
+            "description": {
+              "content": "Delete a related table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "related-tables",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a95326ea-c10b-4d27-b413-f6cfd9b3de17",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "related-tables",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geosight.unicef.org/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c3309aaa-a3bd-43d1-86c0-e1130afef604",
+    "name": "GeoSight Basemap Related table API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

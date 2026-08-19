@@ -1,0 +1,126 @@
+{
+  "item": [
+    {
+      "id": "a6e0d68e-63ad-43f7-95e5-e119022ea953",
+      "name": "YearAssignmentMethod",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4f6a8790-c3aa-430f-af32-67679549a33f",
+          "name": "Get the list of all indicator year assignement methods",
+          "request": {
+            "name": "Get the list of all indicator year assignement methods",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "YearAssignmentMethods"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a6be933b-2475-43b0-8ecc-94de65666274",
+              "name": "The list of all indicator year assignement methods, e.g. \"Start of Fieldwork\" or \"End of Fieldwork\"",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "YearAssignmentMethods"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"yamId\": 8042,\n    \"name\": \"string\",\n    \"editedBy\": \"string\",\n    \"editedDate\": \"string\",\n    \"code\": \"string\"\n  },\n  {\n    \"yamId\": 7464,\n    \"name\": \"string\",\n    \"editedBy\": \"string\",\n    \"editedDate\": \"string\",\n    \"code\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geosight.unicef.org/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8fd24ce4-5f31-4034-8372-0a177c118b76",
+    "name": "GeoSight Basemap YearAssignmentMethod API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

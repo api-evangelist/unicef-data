@@ -1,0 +1,188 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GeoSight Basemap Related table data API",
+    "version": "v1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Related table data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "related-table-data-list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/related-tables/:related_tables_id/data/",
+            "params": [
+              {
+                "name": "related_tables_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Return list of related table rows for the user."
+        },
+        {
+          "info": {
+            "name": "related-table-data-create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/related-tables/:related_tables_id/data/",
+            "params": [
+              {
+                "name": "related_tables_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create related table rows."
+        },
+        {
+          "info": {
+            "name": "related-table-data-detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/related-tables/:related_tables_id/data/:id/",
+            "params": [
+              {
+                "name": "related_tables_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return detail of a related table row for the user."
+        },
+        {
+          "info": {
+            "name": "related-table-data-update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/related-tables/:related_tables_id/data/:id/",
+            "params": [
+              {
+                "name": "related_tables_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update a related table row."
+        },
+        {
+          "info": {
+            "name": "related-table-data-partial-update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/related-tables/:related_tables_id/data/:id/",
+            "params": [
+              {
+                "name": "related_tables_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update an existing related table row."
+        },
+        {
+          "info": {
+            "name": "related-table-data-delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/related-tables/:related_tables_id/data/:id/",
+            "params": [
+              {
+                "name": "related_tables_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a related table row."
+        },
+        {
+          "info": {
+            "name": "related-table-geo-data-list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/related-tables/:related_tables_id/geo-data/",
+            "params": [
+              {
+                "name": "related_tables_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              }
+            ]
+          },
+          "docs": "Return list of data with geospatial data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

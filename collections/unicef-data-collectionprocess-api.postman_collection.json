@@ -1,0 +1,126 @@
+{
+  "item": [
+    {
+      "id": "79baab4f-b3b5-4abe-a2ca-79569cccb0bc",
+      "name": "CollectionProcess",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f8ca7a98-3d1c-40d8-a5c3-555e156dafda",
+          "name": "Get the list of all collection processes/mechanisms related to indicators",
+          "request": {
+            "name": "Get the list of all collection processes/mechanisms related to indicators",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "collectionprocesses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3dacbc2e-331f-4902-a8d1-6819a35c0639",
+              "name": "The list of all collection processes/mechanisms related to indicators. Examples are \"CRAVE\" and \"SDG Consultation\"",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "collectionprocesses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"collectionProcessId\": 6369,\n    \"name\": \"string\",\n    \"editedBy\": \"string\",\n    \"editedDate\": \"string\",\n    \"description\": \"string\",\n    \"code\": \"string\",\n    \"dataRelease\": \"string\",\n    \"dataCollection\": \"string\"\n  },\n  {\n    \"collectionProcessId\": 9272,\n    \"name\": \"string\",\n    \"editedBy\": \"string\",\n    \"editedDate\": \"string\",\n    \"description\": \"string\",\n    \"code\": \"string\",\n    \"dataRelease\": \"string\",\n    \"dataCollection\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geosight.unicef.org/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ef026f61-cac6-4f8f-bf95-08c8a4e4a489",
+    "name": "GeoSight Basemap CollectionProcess API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

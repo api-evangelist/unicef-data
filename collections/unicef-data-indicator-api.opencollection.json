@@ -1,0 +1,337 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GeoSight Basemap Indicator API",
+    "version": "v1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Indicator",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "indicator-list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/indicators/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number in pagination"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Total records in a page"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category"
+              },
+              {
+                "name": "name__contains",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by partial name."
+              },
+              {
+                "name": "description__contains",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by partial description."
+              },
+              {
+                "name": "category__name__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by multiple category. Put multiple filter using comma separator."
+              },
+              {
+                "name": "type__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by multiple type. Put multiple filter using comma separator."
+              },
+              {
+                "name": "project_slug__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by multiple project slug. Put multiple filter using comma separator."
+              },
+              {
+                "name": "project_id__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by multiple project id. Put multiple filter using comma separator."
+              }
+            ]
+          },
+          "docs": "Return list of accessed indicator for the user."
+        },
+        {
+          "info": {
+            "name": "indicator-create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/indicators/"
+          },
+          "docs": "Create a indicator."
+        },
+        {
+          "info": {
+            "name": "indicators-data-list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/indicators/data/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Return list of indicators data for the user."
+        },
+        {
+          "info": {
+            "name": "indicator-detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/indicators/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return detailed of indicator."
+        },
+        {
+          "info": {
+            "name": "indicator-detail-update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/indicators/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Replace a detailed of indicator."
+        },
+        {
+          "info": {
+            "name": "indicator-detail-partial-update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/indicators/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update just partial data based on payload a detailed of indicator."
+        },
+        {
+          "info": {
+            "name": "indicator-detail-delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/indicators/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an indicator."
+        },
+        {
+          "info": {
+            "name": "indicator-data-list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/indicators/:indicators_id/data/",
+            "params": [
+              {
+                "name": "indicators_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Return list of indicator data for the user."
+        },
+        {
+          "info": {
+            "name": "indicator-data-detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/indicators/:indicators_id/data/:id/",
+            "params": [
+              {
+                "name": "indicators_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return detail of a indicator row for the user."
+        },
+        {
+          "info": {
+            "name": "Get the list of all indicators defined in the database. It does not include all possible attubutes (use api/indicators/{ID} for the complete list of attributes of a single indicator). Without an API key, it return only published indicators.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/indicators"
+          },
+          "docs": "Get the list of all indicators defined in the database. It does not include all possible attubutes (use api/indicators/{ID} for the complete list of attributes of a single indicator). Without an API key, it return only published indicators."
+        },
+        {
+          "info": {
+            "name": "Get the list of all indicators defined in the database by agency code. It does not include all possible attubutes. Use /api/countries/organizations to get the list of agencies. Without an API key, it return only published indicators.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/indicators/agency/:agencyCode",
+            "params": [
+              {
+                "name": "agencyCode",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the list of all indicators defined in the database by agency code. It does not include all possible attubutes. Use /api/countries/organizations to get the list of agencies. Without an API key, it return only published indicators."
+        },
+        {
+          "info": {
+            "name": "Get the list of all indicators by strategic plan statement helix code. It does not include all possible attubutes. Use /api/strategicplan/statements/area/{SPAreaCode} to get the list of SP statements. Without an API key, it return only published indicators.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/indicators/spstatement/:statementCode",
+            "params": [
+              {
+                "name": "statementCode",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the list of all indicators by strategic plan statement helix code. It does not include all possible attubutes. Use /api/strategicplan/statements/area/{SPAreaCode} to get the list of SP statements. Without an API key, it return only published indicators."
+        },
+        {
+          "info": {
+            "name": "Get an indicator given its ID. Previous versions of simple attributes are not included. For files, use the \"Path\" value to access the file",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/indicators/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the requested indicator"
+              }
+            ]
+          },
+          "docs": "Get an indicator given its ID. Previous versions of simple attributes are not included. For files, use the \"Path\" value to access the file"
+        },
+        {
+          "info": {
+            "name": "Get an indicator given its ID. Previous versions of simple attributes are not included\nOpen also for unpublished indicators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/indicators/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "The code of the requested indicator"
+              }
+            ]
+          },
+          "docs": "Get an indicator given its ID. Previous versions of simple attributes are not included\nOpen also for unpublished indicators"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

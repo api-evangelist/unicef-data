@@ -1,0 +1,295 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GeoSight Basemap Reference datasets API",
+    "version": "v1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reference datasets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "reference-datasets-list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/reference-datasets/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number in pagination"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Total records in a page"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category"
+              },
+              {
+                "name": "name__contains",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by partial name."
+              },
+              {
+                "name": "identifier__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by identifier."
+              }
+            ]
+          },
+          "docs": "Return list of accessed reference dataset for the user."
+        },
+        {
+          "info": {
+            "name": "reference-datasets-entity-list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/reference-datasets/entity/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number in pagination"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Total records in a page"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category"
+              },
+              {
+                "name": "name__contains",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by partial name."
+              },
+              {
+                "name": "concept_uuid__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by concept_uuid."
+              },
+              {
+                "name": "admin_level__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by multiple admin level in number. Put multiple filter using comma separator."
+              }
+            ]
+          },
+          "docs": "Return list of accessed entity of reference dataset for the user."
+        },
+        {
+          "info": {
+            "name": "reference-datasets-entity-detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/reference-datasets/entity/:geom_id/",
+            "params": [
+              {
+                "name": "geom_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return detailed of entity of reference dataset."
+        },
+        {
+          "info": {
+            "name": "reference-datasets-detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/reference-datasets/:identifier/",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return detailed of reference dataset."
+        },
+        {
+          "info": {
+            "name": "reference-datasets-detail-delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/reference-datasets/:identifier/",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a reference dataset."
+        },
+        {
+          "info": {
+            "name": "reference-datasets-operation-bbox",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/reference-datasets/:identifier/bbox/concept_uuid/",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return bbox of reference dataset entities."
+        },
+        {
+          "info": {
+            "name": "reference-datasets-operation-bbox",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/reference-datasets/:identifier/bbox/ucode/",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return bbox of reference dataset entities."
+        },
+        {
+          "info": {
+            "name": "reference-datasets-detail-entity-list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/reference-datasets/:identifier/entity/",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number in pagination"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Total records in a page"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category"
+              },
+              {
+                "name": "name__contains",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by partial name."
+              },
+              {
+                "name": "concept_uuid__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by concept_uuid."
+              },
+              {
+                "name": "admin_level__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by multiple admin level in number. Put multiple filter using comma separator."
+              }
+            ]
+          },
+          "docs": "Return list of accessed entity of reference dataset for the user."
+        },
+        {
+          "info": {
+            "name": "reference-datasets-detail-entity-detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/reference-datasets/:identifier/entity/:geom_id/",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "geom_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return detailed of entity of reference dataset."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,126 @@
+{
+  "item": [
+    {
+      "id": "3dde741b-f461-4e50-bf39-5803fd82abba",
+      "name": "DataSource",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "31fbfd8c-94c7-415a-8629-2ecb5472a0a9",
+          "name": "Get the list of all indicator data sources defined in the database",
+          "request": {
+            "name": "Get the list of all indicator data sources defined in the database",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "datasources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e278a117-8c02-414a-84a7-4030aeef09ed",
+              "name": "The list of all indicator data sources defined in the database.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "datasources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 4882,\n    \"sourceName\": \"string\",\n    \"createdBy\": \"string\",\n    \"createdDate\": \"string\"\n  },\n  {\n    \"id\": 3607,\n    \"sourceName\": \"string\",\n    \"createdBy\": \"string\",\n    \"createdDate\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geosight.unicef.org/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "86d5b222-f801-4158-8fdf-0ca731d4e821",
+    "name": "GeoSight Basemap DataSource API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

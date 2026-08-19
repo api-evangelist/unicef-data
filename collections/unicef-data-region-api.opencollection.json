@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GeoSight Basemap Region API",
+    "version": "v1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Region",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of all Regions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/regions"
+          },
+          "docs": "Get the list of all Regions"
+        },
+        {
+          "info": {
+            "name": "Get the list of all Regions by Series ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/regions/byseries/:RegionSeriesId",
+            "params": [
+              {
+                "name": "RegionSeriesId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the list of all Regions by Series ID"
+        },
+        {
+          "info": {
+            "name": "Get the list of all region series",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/regions/series"
+          },
+          "docs": "Get the list of all region series"
+        },
+        {
+          "info": {
+            "name": "Get the list of all region collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/regions/collections"
+          },
+          "docs": "Get the list of all region collections"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

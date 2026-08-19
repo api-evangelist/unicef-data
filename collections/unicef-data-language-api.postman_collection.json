@@ -1,0 +1,126 @@
+{
+  "item": [
+    {
+      "id": "556167d5-2015-4743-ad12-cc0eac9d4ce4",
+      "name": "Language",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "da75d1d7-0705-4574-b772-9e3db7a29767",
+          "name": "Get the list of all languages used in the system",
+          "request": {
+            "name": "Get the list of all languages used in the system",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "languages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4ed84f2f-a93f-4446-b785-3455f31ea92a",
+              "name": "The list of all languages used in the system to have multilingual names of code lists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "languages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"languageID\": 7116,\n    \"name\": \"string\",\n    \"isO6392\": \"string\",\n    \"editedBy\": \"string\",\n    \"editedDate\": \"string\"\n  },\n  {\n    \"languageID\": 1683,\n    \"name\": \"string\",\n    \"isO6392\": \"string\",\n    \"editedBy\": \"string\",\n    \"editedDate\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geosight.unicef.org/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "83b05a76-e871-4d97-bc56-7a54eaa9fd6a",
+    "name": "GeoSight Basemap Language API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

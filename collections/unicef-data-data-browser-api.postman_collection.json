@@ -1,0 +1,240 @@
+{
+  "item": [
+    {
+      "id": "1de59e11-f77b-442a-b488-5ca493e37e6c",
+      "name": "Data Browser",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e97e45d7-b81f-4997-8456-1c089709e998",
+          "name": "List of dashboard.",
+          "request": {
+            "name": "List of dashboard.",
+            "description": {
+              "content": ":param request: The HTTP request object.\n:type request: HttpRequest\n:param *args: Additional positional arguments.\n:type *args: tuple\n:param **kwargs: Additional keyword arguments.\n:type **kwargs: dict\n:return: The HTTP response containing the list of dashboard data or\n    a bad request response.\n:rtype: HttpResponse",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-browser",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number in pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "25",
+                  "description": "Total records in a page"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category"
+                },
+                {
+                  "disabled": false,
+                  "key": "indicator_id__in",
+                  "value": "<string>",
+                  "description": "Filter data by multiple indicator id. Put multiple filter using comma separator."
+                },
+                {
+                  "disabled": false,
+                  "key": "indicator_shortcode__in",
+                  "value": "<string>",
+                  "description": "Filter data by multiple indicator shortcode. Put multiple filter using comma separator."
+                },
+                {
+                  "disabled": false,
+                  "key": "dataset_uuid__in",
+                  "value": "<string>",
+                  "description": "Filter data by multiple reference dataset view uuid. Put multiple filter using comma separator."
+                },
+                {
+                  "disabled": false,
+                  "key": "admin_level__in",
+                  "value": "<string>",
+                  "description": "Filter data by multiple admin level in number. Put multiple filter using comma separator."
+                },
+                {
+                  "disabled": false,
+                  "key": "geom_id__in",
+                  "value": "<string>",
+                  "description": "Filter data by multiple geom id. Put multiple filter using comma separator."
+                },
+                {
+                  "disabled": false,
+                  "key": "date__gte",
+                  "value": "<string>",
+                  "description": "Filter data from the date in format YYYY-MM-DD."
+                },
+                {
+                  "disabled": false,
+                  "key": "date__lte",
+                  "value": "<string>",
+                  "description": "Filter data up to the date in format YYYY-MM-DD."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "897e2b70-ba34-4dba-9cac-13562547f8f7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-browser",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "indicator_id__in",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "indicator_shortcode__in",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dataset_uuid__in",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "admin_level__in",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "geom_id__in",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date__gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date__lte",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1933,\n  \"results\": [\n    {\n      \"date\": \"string\",\n      \"geom_id\": \"string\",\n      \"id\": 1288.46945380099,\n      \"indicator\": \"string\",\n      \"indicator_id\": 5738.051990236364,\n      \"value\": \"string\",\n      \"admin_level\": 8829.8111790394,\n      \"entity_name\": \"string\",\n      \"country_id\": \"string\",\n      \"country_geom_id\": \"string\",\n      \"country_name\": \"string\",\n      \"attributes\": {},\n      \"permission\": {\n        \"list\": true,\n        \"read\": false,\n        \"edit\": true,\n        \"share\": true,\n        \"delete\": true\n      }\n    },\n    {\n      \"date\": \"string\",\n      \"geom_id\": \"string\",\n      \"id\": 3515.0854842319213,\n      \"indicator\": \"string\",\n      \"indicator_id\": 5463.986595495638,\n      \"value\": \"string\",\n      \"admin_level\": 1769.2848391026662,\n      \"entity_name\": \"string\",\n      \"country_id\": \"string\",\n      \"country_geom_id\": \"string\",\n      \"country_name\": \"string\",\n      \"attributes\": {},\n      \"permission\": {\n        \"list\": true,\n        \"read\": true,\n        \"edit\": false,\n        \"share\": true,\n        \"delete\": false\n      }\n    }\n  ],\n  \"next\": \"http://OulmyrDAhaY.gcIHDqKY12U47ef0kskWpxxayh8zHJh61g1WrYaY6Wvd5Bg27Yl4sovSpi4XnEp7S\",\n  \"previous\": \"http://QVfgD.gknxAuNWuVQzMN8Yic7cYRDlAdbD4SP2c+b5sFX7Irn7PPekcmm-Gze-4yndTR2H2nivM0-d\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geosight.unicef.org/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6c91cb36-86bb-47fe-a1e0-733a848b976c",
+    "name": "GeoSight Basemap Data Browser API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

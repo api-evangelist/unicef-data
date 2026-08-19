@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GeoSight Basemap Data Browser API",
+    "version": "v1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Browser",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of dashboard.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/data-browser/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number in pagination"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Total records in a page"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category"
+              },
+              {
+                "name": "indicator_id__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by multiple indicator id. Put multiple filter using comma separator."
+              },
+              {
+                "name": "indicator_shortcode__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by multiple indicator shortcode. Put multiple filter using comma separator."
+              },
+              {
+                "name": "dataset_uuid__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by multiple reference dataset view uuid. Put multiple filter using comma separator."
+              },
+              {
+                "name": "admin_level__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by multiple admin level in number. Put multiple filter using comma separator."
+              },
+              {
+                "name": "geom_id__in",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by multiple geom id. Put multiple filter using comma separator."
+              },
+              {
+                "name": "date__gte",
+                "value": "",
+                "type": "query",
+                "description": "Filter data from the date in format YYYY-MM-DD."
+              },
+              {
+                "name": "date__lte",
+                "value": "",
+                "type": "query",
+                "description": "Filter data up to the date in format YYYY-MM-DD."
+              }
+            ]
+          },
+          "docs": ":param request: The HTTP request object.\n:type request: HttpRequest\n:param *args: Additional positional arguments.\n:type *args: tuple\n:param **kwargs: Additional keyword arguments.\n:type **kwargs: dict\n:return: The HTTP response containing the list of dashboard data or\n    a bad request response.\n:rtype: HttpResponse"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

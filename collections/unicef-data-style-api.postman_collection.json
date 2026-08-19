@@ -1,0 +1,726 @@
+{
+  "item": [
+    {
+      "id": "8c5fd61e-1459-4084-9148-217fa89a8ba2",
+      "name": "Style",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "11efc373-42c6-4e1b-902d-4443d4d7804c",
+          "name": "style-list",
+          "request": {
+            "name": "style-list",
+            "description": {
+              "content": "Return list of accessed style for the user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "styles",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number in pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "25",
+                  "description": "Total records in a page"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category"
+                },
+                {
+                  "disabled": false,
+                  "key": "name__contains",
+                  "value": "<string>",
+                  "description": "Filter data by partial name."
+                },
+                {
+                  "disabled": false,
+                  "key": "description__contains",
+                  "value": "<string>",
+                  "description": "Filter data by partial description."
+                },
+                {
+                  "disabled": false,
+                  "key": "category__name__in",
+                  "value": "<string>",
+                  "description": "Filter data by multiple category. Put multiple filter using comma separator."
+                },
+                {
+                  "disabled": false,
+                  "key": "type__in",
+                  "value": "<string>",
+                  "description": "Filter data by multiple type. Put multiple filter using comma separator."
+                },
+                {
+                  "disabled": false,
+                  "key": "project_slug__in",
+                  "value": "<string>",
+                  "description": "Filter data by multiple project slug. Put multiple filter using comma separator."
+                },
+                {
+                  "disabled": false,
+                  "key": "project_id__in",
+                  "value": "<string>",
+                  "description": "Filter data by multiple project id. Put multiple filter using comma separator."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "50fcb065-c8ed-43cb-af96-4c2128907e6e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "styles",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name__contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description__contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "category__name__in",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type__in",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project_slug__in",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project_id__in",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4069,\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"id\": 4163,\n      \"modified_at\": \"string\",\n      \"created_at\": \"string\",\n      \"category\": \"string\",\n      \"description\": \"string\",\n      \"style_type\": \"Dynamic quantitative style.\"\n    },\n    {\n      \"name\": \"string\",\n      \"id\": 6986,\n      \"modified_at\": \"string\",\n      \"created_at\": \"string\",\n      \"category\": \"string\",\n      \"description\": \"string\",\n      \"style_type\": \"Dynamic qualitative style.\"\n    }\n  ],\n  \"next\": \"http://TCqvnHkzErrGzfNpyslejrFtwBBxFC.sasU3cv109NGwfMnteSylU7jsILF9bx.t6VCtt2-MnRW3k9S0e6Kpa84vRWGkRr.5-y6EyrzDfazO+D4wA.5\",\n  \"previous\": \"http://lRsjNWHYKCJtbmFhiEPRXkeZwbWuH.maIOuhvXmJryvwReThhOraay-BdLbktC,7+v1t-iGPYB7zf3cA\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81934451-cb65-4815-942b-ee3ba0bfd857",
+          "name": "style-create",
+          "request": {
+            "name": "style-create",
+            "description": {
+              "content": "Create a style.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "styles",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"style_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "25976e9a-50c2-41b4-9fd6-92826194ffd9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "styles",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"id\": 177,\n  \"modified_at\": \"string\",\n  \"created_at\": \"string\",\n  \"category\": \"string\",\n  \"description\": \"<string>\",\n  \"style_type\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "849bf371-7ddd-4bef-b11c-fdc2b2d19931",
+          "name": "style-detail",
+          "request": {
+            "name": "style-detail",
+            "description": {
+              "content": "Return detailed of style.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "styles",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4686540f-0cb5-4f40-b3df-01647e6c6b09",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "styles",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"id\": 177,\n  \"modified_at\": \"string\",\n  \"created_at\": \"string\",\n  \"category\": \"string\",\n  \"description\": \"<string>\",\n  \"style_type\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e86bf484-a2c4-4843-8ff1-564cf9e7f7a4",
+          "name": "style-detail-update",
+          "request": {
+            "name": "style-detail-update",
+            "description": {
+              "content": "Replace a detailed of style.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "styles",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"style_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4ba61b28-3f8e-4b9a-a2fc-0d5b7625d82f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "styles",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"id\": 177,\n  \"modified_at\": \"string\",\n  \"created_at\": \"string\",\n  \"category\": \"string\",\n  \"description\": \"<string>\",\n  \"style_type\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d4bff2f-f1a0-4115-8e02-2f5a7317ee7b",
+          "name": "style-detail-partial-update",
+          "request": {
+            "name": "style-detail-partial-update",
+            "description": {
+              "content": "Update just partial data based on payload a detailed of style.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "styles",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"style_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "911193d9-fddd-43ec-aaba-284c9feb93c7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "styles",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"id\": 177,\n  \"modified_at\": \"string\",\n  \"created_at\": \"string\",\n  \"category\": \"string\",\n  \"description\": \"<string>\",\n  \"style_type\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dbc75026-7804-4f5c-a57e-739c9872548f",
+          "name": "style-detail-delete",
+          "request": {
+            "name": "style-detail-delete",
+            "description": {
+              "content": "Delete a style.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "styles",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87319a62-2910-4d4e-a444-bb39b04b3b9e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "styles",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geosight.unicef.org/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6322bdc9-039d-45bb-8faa-acabc8511bab",
+    "name": "GeoSight Basemap Style API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

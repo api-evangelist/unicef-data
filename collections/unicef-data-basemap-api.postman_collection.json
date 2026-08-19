@@ -1,0 +1,726 @@
+{
+  "item": [
+    {
+      "id": "01e896ae-da1f-4e96-b10a-99a3591ac04a",
+      "name": "Basemap",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d9c994aa-eebb-470d-9d34-0036a948de1a",
+          "name": "basemap-list",
+          "request": {
+            "name": "basemap-list",
+            "description": {
+              "content": "Return list of accessed basemap for the user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "basemaps",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number in pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "25",
+                  "description": "Total records in a page"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category"
+                },
+                {
+                  "disabled": false,
+                  "key": "name__contains",
+                  "value": "<string>",
+                  "description": "Filter data by partial name."
+                },
+                {
+                  "disabled": false,
+                  "key": "description__contains",
+                  "value": "<string>",
+                  "description": "Filter data by partial description."
+                },
+                {
+                  "disabled": false,
+                  "key": "category__name__in",
+                  "value": "<string>",
+                  "description": "Filter data by multiple category. Put multiple filter using comma separator."
+                },
+                {
+                  "disabled": false,
+                  "key": "type__in",
+                  "value": "<string>",
+                  "description": "Filter data by multiple type. Put multiple filter using comma separator."
+                },
+                {
+                  "disabled": false,
+                  "key": "project_slug__in",
+                  "value": "<string>",
+                  "description": "Filter data by multiple project slug. Put multiple filter using comma separator."
+                },
+                {
+                  "disabled": false,
+                  "key": "project_id__in",
+                  "value": "<string>",
+                  "description": "Filter data by multiple project id. Put multiple filter using comma separator."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00b0ed1a-1f9d-42a7-a827-c0abbf200246",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "basemaps",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name__contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description__contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "category__name__in",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type__in",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project_slug__in",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project_id__in",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4936,\n  \"results\": [\n    {\n      \"id\": 1,\n      \"category\": \"TEST\",\n      \"created_by\": \"Admin\",\n      \"created_at\": \"2023-01-01T00:00:00.00000Z\",\n      \"permission\": {\n        \"list\": true,\n        \"read\": true,\n        \"edit\": true,\n        \"share\": true,\n        \"delete\": true\n      },\n      \"name\": \"Basemap name 1\",\n      \"description\": \"Description\",\n      \"icon\": \"http://localhost:2000/media/icons/icon.png\",\n      \"url\": \"https://a.tile.openstreetmap.org/{z}/{x}/{y}.png\",\n      \"type\": \"XYZ\"\n    },\n    {\n      \"id\": 1,\n      \"category\": \"TEST\",\n      \"created_by\": \"Admin\",\n      \"created_at\": \"2023-01-01T00:00:00.00000Z\",\n      \"permission\": {\n        \"list\": true,\n        \"read\": true,\n        \"edit\": true,\n        \"share\": true,\n        \"delete\": true\n      },\n      \"name\": \"Basemap name 1\",\n      \"description\": \"Description\",\n      \"icon\": \"http://localhost:2000/media/icons/icon.png\",\n      \"url\": \"https://a.tile.openstreetmap.org/{z}/{x}/{y}.png\",\n      \"type\": \"XYZ\"\n    }\n  ],\n  \"next\": \"https://PtQgfVTvmnt.ossvBUkuarfHU0XURtnd,P35q5xGd,c5+nCJ9VVulRvj.Ludj5YfSPV,X8\",\n  \"previous\": \"https://KPkzwjnaBXwyCvJcDF.ciyuyN53WaiHUPL0SUHxHg.wWe\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd526a3f-e438-44c5-939b-22a551a50c38",
+          "name": "basemap-create",
+          "request": {
+            "name": "basemap-create",
+            "description": {
+              "content": "Create a basemap.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "basemaps",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"category\": \"<string>\",\n  \"url\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d416e389-bfb7-4999-af0a-865aeb52aab9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "basemaps",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"category\": \"string\",\n  \"url\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "30f86a1a-4ea5-4301-93de-9d3af16d81fa",
+          "name": "basemap-detail",
+          "request": {
+            "name": "basemap-detail",
+            "description": {
+              "content": "Return detailed of basemap.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "basemaps",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "74ae31da-d1c6-4d40-b950-4deb996aa557",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "basemaps",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"category\": \"TEST\",\n  \"created_by\": \"Admin\",\n  \"created_at\": \"2023-01-01T00:00:00.00000Z\",\n  \"permission\": {\n    \"list\": true,\n    \"read\": true,\n    \"edit\": true,\n    \"share\": true,\n    \"delete\": true\n  },\n  \"name\": \"Basemap name 1\",\n  \"description\": \"Description\",\n  \"icon\": \"http://localhost:2000/media/icons/icon.png\",\n  \"url\": \"https://a.tile.openstreetmap.org/{z}/{x}/{y}.png\",\n  \"type\": \"XYZ\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "641a05a0-56a0-4f26-a70f-792595f67259",
+          "name": "basemap-detail-update",
+          "request": {
+            "name": "basemap-detail-update",
+            "description": {
+              "content": "Replace a detailed of basemap.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "basemaps",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"category\": \"<string>\",\n  \"url\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "283bb97c-5304-4332-912d-770a06f9eb18",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "basemaps",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"category\": \"string\",\n  \"url\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "763a62d6-c6c2-4da8-89ca-f54fbfa1df75",
+          "name": "basemap-detail-partial-update",
+          "request": {
+            "name": "basemap-detail-partial-update",
+            "description": {
+              "content": "Update just partial data based on payload a detailed of basemap.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "basemaps",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"category\": \"<string>\",\n  \"url\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "59863650-16b3-4322-a669-32ba733843af",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "basemaps",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"category\": \"string\",\n  \"url\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f77c327-19be-4ca9-aa11-b029fd7ed229",
+          "name": "basemap-detail-delete",
+          "request": {
+            "name": "basemap-detail-delete",
+            "description": {
+              "content": "Delete a basemap.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "basemaps",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "75079aa2-3645-4e88-bb78-6e3270c91638",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "basemaps",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geosight.unicef.org/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "249e1dcc-91c2-4276-a9a7-85b4fb409ca1",
+    "name": "GeoSight Basemap API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

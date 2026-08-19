@@ -1,0 +1,381 @@
+{
+  "item": [
+    {
+      "id": "b9ce721f-7705-4e92-a606-0266eebc4417",
+      "name": "Region",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "56604593-7878-4ff2-9300-083f26b2ba67",
+          "name": "Get the list of all Regions",
+          "request": {
+            "name": "Get the list of all Regions",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "regions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb1c4085-ef28-4984-b75f-0b22cc3e0d43",
+              "name": "The list of all Regions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "regions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"regionId\": 6217,\n    \"level\": 5699,\n    \"m49\": \"string\",\n    \"altName\": \"string\",\n    \"status\": \"string\",\n    \"description\": \"string\",\n    \"createdBy\": \"string\",\n    \"createdDate\": \"string\",\n    \"cndregionalCode\": \"string\",\n    \"organization\": \"string\",\n    \"language2Name\": [\n      {\n        \"regionId\": 7409,\n        \"languageId\": 942,\n        \"languageName\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"regionId\": 5593,\n        \"languageId\": 196,\n        \"languageName\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"countries\": [\n      {\n        \"countryId\": 4334,\n        \"countryCndCode\": \"string\",\n        \"countryISO\": \"string\",\n        \"regionId\": 4069,\n        \"regionCndCode\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"1953-12-18T15:09:50.784Z\"\n      },\n      {\n        \"countryId\": 4056,\n        \"countryCndCode\": \"string\",\n        \"countryISO\": \"string\",\n        \"regionId\": 7151,\n        \"regionCndCode\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"2012-05-07T17:00:58.241Z\"\n      }\n    ],\n    \"parentRegionID\": 9784,\n    \"parentCndregionalCode\": \"string\",\n    \"collection\": {\n      \"regionCollectionId\": 4145,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"string\",\n      \"regions\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n        }\n      ]\n    },\n    \"series\": {\n      \"regionSeriesId\": 8667,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"string\",\n      \"custodians\": [\n        {\n          \"id\": 7334,\n          \"name\": \"string\",\n          \"editedBy\": \"string\",\n          \"editedDate\": \"string\",\n          \"code\": \"string\"\n        },\n        {\n          \"id\": 2027,\n          \"name\": \"string\",\n          \"editedBy\": \"string\",\n          \"editedDate\": \"string\",\n          \"code\": \"string\"\n        }\n      ],\n      \"regions\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n        }\n      ]\n    }\n  },\n  {\n    \"regionId\": 1733,\n    \"level\": 8015,\n    \"m49\": \"string\",\n    \"altName\": \"string\",\n    \"status\": \"string\",\n    \"description\": \"string\",\n    \"createdBy\": \"string\",\n    \"createdDate\": \"string\",\n    \"cndregionalCode\": \"string\",\n    \"organization\": \"string\",\n    \"language2Name\": [\n      {\n        \"regionId\": 6363,\n        \"languageId\": 9044,\n        \"languageName\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"regionId\": 8926,\n        \"languageId\": 1389,\n        \"languageName\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"countries\": [\n      {\n        \"countryId\": 716,\n        \"countryCndCode\": \"string\",\n        \"countryISO\": \"string\",\n        \"regionId\": 4498,\n        \"regionCndCode\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"1991-08-03T08:55:07.733Z\"\n      },\n      {\n        \"countryId\": 7998,\n        \"countryCndCode\": \"string\",\n        \"countryISO\": \"string\",\n        \"regionId\": 1401,\n        \"regionCndCode\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"1950-11-20T01:42:02.146Z\"\n      }\n    ],\n    \"parentRegionID\": 4747,\n    \"parentCndregionalCode\": \"string\",\n    \"collection\": {\n      \"regionCollectionId\": 7706,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"string\",\n      \"regions\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n        }\n      ]\n    },\n    \"series\": {\n      \"regionSeriesId\": 8652,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"string\",\n      \"custodians\": [\n        {\n          \"id\": 5082,\n          \"name\": \"string\",\n          \"editedBy\": \"string\",\n          \"editedDate\": \"string\",\n          \"code\": \"string\"\n        },\n        {\n          \"id\": 9824,\n          \"name\": \"string\",\n          \"editedBy\": \"string\",\n          \"editedDate\": \"string\",\n          \"code\": \"string\"\n        }\n      ],\n      \"regions\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n        }\n      ]\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5012f2d1-0518-4386-8653-346a7e4d81a0",
+          "name": "Get the list of all Regions by Series ID",
+          "request": {
+            "name": "Get the list of all Regions by Series ID",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "regions",
+                "byseries",
+                ":RegionSeriesId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "RegionSeriesId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5bb35cfc-14d5-4c18-8f0a-c4ee7af6cc4c",
+              "name": "The list of all Regions by Series ID",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "regions",
+                    "byseries",
+                    ":RegionSeriesId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "RegionSeriesId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"regionId\": 5142,\n    \"level\": 4653,\n    \"m49\": \"string\",\n    \"altName\": \"string\",\n    \"status\": \"string\",\n    \"description\": \"string\",\n    \"createdBy\": \"string\",\n    \"createdDate\": \"string\",\n    \"cndregionalCode\": \"string\",\n    \"organization\": \"string\",\n    \"language2Name\": [\n      {\n        \"regionId\": 2542,\n        \"languageId\": 5753,\n        \"languageName\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"regionId\": 4777,\n        \"languageId\": 5621,\n        \"languageName\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"countries\": [\n      {\n        \"countryId\": 1617,\n        \"countryCndCode\": \"string\",\n        \"countryISO\": \"string\",\n        \"regionId\": 4386,\n        \"regionCndCode\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"2003-08-21T02:57:19.559Z\"\n      },\n      {\n        \"countryId\": 9511,\n        \"countryCndCode\": \"string\",\n        \"countryISO\": \"string\",\n        \"regionId\": 6421,\n        \"regionCndCode\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"1962-07-05T15:57:12.817Z\"\n      }\n    ],\n    \"parentRegionID\": 127,\n    \"parentCndregionalCode\": \"string\",\n    \"collection\": {\n      \"regionCollectionId\": 8987,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"string\",\n      \"regions\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n        }\n      ]\n    },\n    \"series\": {\n      \"regionSeriesId\": 3324,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"string\",\n      \"custodians\": [\n        {\n          \"id\": 9832,\n          \"name\": \"string\",\n          \"editedBy\": \"string\",\n          \"editedDate\": \"string\",\n          \"code\": \"string\"\n        },\n        {\n          \"id\": 8513,\n          \"name\": \"string\",\n          \"editedBy\": \"string\",\n          \"editedDate\": \"string\",\n          \"code\": \"string\"\n        }\n      ],\n      \"regions\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n        }\n      ]\n    }\n  },\n  {\n    \"regionId\": 7491,\n    \"level\": 9991,\n    \"m49\": \"string\",\n    \"altName\": \"string\",\n    \"status\": \"string\",\n    \"description\": \"string\",\n    \"createdBy\": \"string\",\n    \"createdDate\": \"string\",\n    \"cndregionalCode\": \"string\",\n    \"organization\": \"string\",\n    \"language2Name\": [\n      {\n        \"regionId\": 415,\n        \"languageId\": 1114,\n        \"languageName\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"regionId\": 9778,\n        \"languageId\": 8461,\n        \"languageName\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"countries\": [\n      {\n        \"countryId\": 3798,\n        \"countryCndCode\": \"string\",\n        \"countryISO\": \"string\",\n        \"regionId\": 4545,\n        \"regionCndCode\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"1950-12-26T18:31:00.858Z\"\n      },\n      {\n        \"countryId\": 649,\n        \"countryCndCode\": \"string\",\n        \"countryISO\": \"string\",\n        \"regionId\": 9606,\n        \"regionCndCode\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"1964-06-29T23:39:36.804Z\"\n      }\n    ],\n    \"parentRegionID\": 4509,\n    \"parentCndregionalCode\": \"string\",\n    \"collection\": {\n      \"regionCollectionId\": 5063,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"string\",\n      \"regions\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n        }\n      ]\n    },\n    \"series\": {\n      \"regionSeriesId\": 4302,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"createdBy\": \"string\",\n      \"createdDate\": \"string\",\n      \"custodians\": [\n        {\n          \"id\": 2593,\n          \"name\": \"string\",\n          \"editedBy\": \"string\",\n          \"editedDate\": \"string\",\n          \"code\": \"string\"\n        },\n        {\n          \"id\": 3814,\n          \"name\": \"string\",\n          \"editedBy\": \"string\",\n          \"editedDate\": \"string\",\n          \"code\": \"string\"\n        }\n      ],\n      \"regions\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n        }\n      ]\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82bf1682-32d9-42b1-9076-17ce8b9aaf20",
+          "name": "Get the list of all region series",
+          "request": {
+            "name": "Get the list of all region series",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "regions",
+                "series"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "60fa3e98-b44d-4d7e-9209-996eef8ae1c3",
+              "name": "The list of all region series, like \"UNICEF Reporting Regions\" or \"World Bank Regional Classifications\"",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "regions",
+                    "series"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"regionSeriesId\": 1497,\n    \"code\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"createdBy\": \"string\",\n    \"createdDate\": \"string\",\n    \"custodians\": [\n      {\n        \"id\": 6091,\n        \"name\": \"string\",\n        \"editedBy\": \"string\",\n        \"editedDate\": \"string\",\n        \"code\": \"string\"\n      },\n      {\n        \"id\": 1858,\n        \"name\": \"string\",\n        \"editedBy\": \"string\",\n        \"editedDate\": \"string\",\n        \"code\": \"string\"\n      }\n    ],\n    \"regions\": [\n      {\n        \"regionId\": 4728,\n        \"level\": 6078,\n        \"m49\": \"string\",\n        \"altName\": \"string\",\n        \"status\": \"string\",\n        \"description\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"string\",\n        \"cndregionalCode\": \"string\",\n        \"organization\": \"string\",\n        \"language2Name\": [\n          {\n            \"regionId\": 8168,\n            \"languageId\": 7219,\n            \"languageName\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"regionId\": 9957,\n            \"languageId\": 4443,\n            \"languageName\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"countries\": [\n          {\n            \"countryId\": 924,\n            \"countryCndCode\": \"string\",\n            \"countryISO\": \"string\",\n            \"regionId\": 9498,\n            \"regionCndCode\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"2022-03-29T06:08:07.086Z\"\n          },\n          {\n            \"countryId\": 4742,\n            \"countryCndCode\": \"string\",\n            \"countryISO\": \"string\",\n            \"regionId\": 3151,\n            \"regionCndCode\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"2013-07-13T13:36:45.648Z\"\n          }\n        ],\n        \"parentRegionID\": 5866,\n        \"parentCndregionalCode\": \"string\",\n        \"collection\": {\n          \"regionCollectionId\": 9282,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"createdBy\": \"string\",\n          \"createdDate\": \"string\",\n          \"regions\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n            }\n          ]\n        },\n        \"series\": {\n          \"value\": \"<Circular reference to #/components/schemas/RegionSeriesItem detected>\"\n        }\n      },\n      {\n        \"regionId\": 8783,\n        \"level\": 2365,\n        \"m49\": \"string\",\n        \"altName\": \"string\",\n        \"status\": \"string\",\n        \"description\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"string\",\n        \"cndregionalCode\": \"string\",\n        \"organization\": \"string\",\n        \"language2Name\": [\n          {\n            \"regionId\": 4486,\n            \"languageId\": 3278,\n            \"languageName\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"regionId\": 6103,\n            \"languageId\": 7888,\n            \"languageName\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"countries\": [\n          {\n            \"countryId\": 1612,\n            \"countryCndCode\": \"string\",\n            \"countryISO\": \"string\",\n            \"regionId\": 3882,\n            \"regionCndCode\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"2017-12-31T01:21:01.861Z\"\n          },\n          {\n            \"countryId\": 2521,\n            \"countryCndCode\": \"string\",\n            \"countryISO\": \"string\",\n            \"regionId\": 7684,\n            \"regionCndCode\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"2004-04-30T12:23:34.283Z\"\n          }\n        ],\n        \"parentRegionID\": 6945,\n        \"parentCndregionalCode\": \"string\",\n        \"collection\": {\n          \"regionCollectionId\": 8094,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"createdBy\": \"string\",\n          \"createdDate\": \"string\",\n          \"regions\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n            }\n          ]\n        },\n        \"series\": {\n          \"value\": \"<Circular reference to #/components/schemas/RegionSeriesItem detected>\"\n        }\n      }\n    ]\n  },\n  {\n    \"regionSeriesId\": 6464,\n    \"code\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"createdBy\": \"string\",\n    \"createdDate\": \"string\",\n    \"custodians\": [\n      {\n        \"id\": 8599,\n        \"name\": \"string\",\n        \"editedBy\": \"string\",\n        \"editedDate\": \"string\",\n        \"code\": \"string\"\n      },\n      {\n        \"id\": 2654,\n        \"name\": \"string\",\n        \"editedBy\": \"string\",\n        \"editedDate\": \"string\",\n        \"code\": \"string\"\n      }\n    ],\n    \"regions\": [\n      {\n        \"regionId\": 4685,\n        \"level\": 9135,\n        \"m49\": \"string\",\n        \"altName\": \"string\",\n        \"status\": \"string\",\n        \"description\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"string\",\n        \"cndregionalCode\": \"string\",\n        \"organization\": \"string\",\n        \"language2Name\": [\n          {\n            \"regionId\": 711,\n            \"languageId\": 7548,\n            \"languageName\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"regionId\": 8908,\n            \"languageId\": 5897,\n            \"languageName\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"countries\": [\n          {\n            \"countryId\": 7715,\n            \"countryCndCode\": \"string\",\n            \"countryISO\": \"string\",\n            \"regionId\": 1111,\n            \"regionCndCode\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"1984-05-01T06:39:15.451Z\"\n          },\n          {\n            \"countryId\": 1666,\n            \"countryCndCode\": \"string\",\n            \"countryISO\": \"string\",\n            \"regionId\": 155,\n            \"regionCndCode\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"1966-12-07T08:13:02.121Z\"\n          }\n        ],\n        \"parentRegionID\": 6586,\n        \"parentCndregionalCode\": \"string\",\n        \"collection\": {\n          \"regionCollectionId\": 335,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"createdBy\": \"string\",\n          \"createdDate\": \"string\",\n          \"regions\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n            }\n          ]\n        },\n        \"series\": {\n          \"value\": \"<Circular reference to #/components/schemas/RegionSeriesItem detected>\"\n        }\n      },\n      {\n        \"regionId\": 7298,\n        \"level\": 2429,\n        \"m49\": \"string\",\n        \"altName\": \"string\",\n        \"status\": \"string\",\n        \"description\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"string\",\n        \"cndregionalCode\": \"string\",\n        \"organization\": \"string\",\n        \"language2Name\": [\n          {\n            \"regionId\": 8636,\n            \"languageId\": 6807,\n            \"languageName\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"regionId\": 7143,\n            \"languageId\": 5976,\n            \"languageName\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"countries\": [\n          {\n            \"countryId\": 958,\n            \"countryCndCode\": \"string\",\n            \"countryISO\": \"string\",\n            \"regionId\": 1810,\n            \"regionCndCode\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"1963-12-24T03:43:13.325Z\"\n          },\n          {\n            \"countryId\": 101,\n            \"countryCndCode\": \"string\",\n            \"countryISO\": \"string\",\n            \"regionId\": 784,\n            \"regionCndCode\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"1984-11-19T01:13:12.205Z\"\n          }\n        ],\n        \"parentRegionID\": 1825,\n        \"parentCndregionalCode\": \"string\",\n        \"collection\": {\n          \"regionCollectionId\": 9654,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"createdBy\": \"string\",\n          \"createdDate\": \"string\",\n          \"regions\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n            }\n          ]\n        },\n        \"series\": {\n          \"value\": \"<Circular reference to #/components/schemas/RegionSeriesItem detected>\"\n        }\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50f13beb-fdb8-4a4a-87e3-78736889ebb3",
+          "name": "Get the list of all region collections",
+          "request": {
+            "name": "Get the list of all region collections",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "regions",
+                "collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da22d364-8c41-41ea-95f4-41e0efaed040",
+              "name": "The list of all region collections, like \"UNICEF Regions\" or \"World Bank Regions\"",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "regions",
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"regionCollectionId\": 8356,\n    \"code\": \"string\",\n    \"name\": \"string\",\n    \"createdBy\": \"string\",\n    \"createdDate\": \"string\",\n    \"regions\": [\n      {\n        \"regionId\": 5545,\n        \"level\": 55,\n        \"m49\": \"string\",\n        \"altName\": \"string\",\n        \"status\": \"string\",\n        \"description\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"string\",\n        \"cndregionalCode\": \"string\",\n        \"organization\": \"string\",\n        \"language2Name\": [\n          {\n            \"regionId\": 4699,\n            \"languageId\": 9395,\n            \"languageName\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"regionId\": 168,\n            \"languageId\": 419,\n            \"languageName\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"countries\": [\n          {\n            \"countryId\": 598,\n            \"countryCndCode\": \"string\",\n            \"countryISO\": \"string\",\n            \"regionId\": 783,\n            \"regionCndCode\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"2003-04-07T12:02:32.111Z\"\n          },\n          {\n            \"countryId\": 2680,\n            \"countryCndCode\": \"string\",\n            \"countryISO\": \"string\",\n            \"regionId\": 380,\n            \"regionCndCode\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"2004-03-17T01:28:33.999Z\"\n          }\n        ],\n        \"parentRegionID\": 384,\n        \"parentCndregionalCode\": \"string\",\n        \"collection\": {\n          \"value\": \"<Circular reference to #/components/schemas/RegionCollectionItem detected>\"\n        },\n        \"series\": {\n          \"regionSeriesId\": 1340,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"createdBy\": \"string\",\n          \"createdDate\": \"string\",\n          \"custodians\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"regions\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n            }\n          ]\n        }\n      },\n      {\n        \"regionId\": 9228,\n        \"level\": 3608,\n        \"m49\": \"string\",\n        \"altName\": \"string\",\n        \"status\": \"string\",\n        \"description\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"string\",\n        \"cndregionalCode\": \"string\",\n        \"organization\": \"string\",\n        \"language2Name\": [\n          {\n            \"regionId\": 1160,\n            \"languageId\": 5779,\n            \"languageName\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"regionId\": 3378,\n            \"languageId\": 1602,\n            \"languageName\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"countries\": [\n          {\n            \"countryId\": 6725,\n            \"countryCndCode\": \"string\",\n            \"countryISO\": \"string\",\n            \"regionId\": 3027,\n            \"regionCndCode\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"1985-07-12T16:31:15.079Z\"\n          },\n          {\n            \"countryId\": 857,\n            \"countryCndCode\": \"string\",\n            \"countryISO\": \"string\",\n            \"regionId\": 3245,\n            \"regionCndCode\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"2021-07-02T03:34:06.327Z\"\n          }\n        ],\n        \"parentRegionID\": 5418,\n        \"parentCndregionalCode\": \"string\",\n        \"collection\": {\n          \"value\": \"<Circular reference to #/components/schemas/RegionCollectionItem detected>\"\n        },\n        \"series\": {\n          \"regionSeriesId\": 6905,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"createdBy\": \"string\",\n          \"createdDate\": \"string\",\n          \"custodians\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"regions\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n            }\n          ]\n        }\n      }\n    ]\n  },\n  {\n    \"regionCollectionId\": 5560,\n    \"code\": \"string\",\n    \"name\": \"string\",\n    \"createdBy\": \"string\",\n    \"createdDate\": \"string\",\n    \"regions\": [\n      {\n        \"regionId\": 8899,\n        \"level\": 260,\n        \"m49\": \"string\",\n        \"altName\": \"string\",\n        \"status\": \"string\",\n        \"description\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"string\",\n        \"cndregionalCode\": \"string\",\n        \"organization\": \"string\",\n        \"language2Name\": [\n          {\n            \"regionId\": 180,\n            \"languageId\": 3378,\n            \"languageName\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"regionId\": 1070,\n            \"languageId\": 1590,\n            \"languageName\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"countries\": [\n          {\n            \"countryId\": 2310,\n            \"countryCndCode\": \"string\",\n            \"countryISO\": \"string\",\n            \"regionId\": 5659,\n            \"regionCndCode\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"2007-11-10T17:27:41.069Z\"\n          },\n          {\n            \"countryId\": 9342,\n            \"countryCndCode\": \"string\",\n            \"countryISO\": \"string\",\n            \"regionId\": 7134,\n            \"regionCndCode\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"1956-06-11T22:04:54.465Z\"\n          }\n        ],\n        \"parentRegionID\": 2159,\n        \"parentCndregionalCode\": \"string\",\n        \"collection\": {\n          \"value\": \"<Circular reference to #/components/schemas/RegionCollectionItem detected>\"\n        },\n        \"series\": {\n          \"regionSeriesId\": 4763,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"createdBy\": \"string\",\n          \"createdDate\": \"string\",\n          \"custodians\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"regions\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n            }\n          ]\n        }\n      },\n      {\n        \"regionId\": 1125,\n        \"level\": 9448,\n        \"m49\": \"string\",\n        \"altName\": \"string\",\n        \"status\": \"string\",\n        \"description\": \"string\",\n        \"createdBy\": \"string\",\n        \"createdDate\": \"string\",\n        \"cndregionalCode\": \"string\",\n        \"organization\": \"string\",\n        \"language2Name\": [\n          {\n            \"regionId\": 3229,\n            \"languageId\": 3484,\n            \"languageName\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"regionId\": 7203,\n            \"languageId\": 3877,\n            \"languageName\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"countries\": [\n          {\n            \"countryId\": 5646,\n            \"countryCndCode\": \"string\",\n            \"countryISO\": \"string\",\n            \"regionId\": 7804,\n            \"regionCndCode\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"2004-10-07T01:06:41.204Z\"\n          },\n          {\n            \"countryId\": 6647,\n            \"countryCndCode\": \"string\",\n            \"countryISO\": \"string\",\n            \"regionId\": 8478,\n            \"regionCndCode\": \"string\",\n            \"createdBy\": \"string\",\n            \"createdDate\": \"1954-02-15T03:45:19.559Z\"\n          }\n        ],\n        \"parentRegionID\": 3005,\n        \"parentCndregionalCode\": \"string\",\n        \"collection\": {\n          \"value\": \"<Circular reference to #/components/schemas/RegionCollectionItem detected>\"\n        },\n        \"series\": {\n          \"regionSeriesId\": 1409,\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"createdBy\": \"string\",\n          \"createdDate\": \"string\",\n          \"custodians\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"regions\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/RegionItem detected>\"\n            }\n          ]\n        }\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geosight.unicef.org/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "da254162-0122-42e9-955f-32bdcdf008dd",
+    "name": "GeoSight Basemap Region API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

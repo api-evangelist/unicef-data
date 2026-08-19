@@ -1,0 +1,112 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GeoSight Basemap StrategicPlan API",
+    "version": "v1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "StrategicPlan",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of all strategic plan areas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/strategicplan"
+          },
+          "docs": "Get the list of all strategic plan areas"
+        },
+        {
+          "info": {
+            "name": "Get the a strategic plan goal area by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/strategicplan/goalarea/:areaID",
+            "params": [
+              {
+                "name": "areaID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the a strategic plan goal area by id"
+        },
+        {
+          "info": {
+            "name": "Get the list of all strategic plan statements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/strategicplan/statements"
+          },
+          "docs": "Get the list of all strategic plan statements"
+        },
+        {
+          "info": {
+            "name": "Get the a strategic plan statement by helix code",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/strategicplan/statement/:statementCode",
+            "params": [
+              {
+                "name": "statementCode",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the a strategic plan statement by helix code"
+        },
+        {
+          "info": {
+            "name": "Get the a strategic plan statement by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/strategicplan/statement/id/:statementID",
+            "params": [
+              {
+                "name": "statementID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the a strategic plan statement by id"
+        },
+        {
+          "info": {
+            "name": "Get the list of all strategic plan statements of a strategic plan goal area, by SP goal area Helix Code (GA_1, GA2, etc.)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/strategicplan/statements/area/:SPAreaCode",
+            "params": [
+              {
+                "name": "SPAreaCode",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the list of all strategic plan statements of a strategic plan goal area, by SP goal area Helix Code (GA_1, GA2, etc.)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

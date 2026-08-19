@@ -1,0 +1,597 @@
+{
+  "item": [
+    {
+      "id": "943b7bf6-0e9a-479d-a328-ce8563002a40",
+      "name": "StrategicPlan",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3c2f41f0-13ae-4154-9f9e-1449e8518772",
+          "name": "Get the list of all strategic plan areas",
+          "request": {
+            "name": "Get the list of all strategic plan areas",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "strategicplan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2e94b975-e539-4d23-8bb1-473d9dd528cb",
+              "name": "The list of all of all strategic plan areas related to indicators.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "strategicplan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 9923,\n    \"name\": \"string\",\n    \"editedBy\": \"string\",\n    \"editedDate\": \"string\",\n    \"description\": \"string\",\n    \"code\": \"string\"\n  },\n  {\n    \"id\": 83,\n    \"name\": \"string\",\n    \"editedBy\": \"string\",\n    \"editedDate\": \"string\",\n    \"description\": \"string\",\n    \"code\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d5bd79d-587d-4221-a3b3-db110651edaf",
+          "name": "Get the a strategic plan goal area by id",
+          "request": {
+            "name": "Get the a strategic plan goal area by id",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "strategicplan",
+                "goalarea",
+                ":areaID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "areaID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee9b0b28-9191-43e6-8057-03027a4be9cf",
+              "name": "The strategic plan goal area by id.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "strategicplan",
+                    "goalarea",
+                    ":areaID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "areaID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9372,\n  \"name\": \"string\",\n  \"editedBy\": \"string\",\n  \"editedDate\": \"string\",\n  \"description\": \"string\",\n  \"code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c4aadf2-c437-4f82-bab6-f0e277a17b9a",
+          "name": "Get the list of all strategic plan statements",
+          "request": {
+            "name": "Get the list of all strategic plan statements",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "strategicplan",
+                "statements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b23446ff-0ce9-40e5-9891-1bd3f02bae48",
+              "name": "The list of all of all strategic plan statements.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "strategicplan",
+                    "statements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 5553,\n    \"editedBy\": \"string\",\n    \"editedDate\": \"string\",\n    \"statement\": \"string\",\n    \"code\": \"string\",\n    \"spArea\": {\n      \"id\": 2788,\n      \"name\": \"string\",\n      \"editedBy\": \"string\",\n      \"editedDate\": \"string\",\n      \"description\": \"string\",\n      \"code\": \"string\"\n    }\n  },\n  {\n    \"id\": 277,\n    \"editedBy\": \"string\",\n    \"editedDate\": \"string\",\n    \"statement\": \"string\",\n    \"code\": \"string\",\n    \"spArea\": {\n      \"id\": 3103,\n      \"name\": \"string\",\n      \"editedBy\": \"string\",\n      \"editedDate\": \"string\",\n      \"description\": \"string\",\n      \"code\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2c49260d-469b-4486-b6f4-25440219e658",
+          "name": "Get the a strategic plan statement by helix code",
+          "request": {
+            "name": "Get the a strategic plan statement by helix code",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "strategicplan",
+                "statement",
+                ":statementCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "statementCode",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0751cad7-16ad-4cfc-b73c-75f37a7f0f62",
+              "name": "The strategic plan statement by helix code.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "strategicplan",
+                    "statement",
+                    ":statementCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "statementCode",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8376,\n  \"editedBy\": \"string\",\n  \"editedDate\": \"string\",\n  \"statement\": \"string\",\n  \"code\": \"string\",\n  \"spArea\": {\n    \"id\": 9055,\n    \"name\": \"string\",\n    \"editedBy\": \"string\",\n    \"editedDate\": \"string\",\n    \"description\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a6a8482e-388f-4f71-95c2-f61636259dd8",
+          "name": "Get the a strategic plan statement by id",
+          "request": {
+            "name": "Get the a strategic plan statement by id",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "strategicplan",
+                "statement",
+                "id",
+                ":statementID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "statementID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1955c183-8a28-4a5d-9820-7d5a3f11f3c2",
+              "name": "The strategic plan statement by helix code.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "strategicplan",
+                    "statement",
+                    "id",
+                    ":statementID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "statementID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8376,\n  \"editedBy\": \"string\",\n  \"editedDate\": \"string\",\n  \"statement\": \"string\",\n  \"code\": \"string\",\n  \"spArea\": {\n    \"id\": 9055,\n    \"name\": \"string\",\n    \"editedBy\": \"string\",\n    \"editedDate\": \"string\",\n    \"description\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "129ff162-fb08-421d-9801-827c8eb1cf64",
+          "name": "Get the list of all strategic plan statements of a strategic plan goal area, by SP goal area Helix Code (GA_1, GA2, etc.)",
+          "request": {
+            "name": "Get the list of all strategic plan statements of a strategic plan goal area, by SP goal area Helix Code (GA_1, GA2, etc.)",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "strategicplan",
+                "statements",
+                "area",
+                ":SPAreaCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "SPAreaCode",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0a2ac0fe-30d6-4839-b1bf-3f92c27daf1f",
+              "name": "The list of all of all strategic plan statements of a strategic plan goal area, by SP goal area Helix Code (GA_1, GA2, etc.).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "strategicplan",
+                    "statements",
+                    "area",
+                    ":SPAreaCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "SPAreaCode",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 5553,\n    \"editedBy\": \"string\",\n    \"editedDate\": \"string\",\n    \"statement\": \"string\",\n    \"code\": \"string\",\n    \"spArea\": {\n      \"id\": 2788,\n      \"name\": \"string\",\n      \"editedBy\": \"string\",\n      \"editedDate\": \"string\",\n      \"description\": \"string\",\n      \"code\": \"string\"\n    }\n  },\n  {\n    \"id\": 277,\n    \"editedBy\": \"string\",\n    \"editedDate\": \"string\",\n    \"statement\": \"string\",\n    \"code\": \"string\",\n    \"spArea\": {\n      \"id\": 3103,\n      \"name\": \"string\",\n      \"editedBy\": \"string\",\n      \"editedDate\": \"string\",\n      \"description\": \"string\",\n      \"code\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geosight.unicef.org/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ac133ebe-0e19-43ed-b460-57bb5e3d114c",
+    "name": "GeoSight Basemap StrategicPlan API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

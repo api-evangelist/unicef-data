@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GeoSight Basemap Sector API",
+    "version": "v1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sector",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of all agencies that contribute to RDM",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/sectors/agencies"
+          },
+          "docs": "Get the list of all agencies that contribute to RDM"
+        },
+        {
+          "info": {
+            "name": "Get the list of all DAIU Technical Sectors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/sectors"
+          },
+          "docs": "Get the list of all DAIU Technical Sectors"
+        },
+        {
+          "info": {
+            "name": "Get the list of all domains of DAIU Technical Sectors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/sectors/domains"
+          },
+          "docs": "Get the list of all domains of DAIU Technical Sectors"
+        },
+        {
+          "info": {
+            "name": "Get the list of all subdomains of DAIU Technical Sectors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/sectors/subdomains"
+          },
+          "docs": "Get the list of all subdomains of DAIU Technical Sectors"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

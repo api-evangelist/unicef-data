@@ -1,0 +1,711 @@
+{
+  "item": [
+    {
+      "id": "fe46de74-dd4b-4ba3-9dec-17d87f12ddc6",
+      "name": "Dashboard",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f6341748-5d20-427f-9369-dfe1e3e5a0e2",
+          "name": "dashboard-list",
+          "request": {
+            "name": "dashboard-list",
+            "description": {
+              "content": "Return list of accessed dashboard for the user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboards",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number in pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "25",
+                  "description": "Total records in a page"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Fields to be sorted should be specified as a comma-separated list.e.g: sort=name for asc, -sort=name for desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Fields to be returned should be specified as a comma-separated list.e.g: fields=__all__ for returning all fields, fields=name,category to return just name and category"
+                },
+                {
+                  "disabled": false,
+                  "key": "name__contains",
+                  "value": "<string>",
+                  "description": "Filter data by partial name."
+                },
+                {
+                  "disabled": false,
+                  "key": "description__contains",
+                  "value": "<string>",
+                  "description": "Filter data by partial description."
+                },
+                {
+                  "disabled": false,
+                  "key": "category__name__in",
+                  "value": "<string>",
+                  "description": "Filter data by multiple category. Put multiple filter using comma separator."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0cba6930-827d-499d-bc77-2008676f7bb1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name__contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description__contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "category__name__in",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1028,\n  \"results\": [\n    {\n      \"slug\": \"ueOOwuqnHx\",\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"icon\": \"http://PlWKCVNERTYHtQUWswWPzSihXzSH.wizYBSb2MZO\",\n      \"thumbnail\": \"string\",\n      \"description\": \"string\",\n      \"group\": \"string\",\n      \"category\": \"string\",\n      \"permission\": \"string\",\n      \"reference_layer\": 9170,\n      \"featured\": false,\n      \"created_at\": \"string\",\n      \"modified_at\": \"string\"\n    },\n    {\n      \"slug\": \"Bj2HwtHhq3\",\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"icon\": \"http://ROVhodsIYGTBaYjrlgUhoPJprCLiojTt.nohlZfqCr8ddj0F6Xj8BzzF4p6BpRqsFHWvK9bXX\",\n      \"thumbnail\": \"string\",\n      \"description\": \"string\",\n      \"group\": \"string\",\n      \"category\": \"string\",\n      \"permission\": \"string\",\n      \"reference_layer\": 4082,\n      \"featured\": true,\n      \"created_at\": \"string\",\n      \"modified_at\": \"string\"\n    }\n  ],\n  \"next\": \"https://XSFRz.tjwzrRwDas8i2uzLaZPv4zrqf92YLRXlOQYi8-Mmz2OgfQNjT5.j1FKzzR9\",\n  \"previous\": \"http://EgYWpwqyJkPATXtFzPDefroAUrjX.lpdaFGGVtnujxBU-\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a73c6de-f1c5-45a0-bbb8-d59ece246125",
+          "name": "dashboard-group-list",
+          "request": {
+            "name": "dashboard-group-list",
+            "description": {
+              "content": "List dashboard groups.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboards",
+                "groups",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7e09997f-3e7b-442e-b07d-d0684c4ef3d2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards",
+                    "groups",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1028,\n  \"results\": [\n    {\n      \"slug\": \"ueOOwuqnHx\",\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"icon\": \"http://PlWKCVNERTYHtQUWswWPzSihXzSH.wizYBSb2MZO\",\n      \"thumbnail\": \"string\",\n      \"description\": \"string\",\n      \"group\": \"string\",\n      \"category\": \"string\",\n      \"permission\": \"string\",\n      \"reference_layer\": 9170,\n      \"featured\": false,\n      \"created_at\": \"string\",\n      \"modified_at\": \"string\"\n    },\n    {\n      \"slug\": \"Bj2HwtHhq3\",\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"icon\": \"http://ROVhodsIYGTBaYjrlgUhoPJprCLiojTt.nohlZfqCr8ddj0F6Xj8BzzF4p6BpRqsFHWvK9bXX\",\n      \"thumbnail\": \"string\",\n      \"description\": \"string\",\n      \"group\": \"string\",\n      \"category\": \"string\",\n      \"permission\": \"string\",\n      \"reference_layer\": 4082,\n      \"featured\": true,\n      \"created_at\": \"string\",\n      \"modified_at\": \"string\"\n    }\n  ],\n  \"next\": \"https://XSFRz.tjwzrRwDas8i2uzLaZPv4zrqf92YLRXlOQYi8-Mmz2OgfQNjT5.j1FKzzR9\",\n  \"previous\": \"http://EgYWpwqyJkPATXtFzPDefroAUrjX.lpdaFGGVtnujxBU-\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e2dad22a-94a7-441c-80a2-c058dd3eb14e",
+          "name": "dashboard-detail",
+          "request": {
+            "name": "dashboard-detail",
+            "description": {
+              "content": "Return detailed of dashboard.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboards",
+                ":slug",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d7cc5a18-5ae8-45fc-a5c5-79721e5524ab",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards",
+                    ":slug",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"slug\": \"oDySs3\",\n  \"name\": \"string\",\n  \"id\": \"string\",\n  \"icon\": \"https://KCDMYvhRyVHIW.wolMKjCqUkdAlDEgwmOnImg4WcBWrOa\",\n  \"thumbnail\": \"string\",\n  \"description\": \"string\",\n  \"group\": \"string\",\n  \"category\": \"string\",\n  \"permission\": \"string\",\n  \"reference_layer\": 6445,\n  \"featured\": false,\n  \"created_at\": \"string\",\n  \"modified_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "67b2a6e3-e608-43a7-8076-2f475193b63a",
+          "name": "dashboard-detail-delete",
+          "request": {
+            "name": "dashboard-detail-delete",
+            "description": {
+              "content": "Delete a dashboard.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboards",
+                ":slug",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc697a76-7ff1-46c1-9d02-dd399770ba74",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards",
+                    ":slug",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "680da0c1-2f70-453b-a853-82f5dbaa0744",
+          "name": "dashboard-detail-as-feature",
+          "request": {
+            "name": "dashboard-detail-as-feature",
+            "description": {
+              "content": "Feature a dashboard.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboards",
+                ":slug",
+                "as-feature",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"slug\": \"<slug>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"reference_layer\": \"<integer>\",\n  \"featured\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "085babbe-7078-45f9-baf1-5bc4000633cb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards",
+                    ":slug",
+                    "as-feature",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"slug\": \"<slug>\",\n  \"name\": \"<string>\",\n  \"id\": \"string\",\n  \"icon\": \"http://HTpZjvMpE.esuGqrtLyKU9jAAXJdSm-\",\n  \"thumbnail\": \"string\",\n  \"description\": \"<string>\",\n  \"group\": \"string\",\n  \"category\": \"string\",\n  \"permission\": \"string\",\n  \"reference_layer\": \"<integer>\",\n  \"featured\": \"<boolean>\",\n  \"created_at\": \"string\",\n  \"modified_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98486dc7-4293-4e24-9b3b-410d7c463da3",
+          "name": "dashboard-detail-remove-as-feature",
+          "request": {
+            "name": "dashboard-detail-remove-as-feature",
+            "description": {
+              "content": "Remove feature a dashboard.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboards",
+                ":slug",
+                "remove-as-feature",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"slug\": \"<slug>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"reference_layer\": \"<integer>\",\n  \"featured\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "23c24ba8-be56-43c7-9290-4e89e87ac27b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards",
+                    ":slug",
+                    "remove-as-feature",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"slug\": \"<slug>\",\n  \"name\": \"<string>\",\n  \"id\": \"string\",\n  \"icon\": \"http://HTpZjvMpE.esuGqrtLyKU9jAAXJdSm-\",\n  \"thumbnail\": \"string\",\n  \"description\": \"<string>\",\n  \"group\": \"string\",\n  \"category\": \"string\",\n  \"permission\": \"string\",\n  \"reference_layer\": \"<integer>\",\n  \"featured\": \"<boolean>\",\n  \"created_at\": \"string\",\n  \"modified_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geosight.unicef.org/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ef22f868-fd86-444d-8032-388a2c5c40dc",
+    "name": "GeoSight Basemap Dashboard API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

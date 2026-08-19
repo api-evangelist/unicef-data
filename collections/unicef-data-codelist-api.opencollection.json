@@ -1,0 +1,118 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GeoSight Basemap Codelist API",
+    "version": "v1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Codelist",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "SDMX published indicators codelist for a given Agency",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sdmx/codelists/indicators/:Version/:Agency/:IndicatorCodelist",
+            "params": [
+              {
+                "name": "Version",
+                "value": "",
+                "type": "path",
+                "description": "The version of the codelist (e.g. 1.3). Only 1 decimal digit is allowed"
+              },
+              {
+                "name": "Agency",
+                "value": "",
+                "type": "path",
+                "description": "The name of the agency used to filter indicators (e.g. UNICEF). This is the agency owner of the indicator. Indicators borrowed by other agencies are not returned by this method"
+              },
+              {
+                "name": "IndicatorCodelist",
+                "value": "",
+                "type": "path",
+                "description": "The name of the SDMX indicator codelist associated to the agency (e.g. CL_UNICEF_INDICATOR)"
+              }
+            ]
+          },
+          "docs": "SDMX published indicators codelist for a given Agency"
+        },
+        {
+          "info": {
+            "name": "Support the agency / sector / domain / subdomain as an SDMX category scheme",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sdmx/codelists/domains/:Version/:Agency/:Codelist",
+            "params": [
+              {
+                "name": "Version",
+                "value": "",
+                "type": "path",
+                "description": "The version of the category scheme (e.g. 1.3). Only 1 decimal digit is allowed"
+              },
+              {
+                "name": "Agency",
+                "value": "",
+                "type": "path",
+                "description": "The name of the agency used to filter domains (e.g. UNICEF). This is the agency owner of the indicator. Indicators borrowed by other agencies are not returned by this method"
+              },
+              {
+                "name": "Codelist",
+                "value": "",
+                "type": "path",
+                "description": "The name of the codelist associated to the agency (e.g. CS_UNICEF)"
+              }
+            ]
+          },
+          "docs": "Support the agency / sector / domain / subdomain as an SDMX category scheme"
+        },
+        {
+          "info": {
+            "name": "SDMX Country Codelist (only published countries)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sdmx/codelists/countries/:version",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path",
+                "description": "A decimal expressing the version of the codelist. e.g. 1.0. Only 1 decimal digit is allowed"
+              }
+            ]
+          },
+          "docs": "SDMX Country Codelist (only published countries)"
+        },
+        {
+          "info": {
+            "name": "SDMX Regions Codelist",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sdmx/codelists/regions/:version",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "path",
+                "description": "A decimal expressing the version of the codelist. e.g. 1.0. Only 1 decimal digit is allowed"
+              }
+            ]
+          },
+          "docs": "SDMX Regions Codelist"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
