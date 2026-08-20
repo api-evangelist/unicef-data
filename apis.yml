@@ -102,6 +102,8 @@ apis:
   humanURL: https://data.unicef.org/sdmx-api-documentation/
   baseURL: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/
   tags:
+  - Code List
+  tags_raw:
   - Codelist
   properties:
   - type: OpenAPI
@@ -130,6 +132,8 @@ apis:
   humanURL: https://data.unicef.org/sdmx-api-documentation/
   baseURL: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/
   tags:
+  - Context Layer
+  tags_raw:
   - Context layer
   properties:
   - type: OpenAPI
@@ -369,6 +373,8 @@ apis:
   humanURL: https://data.unicef.org/sdmx-api-documentation/
   baseURL: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/
   tags:
+  - Styles
+  tags_raw:
   - Style
   properties:
   - type: OpenAPI
