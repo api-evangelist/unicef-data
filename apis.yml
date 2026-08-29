@@ -438,6 +438,9 @@ apis:
   - type: Documentation
     url: https://geosight.unicef.org/en-us/api/v1/docs/
 common:
+  - type: CapabilityMap
+    url: capabilities/unicef-data-capability-edges.yml
+    name: UNICEF Data Business Capability Map
   - type: AgenticAccess
     url: agentic-access/unicef-data-agentic-access.yml
   - type: DomainSecurity

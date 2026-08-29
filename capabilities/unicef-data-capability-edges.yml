@@ -1,0 +1,34 @@
+slug: unicef-data
+provider: UNICEF Data
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Healthcare Providers
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Dashboard
+  spec_file: unicef-data-dashboard-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.7
+  evidence: GET /dashboards/  dashboard-list; POST /dashboards/{slug}/as-feature/
+  reason: Operations manage dashboards (listing, grouping, featuring) on a data/geospatial visualisation
+    platform — this is analytics and BI delivery, not a healthcare-specific capability.
+- tag: Indicator
+  spec_file: unicef-data-indicator-api-openapi.yml
+  capability_id: BC-610
+  capability_id_l1: BC-610
+  capability_name: Information & Data Management
+  confidence: 0.7
+  evidence: Get the list of all indicators defined in the database. It does not include all possible attubutes
+  reason: Manages statistical indicator definitions, attributes, custodians and their data — information/data
+    management on an open data platform. Ambiguous between master/reference data stewardship and BI delivery,
+    so L1 only.
