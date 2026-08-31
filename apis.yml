@@ -114,7 +114,7 @@ apis:
   humanURL: https://data.unicef.org/sdmx-api-documentation/
   baseURL: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/
   tags:
-  - Code List
+  - Codelist
   tags_raw:
   - Codelist
   properties:
@@ -144,7 +144,7 @@ apis:
   humanURL: https://data.unicef.org/sdmx-api-documentation/
   baseURL: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/
   tags:
-  - Context Layer
+  - Context layer
   tags_raw:
   - Context layer
   properties:
