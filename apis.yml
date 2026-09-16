@@ -54,13 +54,12 @@ tags:
 - UNICEF
 apis:
 - name: UNICEF SDMX Data Warehouse API
-  description: 'The UNICEF SDMX REST API provides programmatic access to UNICEF''s Data Warehouse Explorer,
-    containing 748+ indicators across thematic dataflows covering child health, nutrition, maternal and
-    newborn health, HIV/AIDS, WASH, education, child protection, demography, and gender. Data spans all
-    UN member states and is drawn from MICS, DHS, national surveys, and administrative sources. No authentication
-    or API key is required. Supports SDMX-JSON, SDMX-XML (v2.0 and v2.1), and CSV output formats.
-
-    '
+  description: >
+    The UNICEF SDMX REST API provides programmatic access to UNICEF's Data Warehouse Explorer, containing
+    748+ indicators across thematic dataflows covering child health, nutrition, maternal and newborn health,
+    HIV/AIDS, WASH, education, child protection, demography, and gender. Data spans all UN member states
+    and is drawn from MICS, DHS, national surveys, and administrative sources. No authentication or API
+    key is required. Supports SDMX-JSON, SDMX-XML (v2.0 and v2.1), and CSV output formats.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://data.unicef.org/sdmx-api-documentation/
   baseURL: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/
@@ -104,22 +103,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/unicef-data-code-list-api-openapi.yml
-  - type: Documentation
-    url: https://rdmapi.unicef.org/api/doc/index.html
-  - type: Documentation
-    url: https://geosight.unicef.org/en-us/api/v1/docs/
-- aid: unicef-data:unicef-data-codelist-api
-  name: UNICEF Data Codelist API
-  description: The Codelist API from UNICEF Data — 4 operation(s) for codelist.
-  humanURL: https://data.unicef.org/sdmx-api-documentation/
-  baseURL: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/
-  tags:
-  - Code List
-  tags_raw:
-  - Codelist
-  properties:
-  - type: OpenAPI
-    url: openapi/unicef-data-codelist-api-openapi.yml
   - type: Documentation
     url: https://rdmapi.unicef.org/api/doc/index.html
   - type: Documentation
@@ -210,20 +193,6 @@ apis:
     url: https://rdmapi.unicef.org/api/doc/index.html
   - type: Documentation
     url: https://geosight.unicef.org/en-us/api/v1/docs/
-- aid: unicef-data:unicef-data-datasource-api
-  name: UNICEF Data DataSource API
-  description: The DataSource API from UNICEF Data — 1 operation(s) for datasource.
-  humanURL: https://data.unicef.org/sdmx-api-documentation/
-  baseURL: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/
-  tags:
-  - DataSource
-  properties:
-  - type: OpenAPI
-    url: openapi/unicef-data-datasource-api-openapi.yml
-  - type: Documentation
-    url: https://rdmapi.unicef.org/api/doc/index.html
-  - type: Documentation
-    url: https://geosight.unicef.org/en-us/api/v1/docs/
 - aid: unicef-data:unicef-data-group-api
   name: UNICEF Data Group API
   description: The Group API from UNICEF Data — 2 operation(s) for group.
@@ -268,7 +237,8 @@ apis:
     url: https://geosight.unicef.org/en-us/api/v1/docs/
 - aid: unicef-data:unicef-data-indicatorclassification-api
   name: UNICEF Data IndicatorClassification API
-  description: The IndicatorClassification API from UNICEF Data — 1 operation(s) for indicatorclassification.
+  description: >-
+    The IndicatorClassification API from UNICEF Data — 1 operation(s) for indicatorclassification.
   humanURL: https://data.unicef.org/sdmx-api-documentation/
   baseURL: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/
   tags:
@@ -290,20 +260,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/unicef-data-language-api-openapi.yml
-  - type: Documentation
-    url: https://rdmapi.unicef.org/api/doc/index.html
-  - type: Documentation
-    url: https://geosight.unicef.org/en-us/api/v1/docs/
-- aid: unicef-data:unicef-data-reference-datasets-api
-  name: UNICEF Data Reference datasets API
-  description: The Reference datasets API from UNICEF Data — 8 operation(s) for reference datasets.
-  humanURL: https://data.unicef.org/sdmx-api-documentation/
-  baseURL: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/
-  tags:
-  - Reference datasets
-  properties:
-  - type: OpenAPI
-    url: openapi/unicef-data-reference-datasets-api-openapi.yml
   - type: Documentation
     url: https://rdmapi.unicef.org/api/doc/index.html
   - type: Documentation
@@ -432,6 +388,34 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/unicef-data-yearassignmentmethod-api-openapi.yml
+  - type: Documentation
+    url: https://rdmapi.unicef.org/api/doc/index.html
+  - type: Documentation
+    url: https://geosight.unicef.org/en-us/api/v1/docs/
+- aid: unicef-data:unicef-data-data-source-api
+  name: UNICEF Data Data Source API
+  description: The Data Source API from UNICEF Data — 1 operation(s) for data source.
+  humanURL: https://data.unicef.org/sdmx-api-documentation/
+  baseURL: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/
+  tags:
+  - Data Source
+  properties:
+  - type: OpenAPI
+    url: openapi/unicef-data-data-source-api-openapi.yml
+  - type: Documentation
+    url: https://rdmapi.unicef.org/api/doc/index.html
+  - type: Documentation
+    url: https://geosight.unicef.org/en-us/api/v1/docs/
+- aid: unicef-data:unicef-data-reference-data-sets-api
+  name: UNICEF Data Reference Data Sets API
+  description: The Reference Data Sets API from UNICEF Data — 8 operation(s) for reference data sets.
+  humanURL: https://data.unicef.org/sdmx-api-documentation/
+  baseURL: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/
+  tags:
+  - Reference Data Sets
+  properties:
+  - type: OpenAPI
+    url: openapi/unicef-data-reference-data-sets-api-openapi.yml
   - type: Documentation
     url: https://rdmapi.unicef.org/api/doc/index.html
   - type: Documentation
