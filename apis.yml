@@ -1,15 +1,14 @@
 aid: unicef-data
 name: UNICEF Data
-description: >
-  UNICEF Data is the official open data platform of the United Nations Children's
-  Fund, providing programmatic access to global child welfare statistics, health
-  and nutrition indicators, education data, child protection metrics, MICS
-  (Multiple Indicator Cluster Survey) results, and SDG indicators for children
-  across countries worldwide. The primary API is an SDMX REST web service
-  exposing UNICEF's Data Warehouse, which contains 748+ indicators organized into
-  thematic dataflows covering demography, maternal and child health, nutrition,
-  HIV/AIDS, WASH, education, and gender. All data is freely accessible without
-  authentication, licensed under Creative Commons Attribution 3.0 IGO.
+description: 'UNICEF Data is the official open data platform of the United Nations Children''s Fund, providing
+  programmatic access to global child welfare statistics, health and nutrition indicators, education data,
+  child protection metrics, MICS (Multiple Indicator Cluster Survey) results, and SDG indicators for children
+  across countries worldwide. The primary API is an SDMX REST web service exposing UNICEF''s Data Warehouse,
+  which contains 748+ indicators organized into thematic dataflows covering demography, maternal and child
+  health, nutrition, HIV/AIDS, WASH, education, and gender. All data is freely accessible without authentication,
+  licensed under Creative Commons Attribution 3.0 IGO.
+
+  '
 deliveryModel:
   model: saas
   open_source: false
@@ -38,29 +37,30 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/unicef-data.png
 url: https://raw.githubusercontent.com/api-evangelist/unicef-data/refs/heads/main/apis.yml
 created: '2026-06-13'
-modified: '2026-06-13'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 tags:
-  - Children
-  - Child Welfare
-  - Global Health
-  - Statistics
-  - SDG
-  - MICS
-  - Education
-  - Nutrition
-  - SDMX
-  - Open Data
-  - United Nations
-  - UNICEF
+- Children
+- Child Welfare
+- Global Health
+- Statistics
+- SDG
+- MICS
+- Education
+- Nutrition
+- SDMX
+- Open Data
+- United Nations
+- UNICEF
 apis:
 - name: UNICEF SDMX Data Warehouse API
-  description: >
-    The UNICEF SDMX REST API provides programmatic access to UNICEF's Data Warehouse Explorer, containing
-    748+ indicators across thematic dataflows covering child health, nutrition, maternal and newborn health,
-    HIV/AIDS, WASH, education, child protection, demography, and gender. Data spans all UN member states
-    and is drawn from MICS, DHS, national surveys, and administrative sources. No authentication or API
-    key is required. Supports SDMX-JSON, SDMX-XML (v2.0 and v2.1), and CSV output formats.
+  description: 'The UNICEF SDMX REST API provides programmatic access to UNICEF''s Data Warehouse Explorer,
+    containing 748+ indicators across thematic dataflows covering child health, nutrition, maternal and
+    newborn health, HIV/AIDS, WASH, education, child protection, demography, and gender. Data spans all
+    UN member states and is drawn from MICS, DHS, national surveys, and administrative sources. No authentication
+    or API key is required. Supports SDMX-JSON, SDMX-XML (v2.0 and v2.1), and CSV output formats.
+
+    '
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://data.unicef.org/sdmx-api-documentation/
   baseURL: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/
@@ -197,7 +197,7 @@ apis:
   - type: Documentation
     url: https://geosight.unicef.org/en-us/api/v1/docs/
 - aid: unicef-data:unicef-data-data-browser-api
-  name: UNICEF Data Data Browser API
+  name: UNICEF Data Browser API
   description: The Data Browser API from UNICEF Data — 1 operation(s) for data browser.
   humanURL: https://data.unicef.org/sdmx-api-documentation/
   baseURL: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/
@@ -268,8 +268,7 @@ apis:
     url: https://geosight.unicef.org/en-us/api/v1/docs/
 - aid: unicef-data:unicef-data-indicatorclassification-api
   name: UNICEF Data IndicatorClassification API
-  description: >-
-    The IndicatorClassification API from UNICEF Data — 1 operation(s) for indicatorclassification.
+  description: The IndicatorClassification API from UNICEF Data — 1 operation(s) for indicatorclassification.
   humanURL: https://data.unicef.org/sdmx-api-documentation/
   baseURL: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/
   tags:
@@ -438,49 +437,49 @@ apis:
   - type: Documentation
     url: https://geosight.unicef.org/en-us/api/v1/docs/
 common:
-  - type: CapabilityMap
-    url: capabilities/unicef-data-capability-edges.yml
-    name: UNICEF Data Business Capability Map
-  - type: AgenticAccess
-    url: agentic-access/unicef-data-agentic-access.yml
-  - type: DomainSecurity
-    url: security/unicef-data-domain-security.yml
-  - type: Authentication
-    url: authentication/unicef-data-authentication.yml
-  - type: Website
-    url: https://data.unicef.org
-  - type: Documentation
-    url: https://data.unicef.org/sdmx-api-documentation/
-  - type: OpenData
-    url: https://data.unicef.org/open-data/
-  - type: GitHubOrg
-    url: https://github.com/unicef
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/unicef/
-  - type: Blog
-    url: https://data.unicef.org/blog/
-  - type: Support
-    url: mailto:data@unicef.org
-  - type: X
-    url: https://x.com/unicefdata
-  - type: License
-    url: https://data.unicef.org/open-data/
-  - type: Plans
-    url: plans/unicef-data-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/unicef-data-rate-limits.yml
-  - type: FinOps
-    url: finops/unicef-data-finops.yml
-  - type: Vocabulary
-    url: vocabulary/unicef-data-vocabulary.yml
-  - type: JSONLDContext
-    url: json-ld/unicef-rdm-context.jsonld
-  - type: JSONLDContext
-    url: json-ld/unicef-geosight-context.jsonld
-  - type: JSONSchema
-    url: json-schema/unicef-geosight-schema.json
-  - type: JSONSchema
-    url: json-schema/unicef-rdm-schema.json
+- type: CapabilityMap
+  url: capabilities/unicef-data-capability-edges.yml
+  name: UNICEF Data Business Capability Map
+- type: AgenticAccess
+  url: agentic-access/unicef-data-agentic-access.yml
+- type: DomainSecurity
+  url: security/unicef-data-domain-security.yml
+- type: Authentication
+  url: authentication/unicef-data-authentication.yml
+- type: Website
+  url: https://data.unicef.org
+- type: Documentation
+  url: https://data.unicef.org/sdmx-api-documentation/
+- type: OpenData
+  url: https://data.unicef.org/open-data/
+- type: GitHubOrg
+  url: https://github.com/unicef
+- type: LinkedIn
+  url: https://www.linkedin.com/company/unicef/
+- type: Blog
+  url: https://data.unicef.org/blog/
+- type: Support
+  url: mailto:data@unicef.org
+- type: X
+  url: https://x.com/unicefdata
+- type: License
+  url: https://data.unicef.org/open-data/
+- type: Plans
+  url: plans/unicef-data-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/unicef-data-rate-limits.yml
+- type: FinOps
+  url: finops/unicef-data-finops.yml
+- type: Vocabulary
+  url: vocabulary/unicef-data-vocabulary.yml
+- type: JSONLDContext
+  url: json-ld/unicef-rdm-context.jsonld
+- type: JSONLDContext
+  url: json-ld/unicef-geosight-context.jsonld
+- type: JSONSchema
+  url: json-schema/unicef-geosight-schema.json
+- type: JSONSchema
+  url: json-schema/unicef-rdm-schema.json
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
