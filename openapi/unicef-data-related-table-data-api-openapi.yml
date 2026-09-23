@@ -1,15 +1,9 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: GeoSight Basemap Related table data API
+  title: GeoSight Related table data API
   version: v1.0.0
-host: geosight.unicef.org
-basePath: /api/v1
-schemes:
-- https
-consumes:
-- application/json
-produces:
-- application/json
+servers:
+- url: https://geosight.unicef.org/api/v1
 security:
 - ApiKey Auth: []
 tags:
@@ -20,7 +14,8 @@ paths:
     - name: related_tables_id
       in: path
       required: true
-      type: string
+      schema:
+        type: string
     get:
       operationId: related-table-data-list
       description: Return list of related table rows for the user.
@@ -29,145 +24,170 @@ paths:
         in: query
         description: A page number within the paginated result set.
         required: false
-        type: integer
+        schema:
+          type: integer
       - name: page_size
         in: query
         description: Number of results to return per page.
         required: false
-        type: integer
+        schema:
+          type: integer
       responses:
         '200':
           description: Resource fetching successful.
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/RelatedTableRowApi'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RelatedTableRowApi'
       tags:
       - Related table data
+      summary: Related table data list
+      x-summary-source: derived
     post:
       operationId: related-table-data-create
       description: Create related table rows.
-      parameters:
-      - name: data
-        in: body
-        required: true
-        schema:
-          description: Data needed to create/edit related table rows.
-          type: object
-          properties:
-            id:
-              title: Id
-              type: integer
-              readOnly: true
-            properties:
-              title: Row values
-              description: Keys are field names from fields_definition in the associated related table
-              type: object
       responses:
         '201':
           description: ''
-          schema:
-            description: Data needed to create/edit related table rows.
-            type: object
-            properties:
-              id:
-                title: Id
-                type: integer
-                readOnly: true
-              properties:
-                title: Row values
-                description: Keys are field names from fields_definition in the associated related table
+          content:
+            application/json:
+              schema:
+                description: Data needed to create/edit related table rows.
                 type: object
+                properties:
+                  id:
+                    title: Id
+                    type: integer
+                    readOnly: true
+                  properties:
+                    title: Row values
+                    description: Keys are field names from fields_definition in the associated related table
+                    type: object
       tags:
       - Related table data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: Data needed to create/edit related table rows.
+              type: object
+              properties:
+                id:
+                  title: Id
+                  type: integer
+                  readOnly: true
+                properties:
+                  title: Row values
+                  description: Keys are field names from fields_definition in the associated related table
+                  type: object
+        required: true
+      summary: Related table data create
+      x-summary-source: derived
   /related-tables/{related_tables_id}/data/{id}/:
     parameters:
     - name: related_tables_id
       in: path
       required: true
-      type: string
+      schema:
+        type: string
     - name: id
       in: path
       required: true
-      type: string
+      schema:
+        type: string
     get:
       operationId: related-table-data-detail
       description: Return detail of a related table row for the user.
-      parameters: []
       responses:
         '200':
           description: Resource fetching successful.
-          schema:
-            $ref: '#/definitions/RelatedTableRowApi'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RelatedTableRowApi'
       tags:
       - Related table data
+      summary: Related table data detail
+      x-summary-source: derived
     put:
       operationId: related-table-data-update
       description: Update a related table row.
-      parameters:
-      - name: data
-        in: body
-        required: true
-        schema:
-          description: Data needed to create/edit related table rows.
-          type: object
-          properties:
-            id:
-              title: Id
-              type: integer
-              readOnly: true
-            properties:
-              title: Row values
-              description: Keys are field names from fields_definition in the associated related table
-              type: object
       responses:
         '200':
           description: ''
-          schema:
-            description: Data needed to create/edit related table rows.
-            type: object
-            properties:
-              id:
-                title: Id
-                type: integer
-                readOnly: true
-              properties:
-                title: Row values
-                description: Keys are field names from fields_definition in the associated related table
+          content:
+            application/json:
+              schema:
+                description: Data needed to create/edit related table rows.
                 type: object
+                properties:
+                  id:
+                    title: Id
+                    type: integer
+                    readOnly: true
+                  properties:
+                    title: Row values
+                    description: Keys are field names from fields_definition in the associated related table
+                    type: object
       tags:
       - Related table data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: Data needed to create/edit related table rows.
+              type: object
+              properties:
+                id:
+                  title: Id
+                  type: integer
+                  readOnly: true
+                properties:
+                  title: Row values
+                  description: Keys are field names from fields_definition in the associated related table
+                  type: object
+        required: true
+      summary: Related table data update
+      x-summary-source: derived
     patch:
       operationId: related-table-data-partial-update
       description: Update an existing related table row.
-      parameters:
-      - name: data
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/RelatedTableRowApi'
       responses:
         '200':
           description: ''
-          schema:
-            $ref: '#/definitions/RelatedTableRowApi'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RelatedTableRowApi'
       tags:
       - Related table data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RelatedTableRowApi'
+        required: true
+      summary: Related table data partial update
+      x-summary-source: derived
     delete:
       operationId: related-table-data-delete
       description: Delete a related table row.
-      parameters: []
       responses:
         '204':
           description: ''
       tags:
       - Related table data
+      summary: Related table data delete
+      x-summary-source: derived
   /related-tables/{related_tables_id}/geo-data/:
     parameters:
     - name: related_tables_id
       in: path
       required: true
-      type: string
+      schema:
+        type: string
     get:
       operationId: related-table-geo-data-list
       description: Return list of data with geospatial data.
@@ -176,40 +196,45 @@ paths:
         in: query
         description: Number of results to return per page.
         required: false
-        type: integer
+        schema:
+          type: integer
       - name: offset
         in: query
         description: The initial index from which to return the results.
         required: false
-        type: integer
+        schema:
+          type: integer
       responses:
         '200':
           description: Resource fetching successful.
       tags:
       - Related table data
-definitions:
-  RelatedTableRowApi:
-    required:
-    - properties
-    type: object
-    properties:
-      id:
-        title: Id
-        type: integer
-        readOnly: true
+      summary: Related table geo data list
+      x-summary-source: derived
+components:
+  schemas:
+    RelatedTableRowApi:
+      required:
+      - properties
+      type: object
       properties:
-        title: Row values
-        description: Keys are field names from fields_definition in the associated related table
-        type: object
-    title: RelatedTableRow
-    example:
-      id: 1
-      properties:
-        field_1: value_1
-        field_2: '2024-02-14T00:00:00Z'
-        field_3: 42.7
-securityDefinitions:
-  ApiKey Auth:
-    type: apiKey
-    in: header
-    name: Authorization
+        id:
+          title: Id
+          type: integer
+          readOnly: true
+        properties:
+          title: Row values
+          description: Keys are field names from fields_definition in the associated related table
+          type: object
+      title: RelatedTableRow
+      example:
+        id: 1
+        properties:
+          field_1: value_1
+          field_2: '2024-02-14T00:00:00Z'
+          field_3: 42.7
+  securitySchemes:
+    ApiKey_Auth:
+      type: apiKey
+      in: header
+      name: Authorization

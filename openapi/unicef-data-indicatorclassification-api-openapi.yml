@@ -1,17 +1,15 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: GeoSight Basemap IndicatorClassification API
-  version: v1.0.0
-host: geosight.unicef.org
-basePath: /api/v1
-schemes:
-- https
-consumes:
-- application/json
-produces:
-- application/json
-security:
-- ApiKey Auth: []
+  title: RDM Indicator Classification API
+  description: Reference Data Manager API
+  termsOfService: None
+  contact:
+    name: UNICEF
+    url: https://data.unicef.org/
+    email: data@unicef.org
+  version: v2.0
+servers:
+- url: https://rdmapi.unicef.org
 tags:
 - name: IndicatorClassification
 paths:
@@ -21,39 +19,35 @@ paths:
       - IndicatorClassification
       summary: Get the list of all indicator classifications
       operationId: IndicatorClassification_GetClassifications
-      produces:
-      - application/json
       responses:
         '200':
-          x-nullable: false
           description: The list of all indicator classifications. For example, "Is SDG Indicator", "Is SOWC", "Is Emergency indicator", etc.
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/IndicatorClassificationItem'
-definitions:
-  IndicatorClassificationItem:
-    type: object
-    required:
-    - iclassId
-    properties:
-      iclassId:
-        type: integer
-        format: int32
-      name:
-        type: string
-      editedBy:
-        type: string
-      editedDate:
-        type: string
-      type:
-        type: string
-      value:
-        type: string
-      code:
-        type: string
-securityDefinitions:
-  ApiKey Auth:
-    type: apiKey
-    in: header
-    name: Authorization
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IndicatorClassificationItem'
+components:
+  schemas:
+    IndicatorClassificationItem:
+      type: object
+      required:
+      - iclassId
+      properties:
+        iclassId:
+          type: integer
+          format: int32
+        name:
+          type: string
+        editedBy:
+          type: string
+        editedDate:
+          type: string
+        type:
+          type: string
+        value:
+          type: string
+        code:
+          type: string
+x-generator: NSwag v14.0.2.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))

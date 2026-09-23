@@ -1,17 +1,15 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: GeoSight Basemap Tag API
-  version: v1.0.0
-host: geosight.unicef.org
-basePath: /api/v1
-schemes:
-- https
-consumes:
-- application/json
-produces:
-- application/json
-security:
-- ApiKey Auth: []
+  title: RDM Tag API
+  description: Reference Data Manager API
+  termsOfService: None
+  contact:
+    name: UNICEF
+    url: https://data.unicef.org/
+    email: data@unicef.org
+  version: v2.0
+servers:
+- url: https://rdmapi.unicef.org
 tags:
 - name: Tag
 paths:
@@ -21,36 +19,32 @@ paths:
       - Tag
       summary: Get the list of all indicator tags defined in the database
       operationId: Tag_GetTags
-      produces:
-      - application/json
       responses:
         '200':
-          x-nullable: false
           description: The list of all indicator tags defined in the database.
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/TagItem'
-definitions:
-  TagItem:
-    type: object
-    properties:
-      id:
-        type: integer
-        format: int64
-      tagName:
-        type: string
-      createdBy:
-        type: string
-      createdDate:
-        type: string
-      indicators:
-        type: array
-        items:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TagItem'
+components:
+  schemas:
+    TagItem:
+      type: object
+      properties:
+        id:
           type: integer
-          format: int32
-securityDefinitions:
-  ApiKey Auth:
-    type: apiKey
-    in: header
-    name: Authorization
+          format: int64
+        tagName:
+          type: string
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+        indicators:
+          type: array
+          items:
+            type: integer
+            format: int32
+x-generator: NSwag v14.0.2.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))

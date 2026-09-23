@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: RDM Custodian API
+  title: RDM Data Source API
   description: Reference Data Manager API
   termsOfService: None
   contact:
@@ -11,39 +11,37 @@ info:
 servers:
 - url: https://rdmapi.unicef.org
 tags:
-- name: Custodian
+- name: Data Source
 paths:
-  /api/custodians:
+  /api/datasources:
     get:
       tags:
-      - Custodian
-      summary: Get the list of all indicator/region series custodians
-      operationId: Custodian_GetCustodians
+      - Data Source
+      summary: Get the list of all indicator data sources defined in the database
+      operationId: DataSource_GetDataSources
       responses:
         '200':
-          description: The list of all indicator/region series custodians
+          description: The list of all indicator data sources defined in the database.
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/CustodianItem'
+                  $ref: '#/components/schemas/DataSourceItem'
 components:
   schemas:
-    CustodianItem:
+    DataSourceItem:
       type: object
       required:
       - id
       properties:
         id:
           type: integer
-          format: int32
-        name:
+          format: int64
+        sourceName:
           type: string
-        editedBy:
+        createdBy:
           type: string
-        editedDate:
-          type: string
-        code:
+        createdDate:
           type: string
 x-generator: NSwag v14.0.2.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))

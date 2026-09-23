@@ -1,17 +1,15 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: GeoSight Basemap HowMany API
-  version: v1.0.0
-host: geosight.unicef.org
-basePath: /api/v1
-schemes:
-- https
-consumes:
-- application/json
-produces:
-- application/json
-security:
-- ApiKey Auth: []
+  title: RDM How Many API
+  description: Reference Data Manager API
+  termsOfService: None
+  contact:
+    name: UNICEF
+    url: https://data.unicef.org/
+    email: data@unicef.org
+  version: v2.0
+servers:
+- url: https://rdmapi.unicef.org
 tags:
 - name: HowMany
 paths:
@@ -19,157 +17,152 @@ paths:
     post:
       tags:
       - HowMany
-      summary: Ask a question in natural language, in English, and get one or more data points back
+      summary: Ask a question in natural language, in English, and get one or more data points…
       operationId: HowMany_PostNewQuestion
-      produces:
-      - application/json
       parameters:
-      - type: string
-        name: question
+      - name: question
         in: query
-        x-nullable: true
+        schema:
+          type: string
       responses:
         '200':
-          x-nullable: false
           description: ''
-          schema:
-            $ref: '#/definitions/ApiIndResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiIndResponse'
   /api/howmany/mlt:
     post:
       tags:
       - HowMany
       summary: More like this for answering a question in natural language, in English
       operationId: HowMany_PostMoreLikeThisQuestion
-      produces:
-      - application/json
       parameters:
-      - type: string
-        name: question
+      - name: question
         in: query
         description: The original question, asked before the more like this
-        x-nullable: true
-      - type: string
-        name: locationCode
+        schema:
+          type: string
+      - name: locationCode
         in: query
         description: The code of the country or region. If null, it means the world
-        x-nullable: true
-      - type: string
-        name: indicatorCode
+        schema:
+          type: string
+      - name: indicatorCode
         in: query
         description: The indicator Helix Code, e.g. DM_POP_U18
-        x-nullable: true
-      - type: string
-        name: indicatorID
+        schema:
+          type: string
+      - name: indicatorID
         in: query
         description: The Solr wildcarded ID of a data point, e.g. UNICEF|MNCH|1.0|{ASTERISK}|MNCH_MLRCARE|_T|Y0T4|_T|_T|_T|_T|{ASTERISK}|{ASTERISK}
-        x-nullable: true
+        schema:
+          type: string
       responses:
         '200':
-          x-nullable: false
           description: ''
-          schema:
-            $ref: '#/definitions/ApiIndResponse'
-definitions:
-  SearchIndicatorItem:
-    type: object
-    required:
-    - score
-    properties:
-      id:
-        type: string
-      value:
-        type: string
-      timeperiod:
-        type: string
-      location:
-        type: string
-      locationCode:
-        type: string
-      attributes:
-        type: array
-        items:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiIndResponse'
+components:
+  schemas:
+    ApiIndResponse:
+      type: object
+      required:
+      - numResults
+      properties:
+        message:
           type: string
-      dimensions:
-        type: array
-        items:
+        errorCountry:
           type: string
-      excludeDims_ms:
-        type: array
-        items:
+        errorIndicator:
           type: string
-      source:
-        type: string
-      dataflow:
-        type: string
-      indicator:
-        type: string
-      indicatorName:
-        type: string
-      sdmx_dataquery:
-        type: string
-      score:
-        type: number
-        format: decimal
-  SimpleIndicatorItem:
-    type: object
-    required:
-    - score
-    properties:
-      id:
-        type: string
-      indicator:
-        type: string
-      indicatorName:
-        type: string
-      score:
-        type: number
-        format: decimal
-  ApiIndResponse:
-    type: object
-    required:
-    - numResults
-    properties:
-      message:
-        type: string
-      errorCountry:
-        type: string
-      errorIndicator:
-        type: string
-      locationDetected:
-        type: string
-      locationCode:
-        type: string
-      indicatorDetected:
-        type: string
-      indicatorCodeDetected:
-        type: string
-      yearDetected:
-        type: string
-      similarIndicators:
-        type: array
-        items:
-          $ref: '#/definitions/SimpleIndicatorItem'
-      numResults:
-        type: integer
-        format: int32
-      spellcheckSuggestions:
-        type: array
-        items:
+        locationDetected:
           type: string
-      indicators:
-        type: array
-        items:
-          $ref: '#/definitions/SearchIndicatorItem'
-      indicatorsDetected:
-        type: array
-        items:
+        locationCode:
           type: string
-      indicatorsNoData:
-        type: array
-        items:
+        indicatorDetected:
           type: string
-securityDefinitions:
-  ApiKey Auth:
-    type: apiKey
-    in: header
-    name: Authorization
+        indicatorCodeDetected:
+          type: string
+        yearDetected:
+          type: string
+        similarIndicators:
+          type: array
+          items:
+            $ref: '#/components/schemas/SimpleIndicatorItem'
+        numResults:
+          type: integer
+          format: int32
+        spellcheckSuggestions:
+          type: array
+          items:
+            type: string
+        indicators:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchIndicatorItem'
+        indicatorsDetected:
+          type: array
+          items:
+            type: string
+        indicatorsNoData:
+          type: array
+          items:
+            type: string
+    SearchIndicatorItem:
+      type: object
+      required:
+      - score
+      properties:
+        id:
+          type: string
+        value:
+          type: string
+        timeperiod:
+          type: string
+        location:
+          type: string
+        locationCode:
+          type: string
+        attributes:
+          type: array
+          items:
+            type: string
+        dimensions:
+          type: array
+          items:
+            type: string
+        excludeDims_ms:
+          type: array
+          items:
+            type: string
+        source:
+          type: string
+        dataflow:
+          type: string
+        indicator:
+          type: string
+        indicatorName:
+          type: string
+        sdmx_dataquery:
+          type: string
+        score:
+          type: number
+          format: decimal
+    SimpleIndicatorItem:
+      type: object
+      required:
+      - score
+      properties:
+        id:
+          type: string
+        indicator:
+          type: string
+        indicatorName:
+          type: string
+        score:
+          type: number
+          format: decimal
+x-generator: NSwag v14.0.2.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))
