@@ -98,17 +98,66 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RegionSeries2Custodian'
-    CountryName:
+    Indicator2DataSource:
       type: object
       required:
-      - countryNameId
-      - countryId
-      - languageId
+      - id
+      - indicatorId
+      - dataSourceId
+      - createdDate
       properties:
-        countryNameId:
+        id:
+          type: integer
+          format: int64
+        indicatorId:
           type: integer
           format: int32
+        dataSourceId:
+          type: integer
+          format: int64
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        dataSource:
+          $ref: '#/components/schemas/DataSource'
+        indicator:
+          $ref: '#/components/schemas/Indicator'
+    CountryNameItem:
+      type: object
+      properties:
         countryId:
+          type: integer
+          format: int32
+        languageId:
+          type: integer
+          format: int32
+        languageName:
+          type: string
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+        value:
+          type: string
+        organization:
+          type: string
+        organizationId:
+          type: integer
+          format: int32
+    RegionName:
+      type: object
+      required:
+      - id
+      - regionId
+      - languageId
+      - createdDate
+      properties:
+        id:
+          type: integer
+          format: int32
+        regionId:
           type: integer
           format: int32
         languageId:
@@ -121,75 +170,56 @@ components:
         createdDate:
           type: string
           format: date-time
-        organizationId:
-          type: integer
-          format: int32
-        country:
-          $ref: '#/components/schemas/Country'
         language:
           $ref: '#/components/schemas/Language'
-        organization:
-          $ref: '#/components/schemas/CountryOrganization'
-    Indicator2Custodian:
+        region:
+          $ref: '#/components/schemas/Region'
+    SectorItem:
       type: object
       required:
-      - id
-      - indicatorId
-      - custodianId
+      - sectorId
       properties:
-        id:
-          type: integer
-          format: int32
-        indicatorId:
-          type: integer
-          format: int32
-        custodianId:
-          type: integer
-          format: int32
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-          format: date-time
-        custodian:
-          $ref: '#/components/schemas/Custodian'
-        indicator:
-          $ref: '#/components/schemas/Indicator'
-    YearAssignmentMethod:
-      type: object
-      required:
-      - yamid
-      properties:
-        yamid:
+        sectorId:
           type: integer
           format: int32
         name:
           type: string
+        shortName:
+          type: string
+        helixName:
+          type: string
+        domains:
+          type: array
+          items:
+            $ref: '#/components/schemas/DomainItem'
         editedBy:
           type: string
         editedDate:
           type: string
-          format: date-time
-        code:
-          type: string
-        indicators:
+        agencies:
           type: array
           items:
-            $ref: '#/components/schemas/Indicator'
-    Indicator2Classification:
+            type: string
+        agenciesId:
+          type: array
+          items:
+            type: integer
+            format: int32
+    Indicator2Agency:
       type: object
       required:
       - id
       - indicatorId
-      - classificationId
+      - agencyId
+      - createdDate
       properties:
         id:
           type: integer
-          format: int32
+          format: int64
         indicatorId:
           type: integer
           format: int32
-        classificationId:
+        agencyId:
           type: integer
           format: int32
         createdBy:
@@ -197,10 +227,8 @@ components:
         createdDate:
           type: string
           format: date-time
-        value:
-          type: string
-        classification:
-          $ref: '#/components/schemas/IndicatorClassification'
+        agency:
+          $ref: '#/components/schemas/CountryOrganization'
         indicator:
           $ref: '#/components/schemas/Indicator'
     Country2SectorPriority:
@@ -251,11 +279,110 @@ components:
           type: string
         createdDate:
           type: string
-    Country:
+    CountryOrganization:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: integer
+          format: int32
+        organization:
+          type: string
+        editedBy:
+          type: string
+        editedDate:
+          type: string
+          format: date-time
+        code:
+          type: string
+        countryNames:
+          type: array
+          items:
+            $ref: '#/components/schemas/CountryName'
+        indicator2Agencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Indicator2Agency'
+        indicators:
+          type: array
+          items:
+            $ref: '#/components/schemas/Indicator'
+        sector2Agencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sector2Agency'
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    Sector:
+      type: object
+      required:
+      - sectorId
+      properties:
+        sectorId:
+          type: integer
+          format: int32
+        name:
+          type: string
+        shortName:
+          type: string
+        editedBy:
+          type: string
+        editedDate:
+          type: string
+          format: date-time
+        helixName:
+          type: string
+        country2SectorPriorities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country2SectorPriority'
+        domains:
+          type: array
+          items:
+            $ref: '#/components/schemas/Domain'
+        sector2Agencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sector2Agency'
+        user2Sectors:
+          type: array
+          items:
+            $ref: '#/components/schemas/User2Sector'
+    IndicatorQuestion:
+      type: object
+      required:
+      - id
+      - indicatorId
+      - createdDate
+      properties:
+        id:
+          type: integer
+          format: int64
+        indicatorId:
+          type: integer
+          format: int32
+        question:
+          type: string
+        dwDataPointId:
+          type: string
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        indicator:
+          $ref: '#/components/schemas/Indicator'
+    CountryItem:
       type: object
       required:
       - countryId
-      - createdDate
+      - isCurrent
+      - isSOWC
+      - isCountDown
+      - isPublished
       properties:
         countryId:
           type: integer
@@ -264,33 +391,303 @@ components:
           type: string
         m49:
           type: string
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-          format: date-time
-        cndcountryCode:
-          type: string
         isCurrent:
           type: boolean
-        isSowc:
+        isSOWC:
           type: boolean
         isCountDown:
           type: boolean
         isPublished:
           type: boolean
-        country2Regions:
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+        cndcountryCode:
+          type: string
+        regions:
           type: array
           items:
-            $ref: '#/components/schemas/Country2Region'
-        country2SectorPriorities:
+            $ref: '#/components/schemas/CountryRegionsItem'
+        language2Name:
           type: array
           items:
-            $ref: '#/components/schemas/Country2SectorPriority'
-        countryNames:
+            $ref: '#/components/schemas/CountryNameItem'
+        sectorPriorities:
           type: array
           items:
-            $ref: '#/components/schemas/CountryName'
+            $ref: '#/components/schemas/SectorItem'
+    IndicatorSimpleAttribute:
+      type: object
+      required:
+      - attributeId
+      - hasTranslation
+      - editedDate
+      properties:
+        attributeId:
+          type: integer
+          format: int32
+        code:
+          type: string
+        name:
+          type: string
+        displayName:
+          type: string
+        hasTranslation:
+          type: boolean
+        weight:
+          type: integer
+          format: int32
+        editedBy:
+          type: string
+        editedDate:
+          type: string
+          format: date-time
+        definition:
+          type: string
+        indicatorFiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/IndicatorFile'
+        indicatorSimpleAttributeValues:
+          type: array
+          items:
+            $ref: '#/components/schemas/IndicatorSimpleAttributeValue'
+    IndicatorFile:
+      type: object
+      required:
+      - id
+      - indicator
+      - uploadedDate
+      properties:
+        id:
+          type: integer
+          format: int64
+        fileName:
+          type: string
+        originalFileName:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        indicator:
+          type: integer
+          format: int32
+        attribute:
+          type: integer
+          format: int32
+        idDeleted:
+          type: boolean
+        uploadedBy:
+          type: string
+        uploadedDate:
+          type: string
+          format: date-time
+        attributeNavigation:
+          $ref: '#/components/schemas/IndicatorSimpleAttribute'
+        indicatorNavigation:
+          $ref: '#/components/schemas/Indicator'
+    RelatedIndicator:
+      type: object
+      required:
+      - id
+      - indicatorId
+      - targetIndicatorId
+      - createdDate
+      properties:
+        id:
+          type: integer
+          format: int64
+        indicatorId:
+          type: integer
+          format: int32
+        targetIndicatorId:
+          type: integer
+          format: int32
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        indicator:
+          $ref: '#/components/schemas/Indicator'
+        targetIndicator:
+          $ref: '#/components/schemas/Indicator'
+    IndicatorClassification:
+      type: object
+      required:
+      - iclassId
+      - editedDate
+      properties:
+        iclassId:
+          type: integer
+          format: int32
+        name:
+          type: string
+        type:
+          type: string
+        editedBy:
+          type: string
+        editedDate:
+          type: string
+          format: date-time
+        code:
+          type: string
+        indicator2Classifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Indicator2Classification'
+    Country2Region:
+      type: object
+      required:
+      - id
+      - countryId
+      - regionId
+      - createdDate
+      properties:
+        id:
+          type: integer
+          format: int32
+        countryId:
+          type: integer
+          format: int32
+        regionId:
+          type: integer
+          format: int32
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        country:
+          $ref: '#/components/schemas/Country'
+        region:
+          $ref: '#/components/schemas/Region'
+    Indicator2Classification:
+      type: object
+      required:
+      - id
+      - indicatorId
+      - classificationId
+      properties:
+        id:
+          type: integer
+          format: int32
+        indicatorId:
+          type: integer
+          format: int32
+        classificationId:
+          type: integer
+          format: int32
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        value:
+          type: string
+        classification:
+          $ref: '#/components/schemas/IndicatorClassification'
+        indicator:
+          $ref: '#/components/schemas/Indicator'
+    RegionSeries:
+      type: object
+      required:
+      - regionSeriesId
+      - createdDate
+      properties:
+        regionSeriesId:
+          type: integer
+          format: int32
+        code:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        regionSeries2Custodians:
+          type: array
+          items:
+            $ref: '#/components/schemas/RegionSeries2Custodian'
+        regions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Region'
+    Tag:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: integer
+          format: int64
+        tagName:
+          type: string
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        tags2Indicators:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tags2Indicator'
+    Indicator2DataProvider:
+      type: object
+      required:
+      - id
+      - indicatorId
+      - dataProviderId
+      properties:
+        id:
+          type: integer
+          format: int32
+        indicatorId:
+          type: integer
+          format: int32
+        dataProviderId:
+          type: integer
+          format: int32
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        dataProvider:
+          $ref: '#/components/schemas/Custodian'
+        indicator:
+          $ref: '#/components/schemas/Indicator'
+    Indicator2DataCompiler:
+      type: object
+      required:
+      - id
+      - indicatorId
+      - dataCompilerId
+      properties:
+        id:
+          type: integer
+          format: int32
+        indicatorId:
+          type: integer
+          format: int32
+        dataCompilerId:
+          type: integer
+          format: int32
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        dataCompiler:
+          $ref: '#/components/schemas/Custodian'
+        indicator:
+          $ref: '#/components/schemas/Indicator'
     IndicatorSimpleAttributeValue:
       type: object
       required:
@@ -328,32 +725,7 @@ components:
           $ref: '#/components/schemas/Indicator'
         language:
           $ref: '#/components/schemas/Language'
-    Indicator2DataCompiler:
-      type: object
-      required:
-      - id
-      - indicatorId
-      - dataCompilerId
-      properties:
-        id:
-          type: integer
-          format: int32
-        indicatorId:
-          type: integer
-          format: int32
-        dataCompilerId:
-          type: integer
-          format: int32
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-          format: date-time
-        dataCompiler:
-          $ref: '#/components/schemas/Custodian'
-        indicator:
-          $ref: '#/components/schemas/Indicator'
-    DataSource:
+    IndicatorType:
       type: object
       required:
       - id
@@ -361,43 +733,17 @@ components:
         id:
           type: integer
           format: int64
-        sourceName:
+        typeName:
           type: string
         createdBy:
           type: string
         createdDate:
           type: string
           format: date-time
-        indicator2DataSources:
+        indicators:
           type: array
           items:
-            $ref: '#/components/schemas/Indicator2DataSource'
-    RelatedIndicator:
-      type: object
-      required:
-      - id
-      - indicatorId
-      - targetIndicatorId
-      - createdDate
-      properties:
-        id:
-          type: integer
-          format: int64
-        indicatorId:
-          type: integer
-          format: int32
-        targetIndicatorId:
-          type: integer
-          format: int32
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-          format: date-time
-        indicator:
-          $ref: '#/components/schemas/Indicator'
-        targetIndicator:
-          $ref: '#/components/schemas/Indicator'
+            $ref: '#/components/schemas/Indicator'
     RegionSeries2Custodian:
       type: object
       required:
@@ -424,461 +770,18 @@ components:
           $ref: '#/components/schemas/Custodian'
         regionSeries:
           $ref: '#/components/schemas/RegionSeries'
-    Subdomain:
+    Sector2Agency:
       type: object
       required:
-      - subdomainId
-      - editedDate
-      - domainId
-      properties:
-        subdomainId:
-          type: integer
-          format: int32
-        name:
-          type: string
-        shortName:
-          type: string
-        editedBy:
-          type: string
-        editedDate:
-          type: string
-          format: date-time
-        domainId:
-          type: integer
-          format: int32
-        domain:
-          $ref: '#/components/schemas/Domain'
-        indicators:
-          type: array
-          items:
-            $ref: '#/components/schemas/Indicator'
-    SectorItem:
-      type: object
-      required:
+      - id
       - sectorId
-      properties:
-        sectorId:
-          type: integer
-          format: int32
-        name:
-          type: string
-        shortName:
-          type: string
-        helixName:
-          type: string
-        domains:
-          type: array
-          items:
-            $ref: '#/components/schemas/DomainItem'
-        editedBy:
-          type: string
-        editedDate:
-          type: string
-        agencies:
-          type: array
-          items:
-            type: string
-        agenciesId:
-          type: array
-          items:
-            type: integer
-            format: int32
-    StrategicPlanStatement:
-      type: object
-      required:
-      - id
-      - editedDate
-      properties:
-        id:
-          type: integer
-          format: int32
-        code:
-          type: string
-        statement:
-          type: string
-        editedBy:
-          type: string
-        editedDate:
-          type: string
-          format: date-time
-        spareaId:
-          type: integer
-          format: int32
-        indicators:
-          type: array
-          items:
-            $ref: '#/components/schemas/Indicator'
-        sparea:
-          $ref: '#/components/schemas/StrategicPlan'
-    StrategicPlan:
-      type: object
-      required:
-      - id
-      - editedDate
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
-        description:
-          type: string
-        editedBy:
-          type: string
-        editedDate:
-          type: string
-          format: date-time
-        code:
-          type: string
-        indicators:
-          type: array
-          items:
-            $ref: '#/components/schemas/Indicator'
-        strategicPlanStatements:
-          type: array
-          items:
-            $ref: '#/components/schemas/StrategicPlanStatement'
-    User:
-      type: object
-      required:
-      - userId
-      - isAdministrator
-      - isActive
-      - isAgencyAdmin
-      properties:
-        userId:
-          type: integer
-          format: int32
-        username:
-          type: string
-        fullname:
-          type: string
-        isAdministrator:
-          type: boolean
-        editedBy:
-          type: string
-        editedDate:
-          type: string
-          format: date-time
-        isActive:
-          type: boolean
-        division:
-          type: string
-        agency:
-          type: integer
-          format: int32
-        isAgencyAdmin:
-          type: boolean
-        agencyNavigation:
-          $ref: '#/components/schemas/CountryOrganization'
-        user2Sectors:
-          type: array
-          items:
-            $ref: '#/components/schemas/User2Sector'
-    Tag:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          type: integer
-          format: int64
-        tagName:
-          type: string
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-          format: date-time
-        tags2Indicators:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tags2Indicator'
-    IndicatorFile:
-      type: object
-      required:
-      - id
-      - indicator
-      - uploadedDate
-      properties:
-        id:
-          type: integer
-          format: int64
-        fileName:
-          type: string
-        originalFileName:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-        indicator:
-          type: integer
-          format: int32
-        attribute:
-          type: integer
-          format: int32
-        idDeleted:
-          type: boolean
-        uploadedBy:
-          type: string
-        uploadedDate:
-          type: string
-          format: date-time
-        attributeNavigation:
-          $ref: '#/components/schemas/IndicatorSimpleAttribute'
-        indicatorNavigation:
-          $ref: '#/components/schemas/Indicator'
-    CountryRegionsItem:
-      type: object
-      properties:
-        countryId:
-          type: integer
-          format: int32
-        countryCndCode:
-          type: string
-        countryISO:
-          type: string
-        regionId:
-          type: integer
-          format: int32
-        regionCndCode:
-          type: string
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-          format: date-time
-    IndicatorClassification:
-      type: object
-      required:
-      - iclassId
-      - editedDate
-      properties:
-        iclassId:
-          type: integer
-          format: int32
-        name:
-          type: string
-        type:
-          type: string
-        editedBy:
-          type: string
-        editedDate:
-          type: string
-          format: date-time
-        code:
-          type: string
-        indicator2Classifications:
-          type: array
-          items:
-            $ref: '#/components/schemas/Indicator2Classification'
-    DomainItem:
-      type: object
-      required:
-      - domainId
-      - sectorId
-      properties:
-        domainId:
-          type: integer
-          format: int32
-        sectorId:
-          type: integer
-          format: int32
-        sectorName:
-          type: string
-        name:
-          type: string
-        shortName:
-          type: string
-        subdomains:
-          type: array
-          items:
-            $ref: '#/components/schemas/SubdomainItem'
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-    Sector:
-      type: object
-      required:
-      - sectorId
-      properties:
-        sectorId:
-          type: integer
-          format: int32
-        name:
-          type: string
-        shortName:
-          type: string
-        editedBy:
-          type: string
-        editedDate:
-          type: string
-          format: date-time
-        helixName:
-          type: string
-        country2SectorPriorities:
-          type: array
-          items:
-            $ref: '#/components/schemas/Country2SectorPriority'
-        domains:
-          type: array
-          items:
-            $ref: '#/components/schemas/Domain'
-        sector2Agencies:
-          type: array
-          items:
-            $ref: '#/components/schemas/Sector2Agency'
-        user2Sectors:
-          type: array
-          items:
-            $ref: '#/components/schemas/User2Sector'
-    Indicator2DataProvider:
-      type: object
-      required:
-      - id
-      - indicatorId
-      - dataProviderId
-      properties:
-        id:
-          type: integer
-          format: int32
-        indicatorId:
-          type: integer
-          format: int32
-        dataProviderId:
-          type: integer
-          format: int32
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-          format: date-time
-        dataProvider:
-          $ref: '#/components/schemas/Custodian'
-        indicator:
-          $ref: '#/components/schemas/Indicator'
-    IndicatorQuestion:
-      type: object
-      required:
-      - id
-      - indicatorId
-      - createdDate
-      properties:
-        id:
-          type: integer
-          format: int64
-        indicatorId:
-          type: integer
-          format: int32
-        question:
-          type: string
-        dwDataPointId:
-          type: string
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-          format: date-time
-        indicator:
-          $ref: '#/components/schemas/Indicator'
-    IndicatorSimpleAttribute:
-      type: object
-      required:
-      - attributeId
-      - hasTranslation
-      - editedDate
-      properties:
-        attributeId:
-          type: integer
-          format: int32
-        code:
-          type: string
-        name:
-          type: string
-        displayName:
-          type: string
-        hasTranslation:
-          type: boolean
-        weight:
-          type: integer
-          format: int32
-        editedBy:
-          type: string
-        editedDate:
-          type: string
-          format: date-time
-        definition:
-          type: string
-        indicatorFiles:
-          type: array
-          items:
-            $ref: '#/components/schemas/IndicatorFile'
-        indicatorSimpleAttributeValues:
-          type: array
-          items:
-            $ref: '#/components/schemas/IndicatorSimpleAttributeValue'
-    RegionCollection:
-      type: object
-      required:
-      - regionCollectionId
-      - createdDate
-      properties:
-        regionCollectionId:
-          type: integer
-          format: int32
-        name:
-          type: string
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-          format: date-time
-        code:
-          type: string
-        regions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Region'
-    User2Sector:
-      type: object
-      required:
-      - id
-      - userId
-      - sectorId
-      - createdDate
-      properties:
-        id:
-          type: integer
-          format: int64
-        userId:
-          type: integer
-          format: int32
-        sectorId:
-          type: integer
-          format: int32
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-          format: date-time
-        sector:
-          $ref: '#/components/schemas/Sector'
-        user:
-          $ref: '#/components/schemas/User'
-    Indicator2Agency:
-      type: object
-      required:
-      - id
-      - indicatorId
       - agencyId
       - createdDate
       properties:
         id:
           type: integer
           format: int64
-        indicatorId:
+        sectorId:
           type: integer
           format: int32
         agencyId:
@@ -891,8 +794,8 @@ components:
           format: date-time
         agency:
           $ref: '#/components/schemas/CountryOrganization'
-        indicator:
-          $ref: '#/components/schemas/Indicator'
+        sector:
+          $ref: '#/components/schemas/Sector'
     Indicator:
       type: object
       required:
@@ -1029,77 +932,114 @@ components:
             $ref: '#/components/schemas/Tags2Indicator'
         yam:
           $ref: '#/components/schemas/YearAssignmentMethod'
-    Indicator2DataSource:
+    CountryRegionsItem:
       type: object
-      required:
-      - id
-      - indicatorId
-      - dataSourceId
-      - createdDate
       properties:
-        id:
-          type: integer
-          format: int64
-        indicatorId:
+        countryId:
           type: integer
           format: int32
-        dataSourceId:
-          type: integer
-          format: int64
-        createdBy:
+        countryCndCode:
           type: string
-        createdDate:
+        countryISO:
           type: string
-          format: date-time
-        dataSource:
-          $ref: '#/components/schemas/DataSource'
-        indicator:
-          $ref: '#/components/schemas/Indicator'
-    Tags2Indicator:
-      type: object
-      required:
-      - id
-      - indicatorId
-      - tagId
-      - createdDate
-      properties:
-        id:
-          type: integer
-          format: int64
-        indicatorId:
+        regionId:
           type: integer
           format: int32
-        tagId:
-          type: integer
-          format: int64
+        regionCndCode:
+          type: string
         createdBy:
           type: string
         createdDate:
           type: string
           format: date-time
-        indicator:
-          $ref: '#/components/schemas/Indicator'
-        tag:
-          $ref: '#/components/schemas/Tag'
-    IndicatorType:
+    DomainItem:
       type: object
       required:
-      - id
+      - domainId
+      - sectorId
       properties:
-        id:
+        domainId:
           type: integer
-          format: int64
-        typeName:
+          format: int32
+        sectorId:
+          type: integer
+          format: int32
+        sectorName:
           type: string
-        createdBy:
+        name:
           type: string
-        createdDate:
+        shortName:
           type: string
-          format: date-time
-        indicators:
+        subdomains:
           type: array
           items:
-            $ref: '#/components/schemas/Indicator'
+            $ref: '#/components/schemas/SubdomainItem'
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+    User:
+      type: object
+      required:
+      - userId
+      - isAdministrator
+      - isActive
+      - isAgencyAdmin
+      properties:
+        userId:
+          type: integer
+          format: int32
+        username:
+          type: string
+        fullname:
+          type: string
+        isAdministrator:
+          type: boolean
+        editedBy:
+          type: string
+        editedDate:
+          type: string
+          format: date-time
+        isActive:
+          type: boolean
+        division:
+          type: string
+        agency:
+          type: integer
+          format: int32
+        isAgencyAdmin:
+          type: boolean
+        agencyNavigation:
+          $ref: '#/components/schemas/CountryOrganization'
+        user2Sectors:
+          type: array
+          items:
+            $ref: '#/components/schemas/User2Sector'
+    Indicator2Custodian:
+      type: object
+      required:
+      - id
+      - indicatorId
+      - custodianId
+      properties:
+        id:
+          type: integer
+          format: int32
+        indicatorId:
+          type: integer
+          format: int32
+        custodianId:
+          type: integer
+          format: int32
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        custodian:
+          $ref: '#/components/schemas/Custodian'
+        indicator:
+          $ref: '#/components/schemas/Indicator'
     CollectionMechanism:
       type: object
       required:
@@ -1123,6 +1063,145 @@ components:
         dataRelease:
           type: string
         dataCollection:
+          type: string
+        indicators:
+          type: array
+          items:
+            $ref: '#/components/schemas/Indicator'
+    Subdomain:
+      type: object
+      required:
+      - subdomainId
+      - editedDate
+      - domainId
+      properties:
+        subdomainId:
+          type: integer
+          format: int32
+        name:
+          type: string
+        shortName:
+          type: string
+        editedBy:
+          type: string
+        editedDate:
+          type: string
+          format: date-time
+        domainId:
+          type: integer
+          format: int32
+        domain:
+          $ref: '#/components/schemas/Domain'
+        indicators:
+          type: array
+          items:
+            $ref: '#/components/schemas/Indicator'
+    StrategicPlan:
+      type: object
+      required:
+      - id
+      - editedDate
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        description:
+          type: string
+        editedBy:
+          type: string
+        editedDate:
+          type: string
+          format: date-time
+        code:
+          type: string
+        indicators:
+          type: array
+          items:
+            $ref: '#/components/schemas/Indicator'
+        strategicPlanStatements:
+          type: array
+          items:
+            $ref: '#/components/schemas/StrategicPlanStatement'
+    Country:
+      type: object
+      required:
+      - countryId
+      - createdDate
+      properties:
+        countryId:
+          type: integer
+          format: int32
+        iso3:
+          type: string
+        m49:
+          type: string
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        cndcountryCode:
+          type: string
+        isCurrent:
+          type: boolean
+        isSowc:
+          type: boolean
+        isCountDown:
+          type: boolean
+        isPublished:
+          type: boolean
+        country2Regions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country2Region'
+        country2SectorPriorities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country2SectorPriority'
+        countryNames:
+          type: array
+          items:
+            $ref: '#/components/schemas/CountryName'
+    RegionCollection:
+      type: object
+      required:
+      - regionCollectionId
+      - createdDate
+      properties:
+        regionCollectionId:
+          type: integer
+          format: int32
+        name:
+          type: string
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        code:
+          type: string
+        regions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Region'
+    YearAssignmentMethod:
+      type: object
+      required:
+      - yamid
+      properties:
+        yamid:
+          type: integer
+          format: int32
+        name:
+          type: string
+        editedBy:
+          type: string
+        editedDate:
+          type: string
+          format: date-time
+        code:
           type: string
         indicators:
           type: array
@@ -1157,71 +1236,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RegionName'
-    RegionName:
-      type: object
-      required:
-      - id
-      - regionId
-      - languageId
-      - createdDate
-      properties:
-        id:
-          type: integer
-          format: int32
-        regionId:
-          type: integer
-          format: int32
-        languageId:
-          type: integer
-          format: int32
-        value:
-          type: string
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-          format: date-time
-        language:
-          $ref: '#/components/schemas/Language'
-        region:
-          $ref: '#/components/schemas/Region'
-    CountryOrganization:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          type: integer
-          format: int32
-        organization:
-          type: string
-        editedBy:
-          type: string
-        editedDate:
-          type: string
-          format: date-time
-        code:
-          type: string
-        countryNames:
-          type: array
-          items:
-            $ref: '#/components/schemas/CountryName'
-        indicator2Agencies:
-          type: array
-          items:
-            $ref: '#/components/schemas/Indicator2Agency'
-        indicators:
-          type: array
-          items:
-            $ref: '#/components/schemas/Indicator'
-        sector2Agencies:
-          type: array
-          items:
-            $ref: '#/components/schemas/Sector2Agency'
-        users:
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
     Domain:
       type: object
       required:
@@ -1253,91 +1267,40 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Subdomain'
-    RegionSeries:
+    DataSource:
       type: object
       required:
-      - regionSeriesId
-      - createdDate
+      - id
       properties:
-        regionSeriesId:
+        id:
           type: integer
-          format: int32
-        code:
-          type: string
-        name:
-          type: string
-        description:
+          format: int64
+        sourceName:
           type: string
         createdBy:
           type: string
         createdDate:
           type: string
           format: date-time
-        regionSeries2Custodians:
+        indicator2DataSources:
           type: array
           items:
-            $ref: '#/components/schemas/RegionSeries2Custodian'
-        regions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Region'
-    CountryItem:
-      type: object
-      required:
-      - countryId
-      - isCurrent
-      - isSOWC
-      - isCountDown
-      - isPublished
-      properties:
-        countryId:
-          type: integer
-          format: int32
-        iso3:
-          type: string
-        m49:
-          type: string
-        isCurrent:
-          type: boolean
-        isSOWC:
-          type: boolean
-        isCountDown:
-          type: boolean
-        isPublished:
-          type: boolean
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-        cndcountryCode:
-          type: string
-        regions:
-          type: array
-          items:
-            $ref: '#/components/schemas/CountryRegionsItem'
-        language2Name:
-          type: array
-          items:
-            $ref: '#/components/schemas/CountryNameItem'
-        sectorPriorities:
-          type: array
-          items:
-            $ref: '#/components/schemas/SectorItem'
-    Sector2Agency:
+            $ref: '#/components/schemas/Indicator2DataSource'
+    User2Sector:
       type: object
       required:
       - id
+      - userId
       - sectorId
-      - agencyId
       - createdDate
       properties:
         id:
           type: integer
           format: int64
-        sectorId:
+        userId:
           type: integer
           format: int32
-        agencyId:
+        sectorId:
           type: integer
           format: int32
         createdBy:
@@ -1345,10 +1308,36 @@ components:
         createdDate:
           type: string
           format: date-time
-        agency:
-          $ref: '#/components/schemas/CountryOrganization'
         sector:
           $ref: '#/components/schemas/Sector'
+        user:
+          $ref: '#/components/schemas/User'
+    Tags2Indicator:
+      type: object
+      required:
+      - id
+      - indicatorId
+      - tagId
+      - createdDate
+      properties:
+        id:
+          type: integer
+          format: int64
+        indicatorId:
+          type: integer
+          format: int32
+        tagId:
+          type: integer
+          format: int64
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        indicator:
+          $ref: '#/components/schemas/Indicator'
+        tag:
+          $ref: '#/components/schemas/Tag'
     Region:
       type: object
       required:
@@ -1405,52 +1394,63 @@ components:
             $ref: '#/components/schemas/RegionName'
         series:
           $ref: '#/components/schemas/RegionSeries'
-    Country2Region:
+    CountryName:
       type: object
       required:
-      - id
+      - countryNameId
       - countryId
-      - regionId
-      - createdDate
+      - languageId
       properties:
-        id:
+        countryNameId:
           type: integer
           format: int32
-        countryId:
-          type: integer
-          format: int32
-        regionId:
-          type: integer
-          format: int32
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-          format: date-time
-        country:
-          $ref: '#/components/schemas/Country'
-        region:
-          $ref: '#/components/schemas/Region'
-    CountryNameItem:
-      type: object
-      properties:
         countryId:
           type: integer
           format: int32
         languageId:
           type: integer
           format: int32
-        languageName:
+        value:
           type: string
         createdBy:
           type: string
         createdDate:
           type: string
-        value:
-          type: string
-        organization:
-          type: string
+          format: date-time
         organizationId:
           type: integer
           format: int32
+        country:
+          $ref: '#/components/schemas/Country'
+        language:
+          $ref: '#/components/schemas/Language'
+        organization:
+          $ref: '#/components/schemas/CountryOrganization'
+    StrategicPlanStatement:
+      type: object
+      required:
+      - id
+      - editedDate
+      properties:
+        id:
+          type: integer
+          format: int32
+        code:
+          type: string
+        statement:
+          type: string
+        editedBy:
+          type: string
+        editedDate:
+          type: string
+          format: date-time
+        spareaId:
+          type: integer
+          format: int32
+        indicators:
+          type: array
+          items:
+            $ref: '#/components/schemas/Indicator'
+        sparea:
+          $ref: '#/components/schemas/StrategicPlan'
 x-generator: NSwag v14.0.2.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))

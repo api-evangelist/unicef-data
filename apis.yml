@@ -400,8 +400,6 @@ apis:
   humanURL: https://data.unicef.org/sdmx-api-documentation/
   baseURL: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/
   tags:
-  - DataSource
-  tags_raw:
   - Data Source
   properties:
   - type: OpenAPI

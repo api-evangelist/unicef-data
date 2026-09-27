@@ -82,82 +82,6 @@ paths:
                   $ref: '#/components/schemas/RegionCollectionItem'
 components:
   schemas:
-    RegionCollectionItem:
-      type: object
-      required:
-      - regionCollectionId
-      properties:
-        regionCollectionId:
-          type: integer
-          format: int32
-        code:
-          type: string
-        name:
-          type: string
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-        regions:
-          type: array
-          items:
-            $ref: '#/components/schemas/RegionItem'
-    CountryRegionsItem:
-      type: object
-      properties:
-        countryId:
-          type: integer
-          format: int32
-        countryCndCode:
-          type: string
-        countryISO:
-          type: string
-        regionId:
-          type: integer
-          format: int32
-        regionCndCode:
-          type: string
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-          format: date-time
-    RegionNameItem:
-      type: object
-      required:
-      - regionId
-      - languageId
-      properties:
-        regionId:
-          type: integer
-          format: int32
-        languageId:
-          type: integer
-          format: int32
-        languageName:
-          type: string
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-        value:
-          type: string
-    CustodianItem:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
-        editedBy:
-          type: string
-        editedDate:
-          type: string
-        code:
-          type: string
     RegionItem:
       type: object
       required:
@@ -203,6 +127,62 @@ components:
           $ref: '#/components/schemas/RegionCollectionItem'
         series:
           $ref: '#/components/schemas/RegionSeriesItem'
+    RegionCollectionItem:
+      type: object
+      required:
+      - regionCollectionId
+      properties:
+        regionCollectionId:
+          type: integer
+          format: int32
+        code:
+          type: string
+        name:
+          type: string
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+        regions:
+          type: array
+          items:
+            $ref: '#/components/schemas/RegionItem'
+    RegionNameItem:
+      type: object
+      required:
+      - regionId
+      - languageId
+      properties:
+        regionId:
+          type: integer
+          format: int32
+        languageId:
+          type: integer
+          format: int32
+        languageName:
+          type: string
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+        value:
+          type: string
+    CustodianItem:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        editedBy:
+          type: string
+        editedDate:
+          type: string
+        code:
+          type: string
     RegionSeriesItem:
       type: object
       required:
@@ -229,4 +209,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RegionItem'
+    CountryRegionsItem:
+      type: object
+      properties:
+        countryId:
+          type: integer
+          format: int32
+        countryCndCode:
+          type: string
+        countryISO:
+          type: string
+        regionId:
+          type: integer
+          format: int32
+        regionCndCode:
+          type: string
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
 x-generator: NSwag v14.0.2.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))

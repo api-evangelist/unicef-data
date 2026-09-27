@@ -235,7 +235,7 @@ paths:
       schema:
         type: string
     post:
-      operationId: reference-datasets-operation-bbox
+      operationId: postReferenceDatasetsByIdentifierBboxUcode
       description: Return bbox of reference dataset entities.
       responses:
         '201':
@@ -244,6 +244,8 @@ paths:
       - Reference Data Sets
       summary: Reference datasets operation bbox
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: reference-datasets-operation-bbox
   /reference-datasets/{identifier}/entity/:
     parameters:
     - name: identifier
