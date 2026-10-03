@@ -67,6 +67,46 @@ paths:
                 $ref: '#/components/schemas/ApiIndResponse'
 components:
   schemas:
+    SearchIndicatorItem:
+      type: object
+      required:
+      - score
+      properties:
+        id:
+          type: string
+        value:
+          type: string
+        timeperiod:
+          type: string
+        location:
+          type: string
+        locationCode:
+          type: string
+        attributes:
+          type: array
+          items:
+            type: string
+        dimensions:
+          type: array
+          items:
+            type: string
+        excludeDims_ms:
+          type: array
+          items:
+            type: string
+        source:
+          type: string
+        dataflow:
+          type: string
+        indicator:
+          type: string
+        indicatorName:
+          type: string
+        sdmx_dataquery:
+          type: string
+        score:
+          type: number
+          format: decimal
     ApiIndResponse:
       type: object
       required:
@@ -111,46 +151,6 @@ components:
           type: array
           items:
             type: string
-    SearchIndicatorItem:
-      type: object
-      required:
-      - score
-      properties:
-        id:
-          type: string
-        value:
-          type: string
-        timeperiod:
-          type: string
-        location:
-          type: string
-        locationCode:
-          type: string
-        attributes:
-          type: array
-          items:
-            type: string
-        dimensions:
-          type: array
-          items:
-            type: string
-        excludeDims_ms:
-          type: array
-          items:
-            type: string
-        source:
-          type: string
-        dataflow:
-          type: string
-        indicator:
-          type: string
-        indicatorName:
-          type: string
-        sdmx_dataquery:
-          type: string
-        score:
-          type: number
-          format: decimal
     SimpleIndicatorItem:
       type: object
       required:

@@ -382,57 +382,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ApiEntity:
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        name:
-          title: Name
-          description: label of entity.
-          type: string
-          maxLength: 512
-          minLength: 1
-        ucode:
-          title: Ucode
-          type: string
-          readOnly: true
-        concept_uuid:
-          title: Concept uuid
-          description: This is concept uuid from georepo.
-          type:
-          - string
-          - 'null'
-          maxLength: 256
-        admin_level:
-          title: Admin level
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        parents:
-          title: Parents
-          type: string
-          readOnly: true
-        level_name:
-          title: Level name
-          type: string
-          readOnly: true
-        bbox:
-          title: Bbox
-          type: string
-          readOnly: true
-        centroid:
-          title: Centroid
-          type: string
-          readOnly: true
-        ext_codes:
-          title: Ext codes
-          type: string
-          readOnly: true
     ReferenceDataset:
       required:
       - identifier
@@ -506,6 +455,57 @@ components:
         in_georepo:
           title: In georepo
           type: boolean
+    ApiEntity:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          description: label of entity.
+          type: string
+          maxLength: 512
+          minLength: 1
+        ucode:
+          title: Ucode
+          type: string
+          readOnly: true
+        concept_uuid:
+          title: Concept uuid
+          description: This is concept uuid from georepo.
+          type:
+          - string
+          - 'null'
+          maxLength: 256
+        admin_level:
+          title: Admin level
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        parents:
+          title: Parents
+          type: string
+          readOnly: true
+        level_name:
+          title: Level name
+          type: string
+          readOnly: true
+        bbox:
+          title: Bbox
+          type: string
+          readOnly: true
+        centroid:
+          title: Centroid
+          type: string
+          readOnly: true
+        ext_codes:
+          title: Ext codes
+          type: string
+          readOnly: true
   securitySchemes:
     ApiKey_Auth:
       type: apiKey
