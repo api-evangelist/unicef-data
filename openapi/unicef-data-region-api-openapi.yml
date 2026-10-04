@@ -82,22 +82,6 @@ paths:
                   $ref: '#/components/schemas/RegionCollectionItem'
 components:
   schemas:
-    CustodianItem:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
-        editedBy:
-          type: string
-        editedDate:
-          type: string
-        code:
-          type: string
     CountryRegionsItem:
       type: object
       properties:
@@ -118,6 +102,46 @@ components:
         createdDate:
           type: string
           format: date-time
+    RegionCollectionItem:
+      type: object
+      required:
+      - regionCollectionId
+      properties:
+        regionCollectionId:
+          type: integer
+          format: int32
+        code:
+          type: string
+        name:
+          type: string
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+        regions:
+          type: array
+          items:
+            $ref: '#/components/schemas/RegionItem'
+    RegionNameItem:
+      type: object
+      required:
+      - regionId
+      - languageId
+      properties:
+        regionId:
+          type: integer
+          format: int32
+        languageId:
+          type: integer
+          format: int32
+        languageName:
+          type: string
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+        value:
+          type: string
     RegionItem:
       type: object
       required:
@@ -163,46 +187,6 @@ components:
           $ref: '#/components/schemas/RegionCollectionItem'
         series:
           $ref: '#/components/schemas/RegionSeriesItem'
-    RegionNameItem:
-      type: object
-      required:
-      - regionId
-      - languageId
-      properties:
-        regionId:
-          type: integer
-          format: int32
-        languageId:
-          type: integer
-          format: int32
-        languageName:
-          type: string
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-        value:
-          type: string
-    RegionCollectionItem:
-      type: object
-      required:
-      - regionCollectionId
-      properties:
-        regionCollectionId:
-          type: integer
-          format: int32
-        code:
-          type: string
-        name:
-          type: string
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-        regions:
-          type: array
-          items:
-            $ref: '#/components/schemas/RegionItem'
     RegionSeriesItem:
       type: object
       required:
@@ -229,4 +213,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RegionItem'
+    CustodianItem:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        editedBy:
+          type: string
+        editedDate:
+          type: string
+        code:
+          type: string
 x-generator: NSwag v14.0.2.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))

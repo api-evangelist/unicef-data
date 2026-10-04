@@ -67,6 +67,20 @@ paths:
                 $ref: '#/components/schemas/ApiIndResponse'
 components:
   schemas:
+    SimpleIndicatorItem:
+      type: object
+      required:
+      - score
+      properties:
+        id:
+          type: string
+        indicator:
+          type: string
+        indicatorName:
+          type: string
+        score:
+          type: number
+          format: decimal
     SearchIndicatorItem:
       type: object
       required:
@@ -151,18 +165,4 @@ components:
           type: array
           items:
             type: string
-    SimpleIndicatorItem:
-      type: object
-      required:
-      - score
-      properties:
-        id:
-          type: string
-        indicator:
-          type: string
-        indicatorName:
-          type: string
-        score:
-          type: number
-          format: decimal
 x-generator: NSwag v14.0.2.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))
