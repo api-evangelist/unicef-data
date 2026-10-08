@@ -66,3 +66,28 @@ notes: >
   under Creative Commons Attribution 3.0 IGO with attribution. No SLA or formal
   uptime guarantees are published for public API consumers. For high-volume or
   institutional use, contact data@unicef.org.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  units: []
+  plans:
+  - name: SDMX Data Warehouse API - Open Access
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: Reference Data Manager API - Open Access
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: GeoSight API - Free Registered Access
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
