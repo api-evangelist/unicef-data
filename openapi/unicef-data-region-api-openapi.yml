@@ -82,26 +82,6 @@ paths:
                   $ref: '#/components/schemas/RegionCollectionItem'
 components:
   schemas:
-    CountryRegionsItem:
-      type: object
-      properties:
-        countryId:
-          type: integer
-          format: int32
-        countryCndCode:
-          type: string
-        countryISO:
-          type: string
-        regionId:
-          type: integer
-          format: int32
-        regionCndCode:
-          type: string
-        createdBy:
-          type: string
-        createdDate:
-          type: string
-          format: date-time
     RegionCollectionItem:
       type: object
       required:
@@ -187,6 +167,26 @@ components:
           $ref: '#/components/schemas/RegionCollectionItem'
         series:
           $ref: '#/components/schemas/RegionSeriesItem'
+    CountryRegionsItem:
+      type: object
+      properties:
+        countryId:
+          type: integer
+          format: int32
+        countryCndCode:
+          type: string
+        countryISO:
+          type: string
+        regionId:
+          type: integer
+          format: int32
+        regionCndCode:
+          type: string
+        createdBy:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
     RegionSeriesItem:
       type: object
       required:

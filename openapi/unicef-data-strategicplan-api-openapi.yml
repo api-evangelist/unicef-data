@@ -125,24 +125,6 @@ paths:
                   $ref: '#/components/schemas/StrategicPlanStatementItem'
 components:
   schemas:
-    StrategicPlanStatementItem:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          type: integer
-          format: int32
-        editedBy:
-          type: string
-        editedDate:
-          type: string
-        statement:
-          type: string
-        code:
-          type: string
-        spArea:
-          $ref: '#/components/schemas/StrategicPlanAreaItem'
     StrategicPlanAreaItem:
       type: object
       required:
@@ -161,4 +143,22 @@ components:
           type: string
         code:
           type: string
+    StrategicPlanStatementItem:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: integer
+          format: int32
+        editedBy:
+          type: string
+        editedDate:
+          type: string
+        statement:
+          type: string
+        code:
+          type: string
+        spArea:
+          $ref: '#/components/schemas/StrategicPlanAreaItem'
 x-generator: NSwag v14.0.2.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))
